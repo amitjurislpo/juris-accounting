@@ -1,0 +1,229 @@
+@import "tailwindcss";
+
+:root {
+  /* Light surfaces — the dominant tone across the site */
+  --ivory: #f7faf8;
+  --cream: #eaf8f2;
+  --surface: #ffffff;
+  --charcoal: #101c2e;
+  --charcoal-soft: #5f6b78;
+  --hairline: #ddebe5;
+  --muted-numeral: #087a5b;
+
+  /* Dark surfaces — reserved for the Dashboard, footer, and final CTA */
+  --void: #101c2e;
+  --forest-deep: #17273d;
+  --ivory-soft: #9faab8;
+  --hairline-dark: #26364a;
+
+  /* Deep green — text/button accent on light surfaces */
+  --forest: #087a5b;
+
+  /* Emerald — the one primary accent (buttons, active states, data, icons) */
+  --emerald: #20b486;
+
+  /* Dashboard chart tokens */
+  --chart-grid: #26364a;
+  --chart-axis: #3a4a5f;
+  --series-revenue: #1a9670;
+  --series-expenses: #c76a4f;
+  --status-good: #14c214;
+  --status-warning: #fab219;
+  --status-serious: #ec835a;
+  --status-critical: #d03b3b;
+}
+
+@theme inline {
+  --color-ivory: var(--ivory);
+  --color-cream: var(--cream);
+  --color-surface: var(--surface);
+  --color-charcoal: var(--charcoal);
+  --color-charcoal-soft: var(--charcoal-soft);
+  --color-hairline: var(--hairline);
+  --color-muted-numeral: var(--muted-numeral);
+
+  --color-void: var(--void);
+  --color-forest-deep: var(--forest-deep);
+  --color-ivory-soft: var(--ivory-soft);
+  --color-hairline-dark: var(--hairline-dark);
+
+  --color-forest: var(--forest);
+  --color-emerald: var(--emerald);
+
+  --color-chart-grid: var(--chart-grid);
+  --color-chart-axis: var(--chart-axis);
+  --color-series-revenue: var(--series-revenue);
+  --color-series-expenses: var(--series-expenses);
+  --color-status-good: var(--status-good);
+  --color-status-warning: var(--status-warning);
+  --color-status-serious: var(--status-serious);
+  --color-status-critical: var(--status-critical);
+
+  --font-display: var(--font-fraunces);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-plex-mono);
+}
+
+body {
+  background: var(--ivory);
+  color: var(--charcoal);
+}
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+
+  /* Word-by-word reveal. Visible by default (including in the static HTML,
+     before JS runs) — a layout-effect only adds .is-pending for headlines
+     that measure as below the fold on mount, so above-the-fold text (like
+     the hero H1) never has to wait on JS to become visible. See
+     SplitHeadline.tsx. */
+  .split-line > span {
+    display: inline-block;
+    transition:
+      opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .split-line.is-pending > span {
+    opacity: 0;
+    transform: translateY(0.4em);
+  }
+  .split-line.is-revealed > span {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Process section's step line: no CSS transition here — a GSAP
+     scroll-scrubbed tween drives the line's scaleX directly frame-by-frame,
+     tied to scroll position (see ProcessSection.tsx). The numbered circles
+     stay fully solid throughout — only the connector line animates. The
+     .is-drawn state below is only the reduced-motion / no-JS fallback
+     (final state, set instantly). */
+  .process-line-draw {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  .process-flow-line.is-drawn .process-line-draw {
+    transform: scaleX(1) !important;
+  }
+
+  /* Gentle idle float for hero floating cards, after entrance. */
+  @keyframes idle-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+  .idle-float {
+    animation: idle-float 5s ease-in-out infinite;
+  }
+
+  /* Generic per-child stagger-in, used by the hero showcase's per-state
+     visuals (nodes, transaction rows, bars, checklist items). Each child
+     sets its own transition-delay inline. */
+  .stagger-in > * {
+    opacity: 0;
+    transform: translateY(4px) scale(0.94);
+    transform-origin: center;
+    transition:
+      opacity 0.45s ease-out,
+      transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .stagger-in.is-active > * {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  /* Hero showcase: crossfade the whole visual + reposition the floating
+     card between states. */
+  .showcase-visual {
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+  }
+  .showcase-visual.is-out {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  .showcase-card {
+    transition:
+      opacity 0.4s ease-out,
+      transform 0.9s cubic-bezier(0.65, 0, 0.35, 1);
+  }
+  .showcase-card.is-out {
+    opacity: 0;
+  }
+
+  /* Moving-light sweep, reserved for the hero's single primary CTA. */
+  .btn-glow {
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-glow::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      120deg,
+      transparent 30%,
+      rgba(255, 255, 255, 0.35) 50%,
+      transparent 70%
+    );
+    transform: translateX(-120%);
+    animation: btn-glow-sweep 3.4s ease-in-out infinite;
+  }
+  @keyframes btn-glow-sweep {
+    0% {
+      transform: translateX(-120%);
+    }
+    45%,
+    100% {
+      transform: translateX(120%);
+    }
+  }
+
+  /* Recommendation card content, fading in fresh on every key remount
+     (i.e. whenever the recommendation itself changes). */
+  @keyframes recommendation-fade {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .recommendation-fade {
+    animation: recommendation-fade 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .split-line > span {
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
