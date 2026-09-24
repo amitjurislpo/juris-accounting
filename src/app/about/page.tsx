@@ -4,8 +4,8 @@ import { Link } from "@/components/ui/AppLink";
 import { PageHero } from "@/components/ui/PageHero";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { Reveal } from "@/components/motion/Reveal";
-import { ServiceOverview } from "@/components/home/ServiceOverview";
 import { FinalCta } from "@/components/home/FinalCta";
+import { TeamGrid } from "@/components/about/TeamGrid";
 
 export const metadata: Metadata = {
   title: "About | Juris Accounting",
@@ -44,17 +44,6 @@ export default function AboutPage() {
         title="We're here to make the numbers easier"
         description="Managing your business is demanding enough without having to worry about whether your books are accurate, your financial records are organized, or you're ready for tax season."
       />
-
-      <Section>
-        <Reveal className="max-w-2xl">
-          <p className="text-base leading-relaxed text-fg-muted md:text-lg">
-            Our team provides bookkeeping, accounting, payroll, and tax
-            services designed to give business owners reliable financial
-            support throughout the year. We believe accounting should be
-            accurate, understandable, and accessible — not complicated.
-          </p>
-        </Reveal>
-      </Section>
 
       <Section tone="raised">
         <SectionHeading eyebrow="How we work" title="Our approach" />
@@ -103,12 +92,12 @@ export default function AboutPage() {
       <Section tone="raised">
         <SectionHeading
           eyebrow="Who we are"
-          title="Team, credentials, and company details"
-          description="Founding story, team profiles, and formal credentials will be added here once confirmed. [Add approved company background]"
+          title="Meet the team"
+          description="The people behind every engagement. Names, roles, and formal credentials will be finalized once approved. [Add approved company background]"
         />
+        <TeamGrid />
       </Section>
 
-      <ServiceOverview />
       <FinalCta />
     </>
   );
