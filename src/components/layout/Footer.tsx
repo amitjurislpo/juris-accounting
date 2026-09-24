@@ -6,17 +6,22 @@ import { footerNav, site, legalNotice } from "@/content/site";
 function FooterColumn({
   title,
   links,
+  split = false,
+  className,
 }: {
   title: string;
+  /** Lay the links out in two columns (used for the long Services list). */
+  split?: boolean;
+  className?: string;
   links: { label: string; href: string }[];
 }) {
   return (
-    <div>
+    <div className={className}>
       <p className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.28em] text-fg-subtle">
         <span className="h-px w-5 bg-line-strong" aria-hidden />
         {title}
       </p>
-      <ul className="mt-6 flex flex-col gap-3">
+      <ul className={split ? "mt-5 grid grid-cols-2 gap-x-8 gap-y-2.5" : "mt-5 flex flex-col gap-2.5"}>
         {links.map((link) => (
           <li key={link.href}>
             <Link
@@ -65,12 +70,12 @@ export function Footer() {
 
       <Container className="pt-4 md:pt-6">
 
-        <Reveal staggerChildren className="grid grid-cols-2 gap-x-10 gap-y-10 py-12 md:grid-cols-4">
+        <Reveal staggerChildren className="grid grid-cols-2 gap-x-10 gap-y-10 py-10 md:grid-cols-[1.1fr_1.6fr_1fr_1fr]">
           <div className="col-span-2 md:col-span-1">
             <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-fg-subtle">Practice</p>
             <p className="mt-6 max-w-xs text-sm leading-relaxed text-fg-muted">{site.description}</p>
           </div>
-          <FooterColumn title="Services" links={footerNav.services} />
+          <FooterColumn title="Services" links={footerNav.services} split className="col-span-2 md:col-span-1" />
           <FooterColumn title="Company" links={footerNav.company} />
           <FooterColumn title="Resources" links={footerNav.resources} />
         </Reveal>

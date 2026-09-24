@@ -682,185 +682,6 @@ body::after {
     }
   }
 
-  /* Gentle idle float for hero floating cards. */
-  @keyframes idle-float {
-    0%,
-    100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-6px);
-    }
-  }
-  .idle-float {
-    animation: idle-float 7s ease-in-out infinite;
-  }
-
-  /* Per-child stagger-in for the hero showcase's per-state visuals. */
-  .stagger-in > * {
-    opacity: 0;
-    transform: translateY(4px) scale(0.96);
-    transform-origin: center;
-    transition:
-      opacity 0.5s ease-out,
-      transform 0.6s var(--ease-lux);
-  }
-  .stagger-in.is-active > * {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-
-  /* Hero showcase crossfade between states. */
-  .showcase-visual {
-    transition:
-      opacity 0.45s ease-out,
-      transform 0.45s ease-out,
-      filter 0.45s ease-out;
-  }
-  .showcase-visual.is-out {
-    opacity: 0;
-    transform: scale(0.985);
-  }
-  .showcase-card {
-    transition:
-      opacity 0.4s ease-out,
-      transform 0.9s var(--ease-in-out-lux);
-  }
-  .showcase-card.is-out {
-    opacity: 0;
-  }
-
-  /* Hero showcase subject animations (HeroShowcase.tsx). Each state's
-     SVG gets .is-active while shown; one-shot draws use pathLength=1. */
-  .sv-draw {
-    stroke-dasharray: 1;
-    stroke-dashoffset: 1;
-  }
-  .is-active .sv-draw {
-    animation: sv-draw 0.8s var(--ease-lux) forwards;
-    animation-delay: var(--d, 0s);
-  }
-  @keyframes sv-draw {
-    to {
-      stroke-dashoffset: 0;
-    }
-  }
-  /* Data packet travelling along a connector into the ledger. */
-  .sv-flow {
-    stroke-dasharray: 0.07 1;
-    stroke-dashoffset: 0.07;
-    animation: sv-flow 2.2s var(--ease-in-out-lux) infinite;
-    animation-delay: var(--d, 0s);
-  }
-  @keyframes sv-flow {
-    from {
-      stroke-dashoffset: 0.07;
-    }
-    to {
-      stroke-dashoffset: -1;
-    }
-  }
-  /* Progress marker travelling along the engagement line. */
-  .sv-travel {
-    stroke-dasharray: 0.001 1;
-    animation: sv-travel 3s var(--ease-in-out-lux) infinite;
-  }
-  @keyframes sv-travel {
-    from {
-      stroke-dashoffset: 0;
-    }
-    to {
-      stroke-dashoffset: -1;
-    }
-  }
-  /* Stage dots light as the marker reaches them (stagger via --d). */
-  .sv-stage {
-    fill: var(--line-strong);
-    animation: sv-stage 3s linear infinite;
-    animation-delay: var(--d, 0s);
-  }
-  @keyframes sv-stage {
-    0%,
-    100% {
-      fill: var(--line-strong);
-    }
-    6%,
-    55% {
-      fill: var(--fg);
-    }
-  }
-  .sv-pulse {
-    transform-box: fill-box;
-    transform-origin: center;
-    animation: sv-pulse 2.4s ease-out infinite;
-  }
-  @keyframes sv-pulse {
-    from {
-      transform: scale(1);
-      opacity: 0.7;
-    }
-    to {
-      transform: scale(2.4);
-      opacity: 0;
-    }
-  }
-  /* Ledger cursor row stepping down through entries. */
-  .sv-scan {
-    animation: sv-scan 4s var(--ease-in-out-lux) infinite;
-  }
-  @keyframes sv-scan {
-    0%,
-    18% {
-      transform: translateY(0);
-    }
-    25%,
-    43% {
-      transform: translateY(40px);
-    }
-    50%,
-    68% {
-      transform: translateY(80px);
-    }
-    75%,
-    93% {
-      transform: translateY(120px);
-    }
-    100% {
-      transform: translateY(0);
-    }
-  }
-  .sv-fill {
-    transform-box: fill-box;
-    transform-origin: left;
-    transform: scaleX(0);
-  }
-  .is-active .sv-fill {
-    animation: sv-fill 1.6s var(--ease-lux) 0.3s forwards;
-  }
-  @keyframes sv-fill {
-    to {
-      transform: scaleX(1);
-    }
-  }
-  .sv-stamp {
-    transform-box: fill-box;
-    transform-origin: center;
-    opacity: 0;
-  }
-  .is-active .sv-stamp {
-    animation: sv-stamp 0.55s cubic-bezier(0.2, 1.3, 0.4, 1) 1.6s forwards;
-  }
-  @keyframes sv-stamp {
-    from {
-      opacity: 0;
-      transform: scale(1.6) rotate(-16deg);
-    }
-    to {
-      opacity: 1;
-      transform: scale(1) rotate(-8deg);
-    }
-  }
-
   /* Service glyphs (ServiceGlyph.tsx): entries write in and hold, the
      chart breathes, the review dot orbits the shield. */
   .glyph-write {
@@ -905,15 +726,16 @@ body::after {
     }
   }
 
-  /* Hero orbital instrument rotations. */
-  .orbit-spin {
-    animation: spin 14s linear infinite;
+  /* Hero headline: bright top-lit gradient with a soft halo. */
+  .hero-title-word {
+    background: linear-gradient(180deg, #ffffff 30%, #b9b9b9 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 0 28px rgba(255, 255, 255, 0.14));
   }
-  .orbit-spin-slow {
-    animation: spin 160s linear infinite;
-  }
-  .orbit-spin-reverse {
-    animation: spin 90s linear infinite reverse;
+  .hero-title-glow {
+    filter: drop-shadow(0 0 22px rgba(255, 255, 255, 0.22));
   }
 
   /* Hero backdrop (home/HeroBackdrop.tsx) */
@@ -979,7 +801,20 @@ body::after {
   .hb-node {
     transform-box: fill-box;
     transform-origin: center;
-    animation: sv-pulse 3.6s ease-out infinite;
+    animation: hb-pulse 3.6s ease-out infinite;
+  }
+  @keyframes hb-pulse {
+    from {
+      transform: scale(1);
+      opacity: 0.7;
+    }
+    to {
+      transform: scale(2.4);
+      opacity: 0;
+    }
+  }
+  .hb-seal {
+    animation: spin 120s linear infinite;
   }
   .hb-symbol {
     opacity: 0;
@@ -1192,27 +1027,218 @@ body::after {
     animation-duration: 1.6s;
   }
 
-  /* Scanning light across the hero showcase frame. */
-  .scan-line {
-    position: absolute;
-    inset-inline: 0;
-    top: 0;
-    height: 30%;
-    background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.025) 85%, rgba(255, 255, 255, 0.18) 100%);
-    animation: scan 8s var(--ease-in-out-lux) infinite;
+  /* Hero ledger core (home/HeroCore.tsx) — CSS 3D stack of glass panes. */
+  @property --gap {
+    syntax: "<length>";
+    initial-value: 34px;
+    inherits: true;
+  }
+  .core-scene {
+    perspective: 1400px;
+  }
+  .core-stack {
+    transform-style: preserve-3d;
+    transform: translateY(8%) rotateX(calc(58deg + var(--tilt-x, 0deg))) rotateZ(calc(-42deg + var(--tilt-z, 0deg)));
+    transition: transform 0.8s var(--ease-lux);
+    animation: core-breathe 7s var(--ease-in-out-lux) infinite;
+  }
+  @keyframes core-breathe {
+    0%,
+    100% {
+      --gap: 40px;
+    }
+    50% {
+      --gap: 58px;
+    }
+  }
+  .core-base {
+    transform: translateZ(0);
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+    background-size: 20px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 0 80px rgba(255, 255, 255, 0.05);
+  }
+  .core-pane {
+    transform: translateZ(calc(var(--z) * var(--gap)));
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.015) 60%);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.12),
+      0 20px 40px -20px rgba(0, 0, 0, 0.9);
+    opacity: 0.5;
+    transition:
+      transform 0.9s var(--ease-lux),
+      opacity 0.6s ease,
+      border-color 0.6s ease,
+      box-shadow 0.6s ease,
+      background 0.6s ease;
+  }
+  .core-pane > svg {
+    opacity: 0.12;
+    transition: opacity 0.7s ease;
+  }
+  .core-pane.is-active > svg {
+    opacity: 1;
+  }
+  .core-pane.is-active {
+    transform: translateZ(calc(var(--z) * var(--gap) + 46px));
+    opacity: 1;
+    border-color: rgba(255, 255, 255, 0.55);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.03) 65%);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.3),
+      0 0 50px rgba(255, 255, 255, 0.14),
+      0 30px 60px -20px rgba(0, 0, 0, 0.95);
+  }
+  /* Holographic scanner plane sweeping up and down through the stack. */
+  .core-scanner {
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0) 55%);
+    box-shadow:
+      0 0 30px rgba(255, 255, 255, 0.35),
+      inset 0 0 30px rgba(255, 255, 255, 0.12);
+    animation: core-scan 5.5s var(--ease-in-out-lux) infinite alternate;
     pointer-events: none;
   }
-  @keyframes scan {
+  @keyframes core-scan {
     0% {
-      transform: translateY(-100%);
+      transform: translateZ(0);
+      opacity: 0.2;
+    }
+    15% {
+      opacity: 0.9;
+    }
+    85% {
+      opacity: 0.9;
+    }
+    100% {
+      transform: translateZ(calc(5.2 * var(--gap)));
+      opacity: 0.2;
+    }
+  }
+  /* Hologram flicker as a pane activates. */
+  .core-pane.is-active > svg {
+    animation: core-flicker 0.7s steps(1) 1;
+  }
+  @keyframes core-flicker {
+    0% {
+      opacity: 0.2;
+    }
+    12% {
+      opacity: 1;
+    }
+    20% {
+      opacity: 0.35;
+    }
+    32% {
+      opacity: 1;
+    }
+    40% {
+      opacity: 0.6;
+    }
+    52%,
+    100% {
+      opacity: 1;
+    }
+  }
+  /* Orbiting data chips: squashed ring → rotating arms → counter-rotated,
+     un-squashed chip (net effect: an upright chip travelling an ellipse). */
+  .core-orbit-ring {
+    transform: scaleY(0.365);
+  }
+  .core-arm {
+    animation: spin 28s linear infinite;
+    animation-delay: calc(var(--k) * -3.5s);
+  }
+  .core-chip {
+    transform: translate(-50%, -50%);
+  }
+  .core-chip-counter {
+    animation:
+      spin 28s linear infinite reverse,
+      core-chip-depth 28s linear infinite;
+    animation-delay: calc(var(--k) * -3.5s);
+  }
+  .core-chip-face {
+    transform: scaleY(2.74);
+  }
+  @keyframes core-chip-depth {
+    0%,
+    100% {
+      opacity: 0.25;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+
+  .core-draw {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 0;
+  }
+  .is-live .core-draw {
+    animation: core-draw 1s var(--ease-lux) both;
+    animation-delay: var(--d, 0s);
+  }
+  @keyframes core-draw {
+    from {
+      stroke-dashoffset: 1;
+    }
+  }
+  .core-bar {
+    transform-box: fill-box;
+    transform-origin: bottom;
+  }
+  .is-live .core-bar {
+    animation: core-bar 0.9s var(--ease-lux) both;
+    animation-delay: var(--d, 0s);
+  }
+  @keyframes core-bar {
+    from {
+      transform: scaleY(0);
+    }
+  }
+  .core-spin {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: spin 18s linear infinite;
+  }
+  .core-orbit {
+    stroke-dasharray: 0.06 1;
+    animation: core-orbit 6s linear infinite;
+  }
+  @keyframes core-orbit {
+    to {
+      stroke-dashoffset: -1;
+    }
+  }
+  .core-beam {
+    background: linear-gradient(to top, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.05) 85%, transparent);
+    box-shadow: 0 0 18px 2px rgba(255, 255, 255, 0.18);
+  }
+  .core-particle {
+    position: absolute;
+    top: 100%;
+    width: 3px;
+    height: 3px;
+    margin-left: -1px;
+    border-radius: 9999px;
+    background: white;
+    box-shadow: 0 0 8px 2px rgba(255, 255, 255, 0.5);
+    animation: core-particle 3.3s linear infinite;
+  }
+  @keyframes core-particle {
+    0% {
+      top: 100%;
       opacity: 0;
     }
     15% {
       opacity: 1;
     }
-    55%,
     100% {
-      transform: translateY(330%);
+      top: 0%;
       opacity: 0;
     }
   }
@@ -1451,7 +1477,6 @@ body::after {
   .icon-draw svg * {
     stroke-dashoffset: 0 !important;
   }
-  .scan-line,
   .btn-orbit::before,
   .btn-orbit::after,
   .beacon::before,
