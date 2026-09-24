@@ -2,7 +2,6 @@ import { Hero } from "@/components/home/Hero";
 import { DashboardSection } from "@/components/home/DashboardSection";
 import { ServiceOverview } from "@/components/home/ServiceOverview";
 import { WhichServiceFlow } from "@/components/home/WhichServiceFlow";
-import { PricingExplainer } from "@/components/home/PricingExplainer";
 import { ProcessSection } from "@/components/home/ProcessSection";
 import { IndustryGrid } from "@/components/home/IndustryGrid";
 import { CredibilitySection } from "@/components/home/CredibilitySection";
@@ -15,7 +14,6 @@ export default function Home() {
       <DashboardSection />
       <ServiceOverview />
       <WhichServiceFlow />
-      <PricingExplainer />
       <ProcessSection />
       <IndustryGrid />
       <CredibilitySection />
