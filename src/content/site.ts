@@ -85,6 +85,11 @@ export const primaryNav: NavItem[] = [
         description: "Keeping what you owe and what's owed to you current.",
       },
       {
+        label: "Bookkeeping Software Support",
+        href: "/bookkeeping-software-support",
+        description: "QuickBooks Online setup, cleanup, bank feeds, and migration.",
+      },
+      {
         label: "Sales Tax Compliance",
         href: "/sales-tax-compliance",
         description: "Registration, filing, and ongoing compliance support.",
@@ -144,6 +149,7 @@ export const footerNav = {
     { label: "CFO Services", href: "/cfo-services" },
     { label: "Payroll Services", href: "/payroll" },
     { label: "Compliance Services", href: "/compliance" },
+    { label: "Software Support", href: "/bookkeeping-software-support" },
     { label: "Compare services", href: "/services/compare" },
     { label: "Pricing", href: "/pricing" },
   ],

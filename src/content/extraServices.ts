@@ -1,4 +1,4 @@
-// Payroll and Compliance service lines, kept as their own typed content
+// Payroll, Compliance, Bookkeeping Software Support and other service lines, kept as their own typed content
 // separate from the four core services (bookkeeping/accounting/taxation/
 // controller) in content/services.ts. The core four drive the pricing
 // builder, comparison table, and hero showcase, which all assume exactly
@@ -17,7 +17,8 @@ export type ExtraServiceId =
   | "cfo-services"
   | "catch-up-bookkeeping"
   | "accounts-payable-receivable"
-  | "sales-tax-compliance";
+  | "sales-tax-compliance"
+  | "bookkeeping-software-support";
 
 export type SubService = {
   slug: string;
@@ -375,6 +376,86 @@ export const extraServices: Record<ExtraServiceId, ExtraServiceDefinition> = {
       "Legal representation in a sales tax audit or dispute",
     ],
     subServices: [],
+  },
+  "bookkeeping-software-support": {
+    id: "bookkeeping-software-support",
+    name: "Bookkeeping Software Support",
+    shortName: "Software Support",
+    oneLiner: "Setting up, cleaning up, and moving the accounting software your books run on.",
+    positioning:
+      "Clean books depend on a correctly configured file. When QuickBooks Online is set up in a hurry, bank feeds post to the wrong accounts, or data is stuck in an old system, every report built on top of it inherits the problem. Bookkeeping software support gets the system itself right — so the bookkeeping that runs inside it can be trusted.",
+    href: "/bookkeeping-software-support",
+    includes: [
+      "QuickBooks Online setup for new or restarting businesses",
+      "QBO cleanup of miscategorized, duplicated, or unreconciled activity",
+      "Chart of accounts design and restructuring",
+      "Bank and credit card feed connection and categorization rules",
+      "Migration from another accounting system or spreadsheets",
+      "Handoff to ongoing monthly bookkeeping once the file is sound",
+    ],
+    outputs: [
+      "A correctly configured accounting file",
+      "A chart of accounts structured around how your business reports",
+      "Connected bank feeds with categorization rules in place",
+      "A written summary of what was set up, corrected, or migrated",
+    ],
+    goodFor: [
+      "New businesses starting on QuickBooks Online",
+      "Businesses whose existing QBO file has become unreliable",
+      "Anyone moving off desktop software, another platform, or spreadsheets",
+    ],
+    notIncluded: [
+      "Ongoing monthly bookkeeping after setup (see Bookkeeping)",
+      "Reconstructing months of missing records (see Catch-Up Bookkeeping)",
+      "Software subscription fees, which are billed by the software provider",
+    ],
+    subServices: [
+      {
+        slug: "quickbooks-online-setup",
+        name: "QuickBooks Online Setup",
+        oneLiner: "Configuring a new QuickBooks Online file correctly from the start.",
+        body: [
+          "Setup covers company settings, users and permissions, sales tax settings where they apply, products and services, and the preferences that control how transactions are recorded.",
+          "Getting these right at the start avoids the rework that comes from fixing a file after months of transactions have been recorded against the wrong settings.",
+        ],
+      },
+      {
+        slug: "qbo-cleanup",
+        name: "QBO Cleanup",
+        oneLiner: "Correcting an existing QuickBooks Online file so its reports can be trusted again.",
+        body: [
+          "Cleanup identifies and fixes miscategorized transactions, duplicates, unapplied payments, stale open items, and accounts that no longer reconcile.",
+          "The result is a file whose balances tie back to your bank and card statements, ready for ongoing bookkeeping or tax preparation.",
+        ],
+      },
+      {
+        slug: "chart-of-accounts-setup",
+        name: "Chart of Accounts Setup",
+        oneLiner: "Designing or restructuring the chart of accounts around how your business actually reports.",
+        body: [
+          "The chart of accounts decides how every transaction is grouped, and therefore what your profit and loss and balance sheet can tell you.",
+          "Setup builds a structure that fits your industry and reporting needs, and restructuring merges or retires accounts that have grown cluttered over time.",
+        ],
+      },
+      {
+        slug: "bank-feed-setup",
+        name: "Bank-Feed Setup",
+        oneLiner: "Connecting bank and card accounts and setting rules so transactions land in the right place.",
+        body: [
+          "Bank feeds bring transactions into the accounting file automatically; categorization rules decide where recurring transactions are recorded.",
+          "Well-configured feeds cut manual entry, and well-written rules keep routine activity consistent month to month.",
+        ],
+      },
+      {
+        slug: "accounting-software-migration",
+        name: "Accounting Software Migration",
+        oneLiner: "Moving your books from another accounting system or spreadsheets into a new platform.",
+        body: [
+          "Migration covers mapping your existing accounts, bringing over opening balances and the history you need, and confirming balances match between the old and new systems.",
+          "A clear cutover date keeps records complete, with nothing recorded twice or lost between systems.",
+        ],
+      },
+    ],
   },
 };
 
