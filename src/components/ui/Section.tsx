@@ -39,8 +39,10 @@ export function Section({
         className,
       )}
     >
-      <SectionBackdrop />
       <Container className={containerClassName}>{children}</Container>
+      {/* After the content in the DOM so it never precedes real content
+          for assistive tech or queries; -z-10 keeps it visually behind. */}
+      <SectionBackdrop />
     </section>
   );
 }

@@ -106,6 +106,21 @@ export function HeroBackdrop() {
         ))}
       </svg>
 
+      {/* Engraved seal: service names circling a monogram, turning slowly */}
+      <svg viewBox="0 0 400 400" className="hb-seal absolute -left-[8%] top-[6%] h-[34rem] w-[34rem] opacity-[0.07] lg:left-[18%] lg:top-[4%]">
+        <defs>
+          <path id="hb-seal-path" d="M200,200 m-160,0 a160,160 0 1,1 320,0 a160,160 0 1,1 -320,0" />
+        </defs>
+        <circle cx="200" cy="200" r="186" fill="none" stroke="white" strokeWidth="1" />
+        <circle cx="200" cy="200" r="134" fill="none" stroke="white" strokeWidth="0.75" strokeDasharray="2 5" />
+        <text fill="white" fontSize="17" letterSpacing="7.2" className="font-mono">
+          <textPath href="#hb-seal-path">BOOKKEEPING · ACCOUNTING · TAXATION · CONTROLLER · RECONCILED · FILED ·</textPath>
+        </text>
+        <text x="200" y="222" textAnchor="middle" fill="white" fontSize="64" className="font-serif italic">
+          Σ
+        </text>
+      </svg>
+
       {/* Drifting finance & tax symbols */}
       {SYMBOLS.map((s) => (
         <span

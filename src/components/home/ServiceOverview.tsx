@@ -38,12 +38,12 @@ export function ServiceOverview() {
                 onFocus={() => setActive(i)}
                 onClick={() => setActive(i)}
                 aria-expanded={isActive}
-                className="group flex w-full items-center justify-between gap-6 py-7 text-left"
+                className="group flex w-full items-center justify-between gap-6 py-5 text-left"
               >
                 <span className="flex items-baseline gap-5 md:gap-8">
                   <span
                     className={cn(
-                      "font-mono text-sm transition-colors duration-300",
+                      "font-mono text-xs transition-colors duration-300",
                       isActive ? "text-silver" : "text-fg-muted",
                     )}
                   >
@@ -51,7 +51,7 @@ export function ServiceOverview() {
                   </span>
                   <span
                     className={cn(
-                      "font-display text-2xl transition-[color,translate] duration-500 ease-out sm:text-3xl md:text-4xl",
+                      "font-display text-xl tracking-[-0.03em] transition-[color,translate] duration-500 ease-out sm:text-2xl md:text-[1.6rem]",
                       isActive ? "translate-x-2 text-fg" : "text-fg-muted group-hover:text-fg",
                     )}
                   >
@@ -75,16 +75,16 @@ export function ServiceOverview() {
                 )}
               >
                 <div className="overflow-hidden">
-                  <div className="grid items-center gap-8 pb-9 md:grid-cols-[1fr_auto]">
+                  <div className="grid items-center gap-8 pb-7 md:grid-cols-[1fr_auto]">
                     <div>
-                      <p className="max-w-lg text-sm leading-relaxed text-fg-muted md:text-base">
+                      <p className="max-w-lg text-sm leading-relaxed text-fg-muted">
                         {service.oneLiner}
                       </p>
                       <ul className="mt-5 flex flex-wrap gap-2">
                         {service.keyActions.map((action) => (
                           <li
                             key={action}
-                            className="rounded-xs border border-line bg-surface px-3 py-1 font-mono text-[11px] uppercase tracking-[0.12em] text-silver"
+                            className="rounded-xs border border-line bg-surface px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.12em] text-silver"
                           >
                             {action}
                           </li>

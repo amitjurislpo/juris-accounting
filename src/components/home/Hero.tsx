@@ -1,7 +1,7 @@
 import type { CSSProperties } from "react";
 import { Button } from "@/components/ui/Button";
 import { SplitHeadline } from "@/components/motion/SplitHeadline";
-import { HeroShowcase } from "@/components/motion/HeroShowcase";
+import { HeroCore } from "./HeroCore";
 import { Parallax } from "@/components/motion/Parallax";
 import { Container } from "@/components/ui/Container";
 import { HeroBackdrop } from "./HeroBackdrop";
@@ -51,19 +51,19 @@ export function Hero() {
 
         <div className="mt-10 grid gap-12 md:mt-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-10">
           <div>
-            <h1 className="text-[2.5rem] leading-[0.96] tracking-[-0.05em] text-fg sm:text-6xl lg:text-[4.2rem] xl:text-[4.7rem]">
-              <SplitHeadline text="Clarity behind" trigger="load" baseDelay={0.1} className="block" />
+            <h1 className="hero-title text-[2.7rem] font-semibold leading-[0.95] tracking-[-0.055em] text-fg sm:text-[4rem] lg:text-[4.6rem] xl:text-[5.2rem]">
+              <SplitHeadline text="Clarity behind" trigger="load" baseDelay={0.1} className="block" wordClassName="hero-title-word" />
               <SplitHeadline
                 text="every number."
                 trigger="load"
                 baseDelay={0.3}
-                className="block font-serif font-normal italic tracking-[-0.02em]"
-                wordClassName="text-metal pr-[0.04em]"
+                className="block font-serif text-[1.12em] font-normal italic leading-[0.9] tracking-[-0.02em]"
+                wordClassName="text-metal hero-title-glow pr-[0.04em]"
               />
             </h1>
-            <p className="enter mt-7 max-w-md text-base leading-relaxed text-fg-muted sm:text-lg" style={enter(0.55)}>
-              Bookkeeping, accounting, taxation, and controller oversight —
-              engineered as one accountable system, structured around what
+            <p className="enter mt-7 max-w-lg border-l border-white/25 pl-5 text-base font-medium leading-relaxed text-fg/80 sm:text-[1.15rem]" style={enter(0.55)}>
+              <span className="text-fg">Bookkeeping, accounting, taxation, and controller oversight</span> —
+              engineered as <span className="font-semibold text-fg">one accountable system</span>, structured around what
               your business actually needs.
             </p>
             <div className="enter mt-8 flex flex-wrap items-center gap-3 sm:gap-4" style={enter(0.65)}>
@@ -77,7 +77,7 @@ export function Hero() {
           </div>
 
           <div className="enter relative" style={enter(0.4)}>
-            <HeroShowcase className="lg:mr-0" />
+            <HeroCore className="lg:mr-0" />
           </div>
         </div>
       </Container>
