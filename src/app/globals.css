@@ -1330,6 +1330,9 @@ body::after {
     animation: beacon 2.8s var(--ease-lux) infinite;
     pointer-events: none;
   }
+  .beacon-brand::before {
+    border-color: var(--brand);
+  }
   @keyframes beacon {
     0% {
       transform: scale(1);
