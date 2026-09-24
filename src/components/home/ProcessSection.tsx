@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { Reveal } from "@/components/motion/Reveal";
 import { processSteps } from "@/content/process";
-import { getGsap, prefersReducedMotion } from "@/lib/gsap";
+import { prefersReducedMotion } from "@/lib/motion";
 
 export function ProcessSection() {
   const wrapRef = useRef<HTMLDivElement>(null);
@@ -34,69 +34,60 @@ export function ProcessSection() {
     positionLine();
     window.addEventListener("resize", positionLine);
 
-    if (prefersReducedMotion()) {
+    // Draw the line (and light each step in turn) once the steps are
+    // genuinely on screen. An IntersectionObserver reads live geometry,
+    // so it can't fire early the way precomputed scroll positions did
+    // when content above shifted during reveals.
+    if (prefersReducedMotion() || typeof IntersectionObserver === "undefined") {
       wrap.classList.add("is-drawn");
       return () => window.removeEventListener("resize", positionLine);
     }
 
-    const gsap = getGsap();
-
-    const ctx = gsap.context(() => {
-      // Every number stays fully solid the whole time — only the
-      // connecting line animates. It plays once, as a timed reveal, when
-      // this section first comes into view — not scrubbed continuously
-      // against scroll position (which made it feel tied to the scrollbar
-      // rather than like a deliberate animation).
-      gsap.fromTo(
-        line,
-        { scaleX: 0 },
-        {
-          scaleX: 1,
-          duration: 1.4,
-          ease: "power2.inOut",
-          scrollTrigger: {
-            trigger: wrap,
-            start: "top 80%",
-            once: true,
-          },
-        },
-      );
-    }, wrap);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (!entries.some((entry) => entry.isIntersecting)) return;
+        positionLine();
+        wrap.classList.add("is-drawn");
+        observer.disconnect();
+      },
+      { threshold: 0.45 },
+    );
+    observer.observe(wrap);
 
     return () => {
       window.removeEventListener("resize", positionLine);
-      ctx.revert();
+      observer.disconnect();
     };
   }, []);
 
   return (
-    <Section tone="cream" id="process">
+    <Section tone="raised" id="process">
       <SectionHeading
         eyebrow="What happens after you contact us"
         title="A clear process, from first call to ongoing service"
       />
 
-      <Reveal className="relative mt-16">
+      <Reveal className="relative mt-10">
         <div ref={wrapRef} className="process-flow-line relative">
           <div
             ref={lineRef}
-            className="process-line-draw absolute top-7 hidden h-0.5 origin-left rounded-full bg-emerald lg:block"
+            className="process-line-draw absolute top-7 hidden h-px origin-left bg-gradient-to-r from-silver via-platinum to-silver lg:block"
             aria-hidden
           />
 
-          <div className="grid gap-10 md:grid-cols-3 lg:grid-cols-6">
+          <Reveal staggerChildren stagger={0.1} className="grid gap-10 md:grid-cols-3 lg:grid-cols-6">
             {processSteps.map((step) => (
               <div key={step.step} className="relative">
-                <span className="process-node relative z-10 flex h-14 w-14 items-center justify-center rounded-full bg-forest font-mono text-base text-ivory shadow-lg shadow-forest/25 ring-4 ring-cream">
+                <span className="process-node relative z-10 flex h-14 w-14 items-center justify-center rounded-full border border-line-strong bg-surface font-mono text-sm text-platinum shadow-[0_14px_30px_-12px_rgba(0,0,0,0.6)] ring-[6px] ring-raised transition-[scale] duration-500 hover:scale-110">
                   {String(step.step).padStart(2, "0")}
                 </span>
-                <h3 className="mt-4 text-base font-medium text-charcoal">{step.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-charcoal-soft">
+                <h3 className="mt-5 text-lg text-fg">{step.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-fg-muted">
                   {step.description}
                 </p>
               </div>
             ))}
-          </div>
+          </Reveal>
         </div>
       </Reveal>
     </Section>

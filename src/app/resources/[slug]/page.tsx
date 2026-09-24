@@ -43,10 +43,10 @@ export default async function ArticlePage({
       />
       <Section>
         <Reveal className="max-w-2xl">
-          <Badge tone="emerald" className="mb-6">
+          <Badge tone="platinum" className="mb-6">
             Placeholder article
           </Badge>
-          <p className="text-base leading-relaxed text-charcoal-soft">
+          <p className="text-base leading-relaxed text-fg-muted">
             This article is a placeholder card ahead of our full content and
             digital marketing program. The final version will include a
             complete, reviewed write-up on this topic — for now, this page

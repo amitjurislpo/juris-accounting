@@ -11,7 +11,7 @@ export function IndustryGrid() {
   const activeIndustry = active !== null ? industries[active] : null;
 
   return (
-    <Section tone="cream" id="industries">
+    <Section tone="raised" id="industries">
       <SectionHeading
         eyebrow="Broad coverage"
         title="Built to support almost every industry"
@@ -22,7 +22,7 @@ export function IndustryGrid() {
         <div className="no-scrollbar relative overflow-x-auto pb-4">
           <div className="relative flex min-w-max items-center gap-3 px-1 py-8">
             <div
-              className="absolute left-0 right-0 top-1/2 h-px -translate-y-1/2 bg-hairline"
+              className="absolute left-0 right-0 top-1/2 h-px -translate-y-1/2 bg-gradient-to-r from-transparent via-silver/40 to-transparent"
               aria-hidden
             />
             {industries.map((industry, i) => {
@@ -36,10 +36,10 @@ export function IndustryGrid() {
                   onMouseLeave={() => setActive(null)}
                   onBlur={() => setActive(null)}
                   className={cn(
-                    "relative z-10 shrink-0 rounded-full border px-5 py-3 text-sm font-medium transition-all duration-300",
+                    "relative z-10 shrink-0 rounded-control border px-5 py-3 text-sm font-medium transition-[background-color,border-color,color,box-shadow,scale] duration-500 ease-out",
                     isActive
-                      ? "scale-110 border-forest bg-forest text-ivory shadow-lg"
-                      : "border-hairline bg-ivory text-charcoal hover:border-forest",
+                      ? "scale-110 border-fg bg-fg text-canvas shadow-[0_18px_40px_-16px_rgba(255,255,255,0.3)]"
+                      : "border-line bg-canvas text-fg hover:border-silver",
                   )}
                 >
                   {industry.name}
@@ -52,7 +52,7 @@ export function IndustryGrid() {
         <div className="mt-2 flex h-6 items-center justify-center text-center">
           <p
             className={cn(
-              "font-mono text-xs uppercase tracking-wide text-forest transition-opacity duration-300",
+              "font-mono text-xs uppercase tracking-wide text-silver transition-opacity duration-300",
               activeIndustry ? "opacity-100" : "opacity-0",
             )}
           >
@@ -61,7 +61,7 @@ export function IndustryGrid() {
         </div>
       </Reveal>
 
-      <p className="mt-6 max-w-2xl font-mono text-xs text-charcoal-soft">
+      <p className="mt-6 max-w-2xl font-mono text-xs text-fg-muted">
         {industriesNote}
       </p>
     </Section>

@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import type { StatusLevel } from "@/content/dashboard";
 import { cn } from "@/lib/cn";
 
@@ -31,8 +32,8 @@ export function Gauge({
   const offset = circumference * (1 - score / 100);
 
   return (
-    <div className="rounded-sm border border-chart-grid bg-forest-deep p-4">
-      <p className="font-mono text-[10px] uppercase tracking-wide text-ivory-soft">
+    <div className="rounded-control border border-chart-grid bg-graphite p-4 transition-colors duration-500 hover:border-platinum/35">
+      <p className="font-mono text-[10px] uppercase tracking-wide text-fg-muted">
         {label}
       </p>
       <div className="mt-2 flex items-center gap-4">
@@ -52,6 +53,8 @@ export function Gauge({
             strokeLinecap="round"
             strokeDasharray={circumference}
             strokeDashoffset={offset}
+            className="gauge-arc"
+            style={{ "--gauge-length": circumference } as CSSProperties}
           />
           <text
             x="50"
@@ -59,7 +62,7 @@ export function Gauge({
             textAnchor="middle"
             fontSize={20}
             className="font-display"
-            fill="var(--ivory)"
+            fill="var(--fg)"
           >
             {score}
           </text>
@@ -76,7 +79,7 @@ export function Gauge({
           >
             {statusText[status]}
           </p>
-          {note && <p className="mt-1 text-xs text-ivory-soft">{note}</p>}
+          {note && <p className="mt-1 text-xs text-fg-muted">{note}</p>}
         </div>
       </div>
     </div>

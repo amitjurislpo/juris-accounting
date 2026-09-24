@@ -48,8 +48,8 @@ export default function PrivacyPage() {
         <Reveal className="flex max-w-2xl flex-col gap-8">
           {sections.map((s) => (
             <div key={s.heading}>
-              <h2 className="text-xl text-charcoal">{s.heading}</h2>
-              <p className="mt-2 text-sm leading-relaxed text-charcoal-soft">{s.body}</p>
+              <h2 className="text-xl text-fg">{s.heading}</h2>
+              <p className="mt-2 text-sm leading-relaxed text-fg-muted">{s.body}</p>
             </div>
           ))}
         </Reveal>
