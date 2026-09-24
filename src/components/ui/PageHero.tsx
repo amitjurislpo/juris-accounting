@@ -87,7 +87,7 @@ export function PageHero({
       />
 
       <Container className="relative pb-14 pt-6 md:pb-16 md:pt-8">
-        {/* HUD row: breadcrumb left, section index right */}
+        {/* HUD row: breadcrumb */}
         <div
           className="enter flex items-center justify-between gap-6 border-b border-line pb-5"
           style={enter(0)}
@@ -115,10 +115,6 @@ export function PageHero({
               ))}
             </ol>
           </nav>
-          <span className="hidden items-center gap-2 font-mono text-[10px] uppercase tracking-[0.24em] text-fg-subtle sm:flex" aria-hidden>
-            <span className="h-1 w-1 rounded-full bg-signal" />
-            Section {String(trail.length + 1).padStart(2, "0")}
-          </span>
         </div>
 
         <div className="mt-10 max-w-4xl md:mt-12">
