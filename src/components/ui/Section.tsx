@@ -1,6 +1,7 @@
 import { cn } from "@/lib/cn";
 import { Container } from "./Container";
 import { Reveal } from "@/components/motion/Reveal";
+import { SectionBackdrop } from "@/components/motion/SectionBackdrop";
 
 type Tone = "canvas" | "raised" | "void" | "deep";
 
@@ -32,12 +33,13 @@ export function Section({
     <section
       id={id}
       className={cn(
-        "relative py-10 md:py-12",
+        "relative isolate py-10 md:py-12",
         toneClasses[tone],
         border && "border-b border-line",
         className,
       )}
     >
+      <SectionBackdrop />
       <Container className={containerClassName}>{children}</Container>
     </section>
   );
@@ -98,8 +100,8 @@ export function SectionHeading({
       {eyebrow && <Eyebrow tone={dark ? "void" : "canvas"}>{eyebrow}</Eyebrow>}
       <Heading
         className={cn(
-          "mt-5 text-[1.85rem] leading-[1.06] tracking-[-0.04em] text-balance",
-          wide ? "md:text-[2.4rem] lg:whitespace-nowrap lg:text-[2.6rem]" : "md:text-[2.4rem] lg:text-[2.85rem]",
+          "mt-5 text-[1.7rem] leading-[1.08] tracking-[-0.04em] text-balance",
+          wide ? "md:text-[2.2rem] lg:whitespace-nowrap lg:text-[2.4rem]" : "md:text-[2.2rem] lg:text-[2.6rem]",
         )}
       >
         {title}

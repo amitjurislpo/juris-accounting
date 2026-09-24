@@ -1,6 +1,5 @@
 import { Link } from "@/components/ui/AppLink";
 import { Container } from "@/components/ui/Container";
-import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/motion/Reveal";
 import { footerNav, site, legalNotice } from "@/content/site";
 
@@ -64,19 +63,7 @@ export function Footer() {
         </p>
       </div>
 
-      <Container className="pt-14 md:pt-20">
-        {/* Statement + CTA */}
-        <Reveal className="flex flex-col justify-between gap-10 border-b border-line pb-12 md:flex-row md:items-end">
-          <p className="max-w-xl text-2xl leading-[1.1] tracking-[-0.035em] text-fg md:text-4xl">
-            {site.tagline.split("—")[0].trim()}{" "}
-            <span className="font-serif italic tracking-[-0.01em] text-fg-muted">
-              — {site.tagline.split("—")[1]?.trim()}
-            </span>
-          </p>
-          <Button href="/contact" glow className="self-start md:self-auto">
-            Book a consultation
-          </Button>
-        </Reveal>
+      <Container className="pt-4 md:pt-6">
 
         <Reveal staggerChildren className="grid grid-cols-2 gap-x-10 gap-y-10 py-12 md:grid-cols-4">
           <div className="col-span-2 md:col-span-1">

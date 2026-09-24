@@ -4,6 +4,7 @@ import { SplitHeadline } from "@/components/motion/SplitHeadline";
 import { HeroShowcase } from "@/components/motion/HeroShowcase";
 import { Parallax } from "@/components/motion/Parallax";
 import { Container } from "@/components/ui/Container";
+import { HeroBackdrop } from "./HeroBackdrop";
 
 function enter(delay: number) {
   return { "--enter-delay": `${delay}s` } as CSSProperties;
@@ -14,10 +15,10 @@ export function Hero() {
     <section className="relative isolate overflow-hidden border-b border-line">
       {/* Atmosphere: a single soft key light raking in from the top-left
           (like a studio light across a desk), a fine grid, and a slowly
-          drifting ambient glow — layered at different parallax depths. */}
-      <Parallax speed={0.1} className="enter-fade absolute inset-0 -z-10">
-        <div className="bg-grid absolute inset-0" />
-      </Parallax>
+          drifting ambient glow, over a living accounting backdrop. */}
+      <div className="enter-fade absolute inset-0 -z-10">
+        <HeroBackdrop />
+      </div>
       <Parallax speed={0.25} className="enter-fade absolute inset-0 -z-10">
         <div
           className="absolute -left-[20%] -top-[40%] h-[140%] w-[70%] rotate-[-24deg] opacity-[0.07] blur-3xl"
@@ -50,7 +51,7 @@ export function Hero() {
 
         <div className="mt-10 grid gap-12 md:mt-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-10">
           <div>
-            <h1 className="text-[2.7rem] leading-[0.96] tracking-[-0.05em] text-fg sm:text-6xl lg:text-[4.6rem] xl:text-[5.2rem]">
+            <h1 className="text-[2.5rem] leading-[0.96] tracking-[-0.05em] text-fg sm:text-6xl lg:text-[4.2rem] xl:text-[4.7rem]">
               <SplitHeadline text="Clarity behind" trigger="load" baseDelay={0.1} className="block" />
               <SplitHeadline
                 text="every number."

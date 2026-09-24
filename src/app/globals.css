@@ -101,6 +101,21 @@
 }
 
 @theme {
+  /* Type scale, set roughly 7% below Tailwind's defaults for a finer,
+     more editorial read. Spacing and layout keep the default scale. */
+  --text-xs: 0.7rem;
+  --text-sm: 0.82rem;
+  --text-base: 0.94rem;
+  --text-lg: 1.06rem;
+  --text-xl: 1.18rem;
+  --text-2xl: 1.4rem;
+  --text-3xl: 1.75rem;
+  --text-4xl: 2.1rem;
+  --text-5xl: 2.8rem;
+  --text-6xl: 3.5rem;
+  --text-7xl: 4.2rem;
+  --text-8xl: 5.6rem;
+
   --radius-control: 3px; /* buttons, inputs, chips */
   --radius-card: 4px; /* cards, panels */
   --ease-lux: cubic-bezier(0.22, 1, 0.36, 1);
@@ -113,6 +128,7 @@
    continuous animation cost.
    ------------------------------------------------------------------ */
 body {
+  font-size: 0.94rem;
   background:
     radial-gradient(120% 70% at 0% 0%, rgba(255, 255, 255, 0.045), transparent 55%),
     radial-gradient(140% 100% at 50% 120%, rgba(0, 0, 0, 0.6), transparent 60%),
@@ -131,14 +147,6 @@ body::after {
 }
 
 @layer base {
-  /* Global scale: every rem-based size (type, spacing, layout widths) is
-     tuned to read at 90% on laptop/desktop screens. Phones stay at 100%. */
-  @media (min-width: 1024px) {
-    html {
-      font-size: 90%;
-    }
-  }
-
   h1,
   h2,
   h3,
@@ -908,6 +916,242 @@ body::after {
     animation: spin 90s linear infinite reverse;
   }
 
+  /* Hero backdrop (home/HeroBackdrop.tsx) */
+  .hb-floor-wrap {
+    perspective: 520px;
+    perspective-origin: 50% 0%;
+    mask-image: linear-gradient(to bottom, transparent 0%, #000 30%, #000 70%, transparent 100%);
+  }
+  .hb-floor {
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.09) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.09) 1px, transparent 1px);
+    background-size: 64px 64px;
+    transform: rotateX(62deg);
+    transform-origin: top;
+    animation: hb-floor 3.2s linear infinite;
+  }
+  @keyframes hb-floor {
+    from {
+      background-position: 0 0;
+    }
+    to {
+      background-position: 0 64px;
+    }
+  }
+  .hb-stream-mask {
+    mask-image: linear-gradient(to bottom, transparent, #000 25%, #000 70%, transparent);
+  }
+  .hb-stream {
+    animation: hb-rise var(--dur, 50s) linear infinite;
+  }
+  @keyframes hb-rise {
+    from {
+      transform: translate3d(0, 0, 0);
+    }
+    to {
+      transform: translate3d(0, -50%, 0);
+    }
+  }
+  .hb-trace {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: hb-trace 9s var(--ease-in-out-lux) infinite;
+  }
+  @keyframes hb-trace {
+    0% {
+      stroke-dashoffset: 1;
+      opacity: 0;
+    }
+    8% {
+      opacity: 1;
+    }
+    55%,
+    80% {
+      stroke-dashoffset: 0;
+      opacity: 1;
+    }
+    100% {
+      stroke-dashoffset: 0;
+      opacity: 0;
+    }
+  }
+  .hb-node {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: sv-pulse 3.6s ease-out infinite;
+  }
+  .hb-symbol {
+    opacity: 0;
+    animation: hb-symbol 18s ease-in-out infinite;
+  }
+  @keyframes hb-symbol {
+    0% {
+      opacity: 0;
+      transform: translate3d(0, 30px, 0) scale(0.92);
+    }
+    25%,
+    70% {
+      opacity: 0.06;
+    }
+    100% {
+      opacity: 0;
+      transform: translate3d(0, -50px, 0) scale(1.05);
+    }
+  }
+
+  /* Section backdrops (motion/SectionBackdrop.tsx). One variant shows per
+     section, rotating by position; paused while off screen. */
+  .sb {
+    mask-image: linear-gradient(to right, transparent 25%, #000 75%);
+  }
+  .sb-v {
+    display: none;
+    position: absolute;
+    opacity: 0.1;
+  }
+  section:nth-of-type(3n + 1) > .sb > .sb-ledger,
+  section:nth-of-type(3n + 2) > .sb > .sb-chart,
+  section:nth-of-type(3n + 3) > .sb > .sb-tax {
+    display: block;
+  }
+  .sb:not(.is-live) * {
+    animation-play-state: paused !important;
+  }
+  .sb-ledger {
+    right: 3%;
+    top: 50%;
+    width: min(30rem, 42%);
+    transform: translateY(-50%);
+  }
+  .sb-chart {
+    right: 4%;
+    bottom: 10%;
+    width: min(26rem, 36%);
+    height: 55%;
+  }
+  .sb-tax {
+    right: 8%;
+    top: 50%;
+    height: min(22rem, 70%);
+    transform: translateY(-50%);
+  }
+  .sb-label {
+    font-family: var(--font-geist-mono);
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    fill: white;
+    fill-opacity: 0.6;
+    stroke: none;
+  }
+  .sb-tick {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: sb-tick 7.2s var(--ease-in-out-lux) infinite;
+    animation-delay: calc(var(--i, 0) * 0.55s);
+  }
+  @keyframes sb-tick {
+    0% {
+      stroke-dashoffset: 1;
+      opacity: 1;
+    }
+    12%,
+    80% {
+      stroke-dashoffset: 0;
+      opacity: 1;
+    }
+    95%,
+    100% {
+      stroke-dashoffset: 0;
+      opacity: 0;
+    }
+  }
+  .sb-scan {
+    animation: sb-scan 7.2s var(--ease-in-out-lux) infinite;
+  }
+  @keyframes sb-scan {
+    0%,
+    10% {
+      transform: translateY(0);
+    }
+    16%,
+    26% {
+      transform: translateY(36px);
+    }
+    32%,
+    42% {
+      transform: translateY(72px);
+    }
+    48%,
+    58% {
+      transform: translateY(108px);
+    }
+    64%,
+    74% {
+      transform: translateY(144px);
+    }
+    80%,
+    92% {
+      transform: translateY(180px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  .sb-bar {
+    transform-origin: bottom;
+    animation: sb-bar 4.8s var(--ease-in-out-lux) infinite alternate;
+    animation-delay: calc(var(--i, 0) * -0.45s);
+  }
+  @keyframes sb-bar {
+    from {
+      transform: scaleY(0.55);
+    }
+    to {
+      transform: scaleY(1);
+    }
+  }
+  .sb-fill {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: sb-fill 7.2s var(--ease-lux) infinite;
+  }
+  @keyframes sb-fill {
+    0%,
+    20% {
+      stroke-dashoffset: 1;
+    }
+    70%,
+    100% {
+      stroke-dashoffset: 0;
+    }
+  }
+  @media (max-width: 767px) {
+    .sb {
+      mask-image: linear-gradient(to bottom, transparent 35%, #000 90%);
+    }
+    .sb-v {
+      opacity: 0.06;
+    }
+    .sb-ledger,
+    .sb-tax {
+      top: auto;
+      bottom: 2%;
+      transform: none;
+    }
+    .sb-ledger {
+      width: 85%;
+    }
+    .sb-chart {
+      width: 70%;
+      height: 30%;
+      bottom: 3%;
+    }
+    .sb-tax {
+      height: 45%;
+    }
+  }
+
   /* Scanning light across the hero showcase frame. */
   .scan-line {
     position: absolute;
@@ -1155,6 +1399,10 @@ body::after {
   }
   .scroll-rise {
     animation: none !important;
+  }
+  .sb-tick,
+  .sb-fill {
+    stroke-dashoffset: 0 !important;
   }
   .glyph-write {
     stroke-dashoffset: 0 !important;

@@ -7,6 +7,7 @@ import { Container } from "./Container";
 import { Eyebrow } from "./Section";
 import { SplitHeadline } from "@/components/motion/SplitHeadline";
 import { Parallax } from "@/components/motion/Parallax";
+import { HeroBackdrop } from "@/components/home/HeroBackdrop";
 
 const SEGMENT_LABELS: Record<string, string> = {
   services: "Services",
@@ -68,8 +69,8 @@ export function PageHero({
 
   return (
     <section className="relative isolate overflow-hidden border-b border-line text-fg">
+      <HeroBackdrop />
       <Parallax speed={0.18} className="absolute inset-0 -z-10">
-        <div className="bg-grid absolute inset-0 opacity-80" />
         <div
           className="absolute -left-[15%] -top-[60%] h-[180%] w-[55%] rotate-[-24deg] opacity-[0.06] blur-3xl"
           style={{ background: "linear-gradient(90deg, transparent, #fff 45%, transparent)" }}
@@ -126,7 +127,7 @@ export function PageHero({
               <Eyebrow>{eyebrow}</Eyebrow>
             </div>
           )}
-          <h1 className="mt-5 text-[2.2rem] leading-[1.04] tracking-[-0.04em] text-balance text-fg md:text-[3.4rem]">
+          <h1 className="mt-5 text-[2rem] leading-[1.05] tracking-[-0.04em] text-balance text-fg md:text-[3.1rem]">
             {typeof title === "string" ? (
               <SplitHeadline text={title} trigger="load" baseDelay={0.12} stagger={0.045} />
             ) : (
