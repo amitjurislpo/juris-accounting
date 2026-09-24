@@ -27,16 +27,16 @@ export default function ResourcesPage() {
             <Link
               key={article.slug}
               href={`/resources/${article.slug}`}
-              className="flex flex-col rounded-sm border border-hairline bg-cream p-5 transition-colors hover:border-forest"
+              className="lux-card flex flex-col rounded-control p-5"
             >
               <Badge tone="muted" className="w-fit">
                 {article.category}
               </Badge>
-              <h2 className="mt-3 text-lg leading-snug text-charcoal">{article.title}</h2>
-              <p className="mt-2 flex-1 text-sm leading-relaxed text-charcoal-soft">
+              <h2 className="mt-3 text-lg leading-snug text-fg">{article.title}</h2>
+              <p className="mt-2 flex-1 text-sm leading-relaxed text-fg-muted">
                 {article.excerpt}
               </p>
-              <span className="mt-4 font-mono text-xs text-charcoal-soft">
+              <span className="mt-4 font-mono text-xs text-fg-muted">
                 {article.readTime} read
               </span>
             </Link>

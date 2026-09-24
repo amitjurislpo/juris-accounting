@@ -1,27 +1,31 @@
 import type { Metadata } from "next";
-import { Fraunces, Inter, IBM_Plex_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { FloatingContactButton } from "@/components/layout/FloatingContactButton";
+import { InteractionLayer } from "@/components/motion/InteractionLayer";
 import { site } from "@/content/site";
+import { motionBootScript } from "@/lib/motion";
 
-const fraunces = Fraunces({
-  variable: "--font-fraunces",
+// Geist carries display and body type (tight-tracked at display sizes);
+// Instrument Serif is reserved for italic accent words; Geist Mono for
+// uppercase metadata labels.
+const geist = Geist({
+  variable: "--font-geist",
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+});
+
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-instrument-serif",
+  subsets: ["latin"],
+  weight: "400",
   style: ["normal", "italic"],
 });
 
-const inter = Inter({
-  variable: "--font-inter",
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
   subsets: ["latin"],
-});
-
-const plexMono = IBM_Plex_Mono({
-  variable: "--font-plex-mono",
-  subsets: ["latin"],
-  weight: ["400", "500"],
 });
 
 export const metadata: Metadata = {
@@ -31,11 +35,18 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
+    // suppressHydrationWarning: the boot script below adds data-js to
+    // <html> before React hydrates — an expected, one-level difference.
     <html
       lang="en"
-      className={`${fraunces.variable} ${inter.variable} ${plexMono.variable} h-full`}
+      suppressHydrationWarning
+      className={`${geist.variable} ${instrumentSerif.variable} ${geistMono.variable} h-full`}
     >
-      <body className="flex min-h-full flex-col bg-ivory font-sans text-charcoal antialiased">
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: motionBootScript }} />
+      </head>
+      <body className="flex min-h-full flex-col font-sans text-fg antialiased">
+        <InteractionLayer />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

@@ -24,7 +24,7 @@ const pillars = [
 
 export function PricingExplainer() {
   return (
-    <Section tone="cream" id="pricing-explainer">
+    <Section tone="raised" id="pricing-explainer">
       <SectionHeading
         eyebrow="How pricing works"
         title={<SplitHeadline text="Service + Module + Entity" />}
@@ -34,15 +34,13 @@ export function PricingExplainer() {
         {pillars.map((p) => (
           <div
             key={p.title}
-            className="group rounded-sm border border-hairline bg-ivory p-6 transition-all duration-300 hover:-translate-y-1 hover:border-forest hover:shadow-lg"
+            className="lux-card group rounded-control p-7"
           >
-            <p.icon
-              className="text-forest transition-transform duration-300 group-hover:scale-110"
-              size={24}
-              aria-hidden
-            />
-            <h3 className="mt-3 text-lg text-charcoal">{p.title}</h3>
-            <p className="mt-2 text-sm leading-relaxed text-charcoal-soft">{p.body}</p>
+            <span className="icon-draw block text-silver" aria-hidden>
+              <p.icon size={24} />
+            </span>
+            <h3 className="mt-3 text-lg text-fg">{p.title}</h3>
+            <p className="mt-2 text-sm leading-relaxed text-fg-muted">{p.body}</p>
           </div>
         ))}
       </Reveal>
