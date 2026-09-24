@@ -34,15 +34,15 @@ export function WhichServiceFlow() {
           title="Which service do I need?"
           description="Answer three quick questions. This is a starting point for the conversation, not a binding scope."
         />
-        <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-wide text-forest">
+        <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-wide text-silver">
           <span>{answeredCount}/{total} answered</span>
           <div className="flex gap-1">
             {Array.from({ length: total }).map((_, i) => (
               <span
                 key={i}
                 className={cn(
-                  "h-1.5 w-6 rounded-full transition-colors duration-300",
-                  i < answeredCount ? "bg-forest" : "bg-hairline",
+                  "h-0.5 w-8 transition-colors duration-500",
+                  i < answeredCount ? "bg-silver" : "bg-line",
                 )}
               />
             ))}
@@ -53,12 +53,12 @@ export function WhichServiceFlow() {
       <Reveal className="mt-10 grid gap-10 lg:grid-cols-[1.1fr_1fr]">
         <div className="flex flex-col gap-6">
           {qualifierQuestions.map((q, i) => (
-            <div key={q.id} className="rounded-sm border border-hairline bg-cream p-5">
-              <p className="font-mono text-xs uppercase tracking-wide text-forest">
+            <div key={q.id} className="rounded-control border border-line bg-surface p-6 transition-colors duration-500 hover:border-silver/40">
+              <p className="font-mono text-xs uppercase tracking-wide text-silver">
                 Question {i + 1} of {total}
               </p>
-              <p className="mt-2 text-lg text-charcoal">{q.prompt}</p>
-              {q.helper && <p className="mt-1 text-sm text-charcoal-soft">{q.helper}</p>}
+              <p className="mt-2 text-lg text-fg">{q.prompt}</p>
+              {q.helper && <p className="mt-1 text-sm text-fg-muted">{q.helper}</p>}
               <div className="mt-4 flex gap-2">
                 {options.map((opt) => {
                   const active = answers[q.id] === opt.value;
@@ -71,10 +71,10 @@ export function WhichServiceFlow() {
                         setAnswers((prev) => ({ ...prev, [q.id]: opt.value }))
                       }
                       className={cn(
-                        "rounded-full border px-4 py-1.5 text-sm transition-colors",
+                        "rounded-control border px-4 py-1.5 text-sm transition-[background-color,border-color,color,box-shadow] duration-300",
                         active
-                          ? "border-forest bg-forest text-ivory"
-                          : "border-hairline bg-ivory text-charcoal hover:border-forest",
+                          ? "border-fg bg-fg text-canvas shadow-[0_10px_30px_-14px_rgba(255,255,255,0.3)]"
+                          : "border-line bg-canvas text-fg hover:border-silver",
                       )}
                     >
                       {opt.label}
@@ -86,31 +86,31 @@ export function WhichServiceFlow() {
           ))}
         </div>
 
-        <div className="relative self-start overflow-hidden rounded-lg border border-emerald/30 bg-void p-6 text-ivory shadow-[0_30px_60px_-25px_rgba(16,28,46,0.5)] lg:sticky lg:top-28">
+        <div className="relative self-start overflow-hidden rounded-card border border-platinum/30 bg-void p-7 text-fg shadow-[0_30px_60px_-25px_rgba(0,0,0,0.5)] lg:sticky lg:top-28">
           <div
-            className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full opacity-30 blur-3xl"
-            style={{ background: "radial-gradient(closest-side, var(--emerald), transparent)" }}
+            className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full opacity-[0.08] blur-3xl"
+            style={{ background: "radial-gradient(closest-side, var(--platinum), transparent)" }}
             aria-hidden
           />
           <div
             className="pointer-events-none absolute inset-x-0 top-0 h-px"
-            style={{ background: "linear-gradient(90deg, transparent, var(--emerald), transparent)" }}
+            style={{ background: "linear-gradient(90deg, transparent, var(--platinum), transparent)" }}
             aria-hidden
           />
           <div key={recommendation.headline} className="relative recommendation-fade">
-            <p className="flex items-center gap-1.5 font-mono text-xs uppercase tracking-wide text-emerald">
+            <p className="flex items-center gap-1.5 font-mono text-xs uppercase tracking-wide text-platinum">
               <Sparkles size={13} aria-hidden />
               {answeredCount === 0 ? "Answer to see a recommendation" : "Your starting recommendation"}
             </p>
             <h3 className="mt-3 text-2xl">{recommendation.headline}</h3>
-            <p className="mt-3 text-sm leading-relaxed text-ivory-soft">
+            <p className="mt-3 text-sm leading-relaxed text-fg-muted">
               {recommendation.explanation}
             </p>
             <ul className="mt-5 flex flex-wrap gap-2">
               {recommendation.services.map((id) => (
                 <li
                   key={id}
-                  className="rounded-full border border-emerald/50 px-3 py-1 font-mono text-xs uppercase tracking-wide text-emerald"
+                  className="rounded-xs border border-platinum/50 px-3 py-1 font-mono text-[11px] uppercase tracking-[0.12em] text-platinum"
                 >
                   {services[id].name}
                 </li>
@@ -123,7 +123,7 @@ export function WhichServiceFlow() {
               <Button
                 href="/contact"
                 variant="secondary"
-                className="border-ivory-soft text-ivory hover:bg-ivory hover:text-void"
+                className="border-fg-muted text-fg hover:bg-canvas hover:text-void"
               >
                 Talk to us
               </Button>

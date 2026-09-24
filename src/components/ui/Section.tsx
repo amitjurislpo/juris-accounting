@@ -1,20 +1,21 @@
 import { cn } from "@/lib/cn";
 import { Container } from "./Container";
+import { Reveal } from "@/components/motion/Reveal";
 
-type Tone = "ivory" | "cream" | "void" | "deep";
+type Tone = "canvas" | "raised" | "void" | "deep";
 
 const toneClasses: Record<Tone, string> = {
-  ivory: "bg-ivory text-charcoal",
-  cream: "bg-cream text-charcoal",
-  void: "bg-void text-ivory",
-  deep: "bg-forest-deep text-ivory",
+  canvas: "bg-transparent text-fg",
+  raised: "bg-raised/80 text-fg",
+  void: "bg-void text-fg",
+  deep: "bg-graphite text-fg",
 };
 
 const darkTones: Tone[] = ["void", "deep"];
 
 export function Section({
   id,
-  tone = "ivory",
+  tone = "canvas",
   className,
   containerClassName,
   border = true,
@@ -31,10 +32,9 @@ export function Section({
     <section
       id={id}
       className={cn(
-        "relative py-14 md:py-20",
+        "relative py-10 md:py-12",
         toneClasses[tone],
-        border && !darkTones.includes(tone) && "border-b border-hairline",
-        border && darkTones.includes(tone) && "border-b border-hairline-dark",
+        border && "border-b border-line",
         className,
       )}
     >
@@ -46,20 +46,23 @@ export function Section({
 export function Eyebrow({
   children,
   className,
-  tone = "ivory",
+  tone = "canvas",
 }: {
   children: React.ReactNode;
   className?: string;
   tone?: Tone;
 }) {
+  const dark = darkTones.includes(tone);
   return (
     <p
       className={cn(
-        "font-mono text-xs uppercase tracking-[0.22em]",
-        darkTones.includes(tone) ? "text-emerald" : "text-forest",
+        "inline-flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.26em]",
+        dark ? "text-fg-muted" : "text-fg-subtle",
         className,
       )}
     >
+      <span className="h-1 w-1 rounded-full bg-signal" aria-hidden />
+      <span className="h-px w-6 bg-line-strong" aria-hidden />
       {children}
     </p>
   );
@@ -70,7 +73,7 @@ export function SectionHeading({
   title,
   description,
   align = "left",
-  tone = "ivory",
+  tone = "canvas",
   as = "h2",
   wide = false,
 }: {
@@ -84,15 +87,19 @@ export function SectionHeading({
   wide?: boolean;
 }) {
   const Heading = as;
+  const dark = darkTones.includes(tone);
   return (
-    <div className={cn(wide ? "max-w-4xl" : "max-w-2xl", align === "center" && "mx-auto text-center")}>
-      {eyebrow && (
-        <Eyebrow tone={darkTones.includes(tone) ? "void" : "ivory"}>{eyebrow}</Eyebrow>
-      )}
+    <Reveal
+      staggerChildren
+      y={18}
+      stagger={0.09}
+      className={cn(wide ? "max-w-4xl" : "max-w-2xl", align === "center" && "mx-auto text-center")}
+    >
+      {eyebrow && <Eyebrow tone={dark ? "void" : "canvas"}>{eyebrow}</Eyebrow>}
       <Heading
         className={cn(
-          "mt-4 text-3xl leading-[1.05]",
-          wide ? "md:text-4xl lg:whitespace-nowrap lg:text-[2.75rem]" : "md:text-4xl lg:text-5xl",
+          "mt-5 text-[1.85rem] leading-[1.06] tracking-[-0.04em] text-balance",
+          wide ? "md:text-[2.4rem] lg:whitespace-nowrap lg:text-[2.6rem]" : "md:text-[2.4rem] lg:text-[2.85rem]",
         )}
       >
         {title}
@@ -100,13 +107,13 @@ export function SectionHeading({
       {description && (
         <p
           className={cn(
-            "mt-5 text-base leading-relaxed md:text-lg",
-            darkTones.includes(tone) ? "text-ivory-soft" : "text-charcoal-soft",
+            "mt-6 text-base leading-relaxed md:text-[1.07rem]",
+            dark ? "text-fg-muted" : "text-fg-muted",
           )}
         >
           {description}
         </p>
       )}
-    </div>
+    </Reveal>
   );
 }

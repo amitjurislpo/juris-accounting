@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/Button";
 
 export function ComparisonTeaser() {
   return (
-    <Section tone="cream" id="compare">
+    <Section tone="raised" id="compare">
       <SectionHeading
         eyebrow="The distinction that matters"
         title="Bookkeeping vs. accounting vs. taxation"

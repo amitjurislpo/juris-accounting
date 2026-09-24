@@ -1,12 +1,11 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { comparisonRows } from "@/content/comparison";
 import { services, type ServiceId } from "@/content/services";
 import { Link } from "@/components/ui/AppLink";
 import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/cn";
-import { getGsap, prefersReducedMotion } from "@/lib/gsap";
 
 const COLUMNS: { id: ServiceId; label: string; key: "bookkeeping" | "accounting" | "taxation" }[] = [
   { id: "bookkeeping", label: "Bookkeeping", key: "bookkeeping" },
@@ -20,47 +19,19 @@ export function ComparisonTable({ limit }: { limit?: number }) {
   const [hovered, setHovered] = useState<ServiceId | null>(null);
   const selectedService = selected ? services[selected] : null;
   const highlighted = hovered ?? selected;
-  const wrapRef = useRef<HTMLDivElement>(null);
-  const bodyRef = useRef<HTMLTableSectionElement>(null);
-
-  useEffect(() => {
-    const wrap = wrapRef.current;
-    const body = bodyRef.current;
-    if (!wrap || !body) return;
-    if (prefersReducedMotion()) return;
-    // Already-visible-on-load tables skip the animation entirely, rather
-    // than jumping down and fading out for a moment before animating back
-    // to their already-correct position (see Reveal.tsx for the same fix).
-    if (wrap.getBoundingClientRect().top < window.innerHeight * 0.85) return;
-
-    const gsap = getGsap();
-    const ctx = gsap.context(() => {
-      gsap.from(Array.from(body.children), {
-        opacity: 0,
-        y: 10,
-        duration: 0.5,
-        stagger: 0.08,
-        ease: "power2.out",
-        immediateRender: false,
-        scrollTrigger: { trigger: wrap, start: "top 85%", once: true },
-      });
-    }, wrap);
-    return () => ctx.revert();
-  }, []);
 
   return (
     <div>
       <div
-        ref={wrapRef}
-        className="overflow-x-auto overflow-y-hidden rounded-sm border border-hairline"
+        className="overflow-x-auto overflow-y-hidden rounded-card border border-line bg-surface shadow-[0_30px_60px_-45px_rgba(0,0,0,0.5)]"
         tabIndex={0}
         role="region"
         aria-label="Bookkeeping, accounting, and taxation comparison table"
       >
         <table className="w-full min-w-[720px] border-collapse text-sm">
           <thead>
-            <tr className="bg-forest text-ivory">
-              <th className="w-1/4 px-4 py-3 text-left font-mono text-xs uppercase tracking-wide">
+            <tr className="bg-surface text-fg">
+              <th className="w-1/4 px-4 py-4 text-left font-mono text-[11px] uppercase tracking-[0.16em] text-platinum">
                 Dimension
               </th>
               {COLUMNS.map((col) => (
@@ -74,8 +45,8 @@ export function ComparisonTable({ limit }: { limit?: number }) {
                     onBlur={() => setHovered(null)}
                     aria-pressed={selected === col.id}
                     className={cn(
-                      "w-full select-none px-4 py-3 text-left font-mono text-xs uppercase tracking-wide transition-colors",
-                      highlighted === col.id ? "bg-emerald text-void" : "text-ivory",
+                      "w-full select-none px-4 py-4 text-left font-mono text-[11px] uppercase tracking-[0.16em] transition-colors duration-300",
+                      highlighted === col.id ? "bg-platinum text-void" : "text-fg hover:text-platinum",
                     )}
                   >
                     {col.label}
@@ -84,26 +55,26 @@ export function ComparisonTable({ limit }: { limit?: number }) {
               ))}
             </tr>
           </thead>
-          <tbody ref={bodyRef}>
+          <tbody>
             {rows.map((row, i) => (
               <tr
                 key={row.dimension}
                 className={cn(
-                  i % 2 === 0 ? "bg-ivory" : "bg-cream",
-                  "transition-colors hover:bg-emerald/5",
+                  i % 2 === 0 ? "bg-surface" : "bg-canvas",
+                  "border-t border-line transition-colors duration-300 hover:bg-platinum/10",
                 )}
               >
-                <th scope="row" className="px-4 py-3.5 text-left font-medium text-charcoal">
+                <th scope="row" className="px-4 py-4 text-left font-display text-[15px] font-normal text-fg">
                   {row.dimension}
                 </th>
                 {COLUMNS.map((col) => (
                   <td
                     key={col.id}
                     className={cn(
-                      "px-4 py-3.5 transition-colors",
+                      "px-4 py-4 transition-colors duration-300",
                       highlighted === col.id
-                        ? "bg-emerald/10 font-medium text-charcoal"
-                        : "text-charcoal-soft",
+                        ? "bg-platinum/10 font-medium text-fg"
+                        : "text-fg-muted",
                     )}
                   >
                     {row[col.key]}
@@ -117,24 +88,24 @@ export function ComparisonTable({ limit }: { limit?: number }) {
 
       <div
         className={cn(
-          "grid transition-[grid-template-rows] duration-400 ease-out",
+          "grid transition-[grid-template-rows,margin] duration-500 ease-out",
           selectedService ? "mt-4 grid-rows-[1fr]" : "grid-rows-[0fr]",
         )}
       >
         <div className="overflow-hidden">
           {selectedService && (
-            <div className="flex flex-wrap items-center justify-between gap-4 rounded-sm border border-forest bg-cream p-5">
+            <div className="recommendation-fade flex flex-wrap items-center justify-between gap-4 rounded-control border border-silver/50 bg-raised p-6">
               <div>
-                <p className="font-mono text-xs uppercase tracking-wide text-forest">
+                <p className="font-mono text-xs uppercase tracking-wide text-silver">
                   Selected: {selectedService.name}
                 </p>
-                <p className="mt-1.5 max-w-xl text-sm text-charcoal-soft">
+                <p className="mt-1.5 max-w-xl text-sm text-fg-muted">
                   {selectedService.oneLiner}
                 </p>
               </div>
               <Link
                 href={selectedService.href}
-                className="flex items-center gap-2 text-sm font-medium text-forest"
+                className="flex items-center gap-2 text-sm font-medium text-silver"
               >
                 Explore {selectedService.shortName.toLowerCase()}
                 <ArrowRight size={16} aria-hidden />

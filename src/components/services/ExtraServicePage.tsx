@@ -1,7 +1,7 @@
 import { Link } from "@/components/ui/AppLink";
 import { Check, X, ArrowRight } from "lucide-react";
-import { Section, SectionHeading, Eyebrow } from "@/components/ui/Section";
-import { Container } from "@/components/ui/Container";
+import { Section, SectionHeading } from "@/components/ui/Section";
+import { PageHero } from "@/components/ui/PageHero";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/motion/Reveal";
 import { serviceList } from "@/content/services";
@@ -12,50 +12,28 @@ export function ExtraServicePage({ serviceId }: { serviceId: ExtraServiceId }) {
 
   return (
     <>
-      <section className="relative overflow-hidden border-b border-hairline bg-cream">
-        <div
-          className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full opacity-[0.25] blur-3xl"
-          style={{ background: "radial-gradient(closest-side, var(--emerald), transparent)" }}
-          aria-hidden
-        />
-        <Container className="relative py-12 md:py-16">
-          <Reveal staggerChildren stagger={0.1} className="max-w-3xl">
-            <nav aria-label="Breadcrumb" className="mb-4">
-              <ol className="flex gap-2 font-mono text-xs uppercase tracking-wide text-charcoal-soft">
-                <li>
-                  <Link href="/" className="hover:text-forest">
-                    Home
-                  </Link>
-                </li>
-                <li aria-hidden>/</li>
-                <li className="text-forest">{service.name}</li>
-              </ol>
-            </nav>
-            <Eyebrow>Beyond the core three</Eyebrow>
-            <h1 className="mt-4 text-4xl leading-tight text-charcoal md:text-5xl">{service.name}</h1>
-            <p className="mt-5 max-w-2xl text-lg leading-relaxed text-charcoal-soft">
-              {service.positioning}
-            </p>
-            <div className="mt-8 flex flex-wrap items-center gap-4">
-              <Button href="/contact" glow>
-                Book a consultation
-              </Button>
-              <Button href="/pricing" variant="secondary">
-                See pricing
-              </Button>
-            </div>
-          </Reveal>
-        </Container>
-      </section>
+      <PageHero
+        eyebrow="Beyond the core three"
+        title={service.name}
+        description={service.positioning}
+        crumbs={[{ label: service.name }]}
+      >
+        <Button href="/contact" glow>
+          Book a consultation
+        </Button>
+        <Button href="/pricing" variant="secondary">
+          See pricing
+        </Button>
+      </PageHero>
 
-      <Section tone="cream">
+      <Section tone="raised">
         <div className="grid gap-10 md:grid-cols-2">
           <Reveal>
             <SectionHeading eyebrow="What's included" title={`What ${service.name.toLowerCase()} covers`} />
             <ul className="mt-6 flex flex-col gap-3">
               {service.includes.map((item) => (
-                <li key={item} className="flex items-start gap-3 text-sm text-charcoal">
-                  <Check size={18} className="mt-0.5 shrink-0 text-forest" aria-hidden />
+                <li key={item} className="flex items-start gap-3 text-sm text-fg">
+                  <Check size={18} className="mt-0.5 shrink-0 text-silver" aria-hidden />
                   {item}
                 </li>
               ))}
@@ -65,12 +43,12 @@ export function ExtraServicePage({ serviceId }: { serviceId: ExtraServiceId }) {
             <SectionHeading eyebrow="What you get" title="Typical outputs" />
             <ul className="mt-6 flex flex-col gap-3">
               {service.outputs.map((item) => (
-                <li key={item} className="rounded-sm border border-hairline bg-ivory px-4 py-3 text-sm text-charcoal">
+                <li key={item} className="rounded-control border border-line bg-canvas px-4 py-3 text-sm text-fg">
                   {item}
                 </li>
               ))}
             </ul>
-            <p className="mt-6 font-mono text-xs uppercase tracking-wide text-forest">
+            <p className="mt-6 font-mono text-xs uppercase tracking-wide text-silver">
               [Confirm approved starting price] — indicative only
             </p>
           </Reveal>
@@ -85,11 +63,11 @@ export function ExtraServicePage({ serviceId }: { serviceId: ExtraServiceId }) {
               <Link
                 key={sub.slug}
                 href={`${service.href}/${sub.slug}`}
-                className="group flex flex-col rounded-sm border border-hairline bg-cream p-6 transition-colors hover:border-forest"
+                className="lux-card group flex flex-col rounded-control p-6"
               >
-                <h3 className="text-lg text-charcoal">{sub.name}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-charcoal-soft">{sub.oneLiner}</p>
-                <span className="mt-4 flex items-center gap-2 text-sm font-medium text-forest">
+                <h3 className="text-lg text-fg">{sub.name}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-fg-muted">{sub.oneLiner}</p>
+                <span className="mt-4 flex items-center gap-2 text-sm font-medium text-silver">
                   Learn more
                   <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" aria-hidden />
                 </span>
@@ -99,14 +77,14 @@ export function ExtraServicePage({ serviceId }: { serviceId: ExtraServiceId }) {
         </Section>
       )}
 
-      <Section tone="cream">
+      <Section tone="raised">
         <div className="grid gap-10 md:grid-cols-2">
           <Reveal>
             <SectionHeading eyebrow="Good fit" title={`${service.name} is a good fit if`} />
             <ul className="mt-6 flex flex-col gap-3">
               {service.goodFor.map((item) => (
-                <li key={item} className="flex items-start gap-3 text-sm text-charcoal-soft">
-                  <Check size={18} className="mt-0.5 shrink-0 text-forest" aria-hidden />
+                <li key={item} className="flex items-start gap-3 text-sm text-fg-muted">
+                  <Check size={18} className="mt-0.5 shrink-0 text-silver" aria-hidden />
                   {item}
                 </li>
               ))}
@@ -116,8 +94,8 @@ export function ExtraServicePage({ serviceId }: { serviceId: ExtraServiceId }) {
             <SectionHeading eyebrow="Not included" title="What this service doesn't cover" />
             <ul className="mt-6 flex flex-col gap-3">
               {service.notIncluded.map((item) => (
-                <li key={item} className="flex items-start gap-3 text-sm text-charcoal-soft">
-                  <X size={18} className="mt-0.5 shrink-0 text-charcoal-soft" aria-hidden />
+                <li key={item} className="flex items-start gap-3 text-sm text-fg-muted">
+                  <X size={18} className="mt-0.5 shrink-0 text-fg-muted" aria-hidden />
                   {item}
                 </li>
               ))}
@@ -133,11 +111,11 @@ export function ExtraServicePage({ serviceId }: { serviceId: ExtraServiceId }) {
             <Link
               key={other.id}
               href={other.href}
-              className="group flex flex-col rounded-sm border border-hairline bg-ivory p-6 transition-colors hover:border-forest"
+              className="lux-card group flex flex-col rounded-control p-6"
             >
-              <h3 className="text-xl text-charcoal">{other.name}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-charcoal-soft">{other.oneLiner}</p>
-              <span className="mt-4 flex items-center gap-2 text-sm font-medium text-forest">
+              <h3 className="text-xl text-fg">{other.name}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-fg-muted">{other.oneLiner}</p>
+              <span className="mt-4 flex items-center gap-2 text-sm font-medium text-silver">
                 Learn more
                 <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" aria-hidden />
               </span>

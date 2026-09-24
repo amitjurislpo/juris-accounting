@@ -3,9 +3,9 @@
 import { useState } from "react";
 import { faqItems, type FaqItem } from "@/content/faq";
 import { FaqAccordion } from "./FaqAccordion";
-import { cn } from "@/lib/cn";
+import { Tabs } from "@/components/ui/Tabs";
 
-const categories: (FaqItem["category"] | "All")[] = [
+const categories: readonly (FaqItem["category"] | "All")[] = [
   "All",
   "General",
   "Bookkeeping",
@@ -22,25 +22,23 @@ export function FaqPageContent() {
 
   return (
     <div>
-      <div className="mb-8 flex flex-wrap gap-2">
-        {categories.map((cat) => (
-          <button
-            key={cat}
-            type="button"
-            aria-pressed={category === cat}
-            onClick={() => setCategory(cat)}
-            className={cn(
-              "rounded-full border px-4 py-1.5 text-sm transition-colors",
-              category === cat
-                ? "border-forest bg-forest text-ivory"
-                : "border-hairline bg-cream text-charcoal hover:border-forest",
-            )}
-          >
-            {cat}
-          </button>
-        ))}
+      <div className="mb-10">
+        <Tabs items={categories} value={category} onChange={setCategory} label="FAQ categories" idBase="faq" />
       </div>
-      <FaqAccordion items={filtered} key={category} />
+      <div id="faq-panel" role="tabpanel" aria-labelledby={`faq-tab-${categories.indexOf(category)}`}>
+      {filtered.length > 0 ? (
+        <div key={category} className="recommendation-fade">
+          <FaqAccordion items={filtered} />
+        </div>
+      ) : (
+        <div className="recommendation-fade rounded-card border border-dashed border-line-strong bg-surface/50 px-6 py-14 text-center">
+          <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-fg-subtle">Nothing here yet</p>
+          <p className="mt-3 text-sm text-fg-muted">
+            No questions in this category yet — ask us directly and we&apos;ll answer.
+          </p>
+        </div>
+      )}
+      </div>
     </div>
   );
 }

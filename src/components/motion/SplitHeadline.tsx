@@ -1,73 +1,63 @@
 "use client";
 
-import { useLayoutEffect, useRef } from "react";
+import { Fragment, useRef, type CSSProperties } from "react";
 import { cn } from "@/lib/cn";
+import { useRevealOnView } from "./Reveal";
 
 /**
- * Masks and reveals text word-by-word, each word rising into place on a
- * stagger. Pure CSS transition (see .split-line in globals.css) driven by
- * an IntersectionObserver — no animation library needed for this effect,
- * and prefers-reduced-motion is handled by the same CSS rule site-wide.
+ * Headline text that rises into place word by word, each word from behind
+ * its own clip mask — words never leave their final line box, so there's
+ * no layout shift and no sideways sweep.
  *
- * Text is visible by default. A layout effect (synchronous, before paint)
- * measures whether the headline is already within the initial viewport —
- * if so, it's marked revealed immediately with no animation, so an
- * above-the-fold headline (like the hero H1) never sits invisible waiting
- * on an async IntersectionObserver callback. Only headlines that measure as
- * below the fold get hidden-then-revealed-on-scroll, and since they're
- * off-screen to begin with, there's nothing to flash.
+ * - trigger="load": pure CSS animation from the first frame, for
+ *   above-the-fold headlines (hero H1s) so they never wait on JS.
+ * - trigger="view" (default): plays once when scrolled into view, using
+ *   the same pre-paint hidden state as <Reveal>.
  */
 export function SplitHeadline({
   text,
   className,
   wordClassName,
   baseDelay = 0,
-  stagger = 0.05,
+  stagger = 0.06,
+  trigger = "view",
 }: {
   text: string;
   className?: string;
   wordClassName?: string;
   baseDelay?: number;
   stagger?: number;
+  trigger?: "load" | "view";
 }) {
   const ref = useRef<HTMLSpanElement>(null);
   const words = text.split(" ");
-
-  useLayoutEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-
-    if (el.getBoundingClientRect().top < window.innerHeight * 1.1) {
-      el.classList.add("is-revealed");
-      return;
-    }
-
-    el.classList.add("is-pending");
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          el.classList.remove("is-pending");
-          el.classList.add("is-revealed");
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.4 },
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
+  const inView = trigger === "view";
+  useRevealOnView(ref, {
+    enabled: inView,
+    delay: baseDelay,
+    stagger,
+    staggerChildren: false,
+    duration: 1 + stagger * words.length,
+  });
 
   return (
-    <span ref={ref} className={cn("split-line", className)}>
+    <span
+      ref={ref}
+      className={cn(!inView && "split-load", className)}
+      data-reveal={inView ? "words" : undefined}
+    >
       {words.map((word, i) => (
-        <span
-          key={i}
-          className={wordClassName}
-          style={{ transitionDelay: `${baseDelay + i * stagger}s` }}
-        >
-          {word}
-          {i < words.length - 1 ? " " : ""}
-        </span>
+        <Fragment key={i}>
+          <span className="word-mask">
+            <span
+              className={cn("word", wordClassName)}
+              style={{ "--word-delay": `${baseDelay + i * stagger}s` } as CSSProperties}
+            >
+              {word}
+            </span>
+          </span>
+          {i < words.length - 1 ? " " : null}
+        </Fragment>
       ))}
     </span>
   );

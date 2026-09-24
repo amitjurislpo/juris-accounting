@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type CSSProperties } from "react";
 import { monthlyTrend } from "@/content/dashboard";
 
 const WIDTH = 640;
@@ -23,7 +23,7 @@ export function TrendChart() {
 
   return (
     <div className="w-full">
-      <div className="mb-3 flex items-center gap-5 font-mono text-[11px] uppercase tracking-wide text-ivory-soft">
+      <div className="mb-3 flex items-center gap-5 font-mono text-[11px] uppercase tracking-wide text-fg-muted">
         <span className="flex items-center gap-1.5">
           <span className="inline-block h-2 w-2 rounded-full bg-series-revenue" />
           Revenue
@@ -32,7 +32,7 @@ export function TrendChart() {
           <span className="inline-block h-2 w-2 rounded-full bg-series-expenses" />
           Expenses
         </span>
-        <span className="ml-auto text-ivory-soft">Demo data</span>
+        <span className="ml-auto text-fg-muted">Demo data</span>
       </div>
 
       <svg
@@ -88,6 +88,8 @@ export function TrendChart() {
                 rx={2}
                 fill="var(--series-revenue)"
                 opacity={isHover || hover === null ? 1 : 0.35}
+                className="chart-bar"
+                style={{ "--bar-delay": `${0.2 + i * 0.06}s` } as CSSProperties}
               />
               <rect
                 x={groupX + gap * 2 + barW}
@@ -97,6 +99,8 @@ export function TrendChart() {
                 rx={2}
                 fill="var(--series-expenses)"
                 opacity={isHover || hover === null ? 1 : 0.35}
+                className="chart-bar"
+                style={{ "--bar-delay": `${0.26 + i * 0.06}s` } as CSSProperties}
               />
               <text
                 x={groupX + groupW / 2}
@@ -104,7 +108,7 @@ export function TrendChart() {
                 textAnchor="middle"
                 fontSize={10}
                 className="font-mono"
-                fill="var(--ivory-soft)"
+                fill="var(--fg-muted)"
               >
                 {m.month}
               </text>
@@ -116,13 +120,13 @@ export function TrendChart() {
       <div className="relative h-0">
         {hover !== null && (
           <div
-            className="pointer-events-none absolute -top-[196px] rounded-sm border border-chart-grid bg-forest-deep px-3 py-2 font-mono text-[11px] text-ivory shadow-lg"
+            className="tooltip-in pointer-events-none absolute -top-[196px] rounded-control border border-platinum/30 bg-void/95 px-3 py-2 font-mono text-[11px] text-fg shadow-[0_18px_40px_-16px_rgba(0,0,0,0.9)] backdrop-blur transition-[left] duration-300 ease-out"
             style={{
               left: `${((hover + 0.5) / monthlyTrend.length) * 100}%`,
               transform: "translateX(-50%)",
             }}
           >
-            <p className="mb-1 text-ivory-soft">{monthlyTrend[hover].month}</p>
+            <p className="mb-1 text-fg-muted">{monthlyTrend[hover].month}</p>
             <p>
               <span className="text-series-revenue">Revenue</span>{" "}
               ${monthlyTrend[hover].revenue}k

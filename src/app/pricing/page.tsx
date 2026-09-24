@@ -26,13 +26,13 @@ export default function PricingPage() {
         </Reveal>
       </Section>
 
-      <Section tone="cream">
+      <Section tone="raised">
         <SectionHeading eyebrow="How to read this" title="Pricing assumptions" />
         <Reveal>
           <ul className="mt-6 flex flex-col gap-3">
             {pricingAssumptions.map((item) => (
-              <li key={item} className="flex gap-3 rounded-sm border border-hairline bg-ivory px-4 py-3 text-sm text-charcoal-soft">
-                <span className="font-mono text-forest">→</span>
+              <li key={item} className="flex gap-4 rounded-control border border-line bg-surface px-5 py-4 text-sm text-fg-muted transition-colors duration-300 hover:border-silver/40">
+                <span className="font-mono text-silver">→</span>
                 {item}
               </li>
             ))}

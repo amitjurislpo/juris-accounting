@@ -47,7 +47,7 @@ export default function AboutPage() {
 
       <Section>
         <Reveal className="max-w-2xl">
-          <p className="text-base leading-relaxed text-charcoal-soft md:text-lg">
+          <p className="text-base leading-relaxed text-fg-muted md:text-lg">
             Our team provides bookkeeping, accounting, payroll, and tax
             services designed to give business owners reliable financial
             support throughout the year. We believe accounting should be
@@ -56,14 +56,16 @@ export default function AboutPage() {
         </Reveal>
       </Section>
 
-      <Section tone="cream">
+      <Section tone="raised">
         <SectionHeading eyebrow="How we work" title="Our approach" />
         <Reveal staggerChildren className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {approach.map((item) => (
-            <div key={item.title} className="rounded-sm border border-hairline bg-ivory p-6">
-              <item.icon className="text-forest" size={24} aria-hidden />
-              <h3 className="mt-3 text-lg text-charcoal">{item.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-charcoal-soft">{item.body}</p>
+            <div key={item.title} className="rounded-control border border-line bg-surface p-7">
+              <span className="icon-draw block text-silver" aria-hidden>
+                <item.icon size={24} />
+              </span>
+              <h3 className="mt-3 text-lg text-fg">{item.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-fg-muted">{item.body}</p>
             </div>
           ))}
         </Reveal>
@@ -73,7 +75,7 @@ export default function AboutPage() {
         <div className="grid gap-10 md:grid-cols-2">
           <Reveal>
             <SectionHeading eyebrow="What we do" title="Bookkeeping, accounting, taxation, and controller oversight" />
-            <p className="mt-5 text-sm leading-relaxed text-charcoal-soft md:text-base">
+            <p className="mt-5 text-sm leading-relaxed text-fg-muted md:text-base">
               We treat these as distinct disciplines rather than one blended
               service. Bookkeeping keeps your transaction records accurate.
               Accounting reviews and explains what those records mean.
@@ -84,12 +86,12 @@ export default function AboutPage() {
           </Reveal>
           <Reveal delay={0.1}>
             <SectionHeading eyebrow="Scope & pricing" title="Scoped to your business, not a template" />
-            <p className="mt-5 text-sm leading-relaxed text-charcoal-soft md:text-base">
+            <p className="mt-5 text-sm leading-relaxed text-fg-muted md:text-base">
               Every engagement starts with understanding your entity structure,
               transaction volume, and reporting needs. That shapes which
               services you need and how pricing is confirmed — covered in
               full on our{" "}
-              <Link href="/pricing" className="text-forest underline underline-offset-4">
+              <Link href="/pricing" className="text-silver underline decoration-silver/40 underline-offset-4 transition-colors hover:decoration-silver">
                 pricing page
               </Link>
               .
@@ -98,7 +100,7 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      <Section tone="cream">
+      <Section tone="raised">
         <SectionHeading
           eyebrow="Who we are"
           title="Team, credentials, and company details"

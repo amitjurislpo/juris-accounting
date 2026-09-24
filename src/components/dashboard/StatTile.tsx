@@ -13,18 +13,18 @@ export function StatTile({
   delta: string;
 }) {
   return (
-    <div className="rounded-sm border border-chart-grid bg-forest-deep p-4">
-      <p className="font-mono text-[10px] uppercase tracking-wide text-ivory-soft">
+    <div className="rounded-control border border-chart-grid bg-graphite p-4 transition-colors duration-500 hover:border-platinum/35">
+      <p className="font-mono text-[10px] uppercase tracking-wide text-fg-muted">
         {label}
       </p>
-      <p className="mt-2 font-display text-2xl text-ivory">
+      <p className="mt-2 font-display text-[1.7rem] tracking-[-0.02em] text-fg">
         $<AnimatedNumber value={value} />
         {unit}
       </p>
       <p className="mt-1 flex items-center gap-1 text-xs text-status-good">
         <TrendingUp size={12} aria-hidden />
         {delta}
-        <span className="text-ivory-soft">vs. last month</span>
+        <span className="text-fg-muted">vs. last month</span>
       </p>
     </div>
   );
