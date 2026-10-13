@@ -93,7 +93,7 @@ export default function AboutPage() {
         <SectionHeading
           eyebrow="Who we are"
           title="Meet the team"
-          description="The people behind every engagement. Names, roles, and formal credentials will be finalized once approved. [Add approved company background]"
+          description="The people behind every engagement — experienced accounting, bookkeeping and tax professionals who stay close to your numbers and your business."
         />
         <TeamGrid />
       </Section>

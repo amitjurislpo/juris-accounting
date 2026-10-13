@@ -5,12 +5,10 @@ import { PageHero } from "@/components/ui/PageHero";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/motion/Reveal";
 import { services, serviceList, type ServiceId } from "@/content/services";
-import { servicePriceMeta } from "@/content/pricing";
 
 export function ServicePage({ serviceId }: { serviceId: ServiceId }) {
   const service = services[serviceId];
   const others = serviceList.filter((s) => s.id !== serviceId);
-  const priceMeta = servicePriceMeta[serviceId];
 
   return (
     <>
@@ -54,7 +52,7 @@ export function ServicePage({ serviceId }: { serviceId: ServiceId }) {
               ))}
             </ul>
             <p className="mt-6 font-mono text-xs uppercase tracking-wide text-silver">
-              Starting from {priceMeta.startingLabel}{priceMeta.unit} — indicative only
+              Custom quote — scoped to your needs
             </p>
           </Reveal>
         </div>

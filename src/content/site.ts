@@ -1,6 +1,4 @@
-// Site-wide constants and placeholders.
-// Anything not yet confirmed by the business is marked as a placeholder string
-// wrapped in [ ] so it is impossible to mistake for a real fact.
+// Site-wide constants.
 
 export const site = {
   name: "Juris Accounting",
@@ -8,13 +6,9 @@ export const site = {
   tagline: "Bookkeeping, accounting, and taxation — one accountable partner.",
   description:
     "Juris Accounting provides bookkeeping, accounting, and taxation services for businesses and individuals, structured around what your engagement actually needs.",
-  email: "[Add approved contact email]",
-  phone: "[Add approved contact phone]",
-  address: "[Add approved business address]",
-  hours: "[Confirm business hours]",
-  socials: {
-    linkedin: "[Add LinkedIn URL]",
-  },
+  email: "contact@jurislpo.com",
+  phone: "+1 (646) 233-8454",
+  hours: "Mon–Fri • 9 AM – 6 PM",
 } as const;
 
 export const legalNotice =

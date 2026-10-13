@@ -1,10 +1,9 @@
 import type { ServiceId } from "./services";
 
 // Pricing is modeled as Service x Module x Entity.
-// No real prices are approved yet, so every number-shaped value is a
-// clearly bracketed placeholder. The selector below is a front-end
-// prototype only — it demonstrates how scope drives the pricing
-// conversation, it does not compute a real quote.
+// Final pricing is a tailored quote confirmed after a short scoping
+// conversation. The selector below shows how scope drives that
+// conversation — it does not compute a binding quote.
 
 export type EntityType = "individual" | "business";
 
@@ -31,16 +30,6 @@ export const complexityTiers: {
     helper: "High volume, multiple accounts or revenue streams, added reporting needs",
   },
 ];
-
-export const servicePriceMeta: Record<
-  ServiceId,
-  { startingLabel: string; unit: string }
-> = {
-  bookkeeping: { startingLabel: "[Add approved starting price]", unit: "/month" },
-  accounting: { startingLabel: "[Add approved starting price]", unit: "/month" },
-  taxation: { startingLabel: "[Add approved starting price]", unit: "/return" },
-  controller: { startingLabel: "[Add approved starting price]", unit: "/month" },
-};
 
 export type PricingSelection = {
   services: ServiceId[];
@@ -85,11 +74,9 @@ export function evaluatePricing(selection: PricingSelection): PricingOutcome {
   if (isComplex) factors.push("Complex transaction volume or reporting needs");
 
   if (!multiService && !multiEntity && !isComplex) {
-    const service = services[0];
-    const meta = servicePriceMeta[service];
     return {
       mode: "starting-price",
-      headline: `Starting from ${meta.startingLabel}${meta.unit}`,
+      headline: "Tailored quote for your single-service scope",
       detail:
         "This is indicative pricing for a typical single-service, single-entity scope. Final pricing is confirmed after reviewing your specific situation.",
       factors: [],

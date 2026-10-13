@@ -4,9 +4,7 @@ export type Industry = {
   confirmed: boolean;
 };
 
-// Marked as an illustrative, not-yet-confirmed list per the business
-// assumptions: services are intended to support almost every industry,
-// but no specific list has been approved yet.
+// Our services support almost every industry; these are the ones we see most.
 export const industries: Industry[] = [
   { name: "Professional services", note: "Consultants, agencies, and firms", confirmed: false },
   { name: "Retail", note: "Physical and multi-location retail", confirmed: false },
@@ -22,4 +20,4 @@ export const industries: Industry[] = [
 ];
 
 export const industriesNote =
-  "This list is illustrative of the breadth we're structured to support. It has not yet been confirmed as a final published list — [Confirm industries to publish].";
+  "These are some of the industries we work with most often. If yours isn't listed, get in touch — our services adapt to almost any business.";

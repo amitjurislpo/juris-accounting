@@ -81,7 +81,9 @@ export function Footer() {
         </Reveal>
 
         <div className="flex flex-col gap-4 border-t border-line py-7 text-xs text-fg-subtle md:flex-row md:items-center md:justify-between">
-          <p className="max-w-2xl leading-relaxed">{legalNotice}</p>
+          <p className="max-w-2xl leading-relaxed">
+            <strong className="font-semibold text-fg">Disclaimer:</strong> {legalNotice}
+          </p>
           <div className="flex gap-6">
             {footerNav.legal.map((link) => (
               <Link key={link.href} href={link.href} className="link-draw hover:text-fg">

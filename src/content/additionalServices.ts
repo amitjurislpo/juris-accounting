@@ -26,4 +26,4 @@ export const additionalServices: AdditionalService[] = [
 ];
 
 export const additionalServicesNote =
-  "Scope and pricing for these services are confirmed directly with our team — [Confirm details before publishing].";
+  "Scope and pricing for these services are confirmed directly with our team.";

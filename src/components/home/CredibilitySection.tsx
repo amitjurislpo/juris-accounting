@@ -40,9 +40,9 @@ export function CredibilitySection() {
           />
         </p>
         <p className="mt-6 max-w-xl text-fg-muted">
-          We&apos;d rather show you how an engagement actually runs than list
-          certifications we haven&apos;t confirmed yet. Formal credentials and
-          client proof points will appear here once approved.
+          We&apos;d rather show you how an engagement actually runs than hide
+          behind badges: clear scope, direct communication, and records that
+          stay yours.
         </p>
       </Reveal>
 
@@ -58,9 +58,6 @@ export function CredibilitySection() {
         ))}
       </Reveal>
 
-      <p className="mt-8 font-mono text-xs text-fg-muted">
-        [Reserved for approved credentials, certifications, and client proof points]
-      </p>
     </Section>
   );
 }

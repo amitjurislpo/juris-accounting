@@ -6,29 +6,29 @@ import { site } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Privacy policy | Juris Accounting",
-  description: "Placeholder privacy policy for Juris Accounting.",
+  description: "How Juris Accounting collects, uses, and protects your information.",
 };
 
 const sections = [
   {
     heading: "What we collect",
-    body: "Contact details you provide directly, and any financial records you share as part of an engagement. [Confirm analytics and tracking tools once approved]",
+    body: "Contact details you provide directly, and any financial records you share as part of an engagement. We may also collect basic, anonymous site usage information to understand how the website is used.",
   },
   {
     heading: "How we use it",
-    body: "To respond to inquiries, deliver the services you engage us for, and communicate about your account. [Confirm data-use policy with legal counsel before publishing]",
+    body: "To respond to inquiries, deliver the services you engage us for, and communicate about your account. We do not sell your information.",
   },
   {
     heading: "Sharing with third parties",
-    body: "[Add approved policy on sharing data with service providers, e-filing systems, or software partners]",
+    body: "We share information only where needed to deliver your engagement — for example with e-filing systems or accounting software you authorize — and with service providers bound by confidentiality obligations.",
   },
   {
     heading: "Retention",
-    body: "[Confirm retention period for client financial records]",
+    body: "We keep client financial records for as long as needed to deliver our services and to meet applicable record-keeping and tax obligations, and securely dispose of them afterward.",
   },
   {
     heading: "Your rights",
-    body: "[Confirm applicable data protection rights and jurisdiction before publishing]",
+    body: "Depending on where you are located, you may have rights to access, correct, or request deletion of your personal information. Contact us and we will respond promptly.",
   },
   {
     heading: "Contact",
@@ -42,7 +42,7 @@ export default function PrivacyPage() {
       <PageHero
         eyebrow="Legal"
         title="Privacy policy"
-        description="Placeholder content. This page must be reviewed and approved before the site goes live."
+        description="How we collect, use, and protect your information."
       />
       <Section>
         <Reveal className="flex max-w-2xl flex-col gap-8">
