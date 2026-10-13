@@ -93,7 +93,7 @@ test("pricing builder moves between starting price and consultation", async ({ p
   await page.goto("/pricing");
   const outcome = page.getByTestId("pricing-outcome");
 
-  await expect(outcome.getByText(/Starting from/i)).toBeVisible();
+  await expect(outcome.getByText(/Tailored quote/i)).toBeVisible();
 
   await page.getByRole("button", { name: "Accounting" }).first().click();
   await expect(outcome.getByText(/consultation/i).first()).toBeVisible();
@@ -116,22 +116,19 @@ test("faq accordion expands and collapses", async ({ page }) => {
   await expect(secondQuestion).toHaveAttribute("aria-expanded", "true");
 });
 
-test("dashboard concept renders demo data on the homepage", async ({ page }) => {
+test("dashboard renders on the homepage", async ({ page }) => {
   await page.goto("/");
   const dashboard = page.locator("#dashboard");
   await dashboard.scrollIntoViewIfNeeded();
-  await expect(dashboard.getByText("Demo data").first()).toBeVisible();
+  await expect(dashboard.getByText("Monthly overview").first()).toBeVisible();
   await expect(dashboard.locator("svg").first()).toBeVisible();
 });
 
-test("contact form shows a static-preview confirmation on submit", async ({ page }) => {
+test("contact page shows email and phone instead of a form", async ({ page }) => {
   await page.goto("/contact");
-  await page.getByLabel("Name", { exact: true }).fill("Test User");
-  await page.getByLabel("Email", { exact: true }).fill("test@example.com");
-  await page.getByRole("button", { name: "Send inquiry" }).click();
-  await expect(
-    page.getByText("we'll follow up shortly", { exact: false }),
-  ).toBeVisible();
+  await expect(page.locator("form")).toHaveCount(0);
+  await expect(page.getByRole("link", { name: /contact@jurislpo\.com/ })).toHaveAttribute("href", "mailto:contact@jurislpo.com");
+  await expect(page.getByRole("link", { name: /\+1 \(646\) 233-8454/ })).toHaveAttribute("href", "tel:+16462338454");
 });
 
 test("reduced motion is respected: content is visible without waiting on animation", async ({ page }) => {

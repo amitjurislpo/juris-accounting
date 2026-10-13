@@ -40,7 +40,7 @@ export function SubServicePage({
             </p>
           ))}
           <p className="mt-6 font-mono text-xs uppercase tracking-wide text-silver">
-            [Confirm approved starting price] — indicative only
+            Custom quote — scoped to your needs
           </p>
         </Reveal>
       </Section>

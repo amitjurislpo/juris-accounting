@@ -3,11 +3,12 @@
 /* ==================================================================
    Design tokens
 
-   A monochrome, cinematic dark system: black → near-black → charcoal →
-   graphite → soft grey, lit from the top-left like a single studio
-   light. Contrast is controlled (every text pairing below clears
-   WCAG AA). One restrained accent — a cool "signal" blue-grey — is
-   reserved for live/status dots, focus rings and active indicators.
+   A black monochrome system with a single logo-gold accent: black →
+   near-black → charcoal → graphite → soft grey, lit from the top-left
+   like a single studio light. Contrast is controlled (every text
+   pairing below clears WCAG AA). The gold accent (--gold, --silver,
+   --signal) is reserved for eyebrows, links, numerals, live/status
+   dots, focus rings and active indicators.
    ================================================================== */
 :root {
   /* Surfaces, darkest → lightest */
@@ -20,25 +21,26 @@
 
   /* Lines */
   --line: rgba(255, 255, 255, 0.08);
-  --line-strong: rgba(255, 255, 255, 0.14);
+  --line-strong: rgba(214, 194, 156, 0.18);
 
   /* Text */
-  --fg: #f2f2f0; /* primary — 18:1 on canvas */
-  --fg-muted: #a0a0a0; /* secondary — 7.7:1 */
-  --fg-subtle: #858585; /* metadata — ≥4.6:1 on every surface */
+  --fg: #fbfbf9; /* primary — 18:1 on canvas */
+  --fg-muted: #dcdcd9; /* secondary — ≥14:1 */
+  --fg-subtle: #c0c0bd; /* metadata — ≥10:1 on every surface */
 
   /* Metals — tonal accents, not colours */
-  --silver: #cfcfcf; /* text accent (eyebrows, links, numerals) */
+  --silver: #d6c29c; /* champagne gold: eyebrows, links, numerals */
   --platinum: #ececea; /* bright fills (primary buttons, active chips) */
 
   /* The single colour accent: status dots, focus, active indicators */
-  --signal: #8fb4c8;
+  --signal: #c9974f; /* logo gold */
+  --gold: #c9974f;
 
   /* Dashboard / data */
   --chart-grid: rgba(255, 255, 255, 0.06);
   --chart-axis: rgba(255, 255, 255, 0.14);
-  --series-revenue: #e6e6e6;
-  --series-expenses: #6a6a6a;
+  --series-revenue: #e2c58d;
+  --series-expenses: #5e5444;
   --status-good: #7fd6a4;
   --status-warning: #e3c16f;
   --status-serious: #e0916b;
@@ -81,6 +83,7 @@
   --color-silver: var(--silver);
   --color-platinum: var(--platinum);
   --color-signal: var(--signal);
+  --color-gold: var(--gold);
 
   --color-chart-grid: var(--chart-grid);
   --color-chart-axis: var(--chart-axis);
@@ -130,7 +133,7 @@
 body {
   font-size: 0.94rem;
   background:
-    radial-gradient(120% 70% at 0% 0%, rgba(255, 255, 255, 0.045), transparent 55%),
+    radial-gradient(120% 70% at 0% 0%, rgba(201, 151, 79, 0.07), transparent 55%),
     radial-gradient(140% 100% at 50% 120%, rgba(0, 0, 0, 0.6), transparent 60%),
     var(--canvas);
   background-attachment: fixed;
@@ -142,7 +145,7 @@ body::after {
   inset: 0;
   z-index: var(--z-grain);
   pointer-events: none;
-  opacity: 0.05;
+  opacity: 0.03;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
@@ -185,7 +188,7 @@ body::after {
 
   /* Brushed-metal text, used sparingly on display words. */
   .text-metal {
-    background: linear-gradient(100deg, #8d8d8d 0%, #f4f4f2 38%, #bdbdbd 58%, #ffffff 72%, #8a8a8a 100%);
+    background: linear-gradient(100deg, #8a6a35 0%, #f6e7c6 38%, #c9a464 58%, #fff4dc 72%, #8a6a35 100%);
     background-size: 200% 100%;
     background-clip: text;
     -webkit-background-clip: text;
@@ -728,7 +731,7 @@ body::after {
 
   /* Hero headline: bright top-lit gradient with a soft halo. */
   .hero-title-word {
-    background: linear-gradient(180deg, #ffffff 30%, #b9b9b9 100%);
+    background: linear-gradient(180deg, #ffffff 30%, #c9c3b8 100%);
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
@@ -1265,8 +1268,8 @@ body::after {
       from var(--orbit),
       transparent 0deg,
       transparent 250deg,
-      rgba(255, 255, 255, 0.35) 300deg,
-      #ffffff 340deg,
+      rgba(201, 151, 79, 0.45) 300deg,
+      #e9c88a 340deg,
       transparent 360deg
     );
     -webkit-mask:

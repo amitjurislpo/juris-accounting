@@ -21,7 +21,7 @@ export function StatusList() {
   return (
     <div className="rounded-control border border-chart-grid bg-graphite p-4 transition-colors duration-500 hover:border-platinum/35">
       <p className="font-mono text-[10px] uppercase tracking-wide text-fg-muted">
-        Reconciliation status (demo)
+        Reconciliation status
       </p>
       <ul className="mt-3 flex flex-col gap-2.5">
         {reconciliationStatus.map((row) => {

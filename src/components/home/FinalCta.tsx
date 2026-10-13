@@ -17,7 +17,7 @@ export function FinalCta() {
           <h2 className="text-3xl leading-[1.08] md:text-[2.75rem]">
             Ready to see which service fits your business?
           </h2>
-          <p className="mt-3 text-fg/80">
+          <p className="mt-3 text-fg">
             A short consultation is the fastest way to get a clear answer on
             scope and pricing — no obligation, no guesswork.
           </p>

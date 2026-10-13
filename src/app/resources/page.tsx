@@ -19,7 +19,7 @@ export default function ResourcesPage() {
       <PageHero
         eyebrow="Resources"
         title="Guides on bookkeeping, accounting, and tax basics"
-        description="A starting library of explainer content. This is a placeholder structure ahead of our full content and digital marketing program."
+        description="Plain-language explainers to help you keep your books, reporting, and taxes in order."
       />
       <Section>
         <Reveal staggerChildren className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">

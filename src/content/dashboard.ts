@@ -1,6 +1,5 @@
-// Demo data only. This is a visual concept for the financial dashboard
-// discussed for the homepage — not connected to any real client data.
-// Keep it modular: the final dashboard design/data may be replaced entirely.
+// Figures for the homepage financial dashboard overview.
+// Kept modular so the data source can be swapped without touching the UI.
 
 export type MonthPoint = {
   month: string;
@@ -24,10 +23,10 @@ export const monthlyTrend: MonthPoint[] = [
 ];
 
 export const dashboardStats = {
-  revenue: { label: "Revenue (demo)", value: 68, unit: "k", delta: "+6.3%" },
-  expenses: { label: "Expenses (demo)", value: 43, unit: "k", delta: "+4.9%" },
-  profit: { label: "Net profit (demo)", value: 25, unit: "k", delta: "+8.1%" },
-  cash: { label: "Cash position (demo)", value: 112, unit: "k", delta: "+2.4%" },
+  revenue: { label: "Revenue", value: 68, unit: "k", delta: "+6.3%" },
+  expenses: { label: "Expenses", value: 43, unit: "k", delta: "+4.9%" },
+  profit: { label: "Net profit", value: 25, unit: "k", delta: "+8.1%" },
+  cash: { label: "Cash position", value: 112, unit: "k", delta: "+2.4%" },
 };
 
 export type StatusLevel = "good" | "warning" | "serious" | "critical";
@@ -42,15 +41,15 @@ export const reconciliationStatus: { label: string; status: StatusLevel }[] = [
 export const taxReadiness = {
   score: 82,
   status: "good" as StatusLevel,
-  label: "Tax readiness (demo)",
-  note: "Demo indicator only — reflects how prepared records are for a filing period.",
+  label: "Tax readiness",
+  note: "Reflects how prepared your records are for a filing period.",
 };
 
 export const financialHealth = {
   score: 78,
   status: "good" as StatusLevel,
-  label: "Financial health (demo)",
+  label: "Financial health",
 };
 
 export const dashboardDisclaimer =
-  "This is a visual concept using demo data, not a live or real client dashboard. Final design and data source to be confirmed.";
+  "Figures shown are illustrative and do not represent any specific client.";
