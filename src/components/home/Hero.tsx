@@ -61,7 +61,7 @@ export function Hero() {
                 wordClassName="text-metal hero-title-glow pr-[0.04em]"
               />
             </h1>
-            <p className="enter mt-7 max-w-lg border-l border-white/25 pl-5 text-base font-medium leading-relaxed text-fg/80 sm:text-[1.15rem]" style={enter(0.55)}>
+            <p className="enter mt-7 max-w-lg border-l border-white/25 pl-5 text-base font-medium leading-relaxed text-fg sm:text-[1.15rem]" style={enter(0.55)}>
               <span className="text-fg">Bookkeeping, accounting, taxation, and controller oversight</span> —
               engineered as <span className="font-semibold text-fg">one accountable system</span>, structured around what
               your business actually needs.

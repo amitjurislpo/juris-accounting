@@ -49,7 +49,7 @@ export function ExtraServicePage({ serviceId }: { serviceId: ExtraServiceId }) {
               ))}
             </ul>
             <p className="mt-6 font-mono text-xs uppercase tracking-wide text-silver">
-              [Confirm approved starting price] — indicative only
+              Custom quote — scoped to your needs
             </p>
           </Reveal>
         </div>

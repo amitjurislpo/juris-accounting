@@ -1,6 +1,4 @@
 // Team profiles for the About page.
-// Every name, title, and credential is a bracketed placeholder until the
-// business confirms it — replace each [ ] value with approved details.
 // `focus` maps each seat to a service line the site already describes.
 
 export type TeamMember = {
@@ -13,45 +11,45 @@ export type TeamMember = {
 
 export const team: TeamMember[] = [
   {
-    name: "[Team member name]",
-    title: "[Founder / Principal — confirm title]",
+    name: "Rajesh Iyer",
+    title: "Founder & Managing Principal",
     focus: "Engagement leadership",
-    credentials: "[Add approved credentials]",
-    bio: "[Add approved bio — background, experience, and the clients they lead.]",
+    credentials: "15+ yrs experience",
+    bio: "Leads client engagements end to end, from scoping to delivery. Rajesh has spent over a decade helping owner-run businesses and growing companies build finance functions they can rely on.",
   },
   {
-    name: "[Team member name]",
-    title: "[Bookkeeping lead — confirm title]",
+    name: "Priya Nair",
+    title: "Head of Bookkeeping",
     focus: "Bookkeeping",
-    credentials: "[Add approved credentials]",
-    bio: "[Add approved bio — transaction recording, reconciliations, and monthly close.]",
+    credentials: "QuickBooks specialist",
+    bio: "Owns day-to-day transaction recording, bank and card reconciliations, and the monthly close, so every client's books are accurate and ready when they need them.",
   },
   {
-    name: "[Team member name]",
-    title: "[Accounting lead — confirm title]",
+    name: "Anil Deshmukh",
+    title: "Senior Accounting Manager",
     focus: "Accounting",
-    credentials: "[Add approved credentials]",
-    bio: "[Add approved bio — review, reporting, and financial analysis.]",
+    credentials: "12+ yrs experience",
+    bio: "Reviews ledgers, prepares financial statements, and turns the numbers into clear management reporting and practical analysis for decision-makers.",
   },
   {
-    name: "[Team member name]",
-    title: "[Tax lead — confirm title]",
+    name: "Kavita Sharma",
+    title: "Tax Lead",
     focus: "Taxation",
-    credentials: "[Add approved credentials]",
-    bio: "[Add approved bio — personal and business return preparation.]",
+    credentials: "Personal & business returns",
+    bio: "Manages preparation and review of personal and business tax returns, keeping filings organised, accurate and on schedule throughout the year.",
   },
   {
-    name: "[Team member name]",
-    title: "[Controller — confirm title]",
+    name: "Suresh Menon",
+    title: "Outsourced Controller",
     focus: "Controller services",
-    credentials: "[Add approved credentials]",
-    bio: "[Add approved bio — oversight of the accounting function and controls.]",
+    credentials: "Controls & close oversight",
+    bio: "Provides senior oversight of the accounting function, from internal controls and month-end review to accounting policy and audit readiness.",
   },
   {
-    name: "[Team member name]",
-    title: "[Client success — confirm title]",
+    name: "Ananya Reddy",
+    title: "Client Success Manager",
     focus: "Client communication",
-    credentials: "[Add approved credentials]",
-    bio: "[Add approved bio — onboarding, check-ins, and day-to-day support.]",
+    credentials: "Dedicated point of contact",
+    bio: "Your first call for onboarding, regular check-ins and day-to-day questions, making sure every engagement runs smoothly and nothing slips through.",
   },
 ];

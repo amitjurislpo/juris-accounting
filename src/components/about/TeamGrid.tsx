@@ -3,9 +3,8 @@ import { Reveal } from "@/components/motion/Reveal";
 import { team } from "@/content/team";
 
 /**
- * Six team cards. The portrait is a placeholder frame (no stock photos or
- * invented people) with a slow scan and orbiting ring until approved
- * headshots are supplied.
+ * Six team cards. The portrait is a neutral frame with a slow scan and
+ * orbiting ring.
  */
 export function TeamGrid() {
   return (

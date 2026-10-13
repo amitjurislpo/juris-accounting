@@ -11,7 +11,7 @@ export function ResourcesPreview() {
       <SectionHeading
         eyebrow="For later reading"
         title="Guides on bookkeeping, accounting, and tax basics"
-        description="A starting set of explainer articles. More will be added as our content and digital marketing program develops."
+        description="Practical explainers on bookkeeping, accounting, and taxation basics."
       />
       <Reveal staggerChildren className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
         {articles.map((article) => (

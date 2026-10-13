@@ -32,14 +32,14 @@ export function TrendChart() {
           <span className="inline-block h-2 w-2 rounded-full bg-series-expenses" />
           Expenses
         </span>
-        <span className="ml-auto text-fg-muted">Demo data</span>
+        <span className="ml-auto text-fg-muted">Monthly overview</span>
       </div>
 
       <svg
         viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
         className="w-full overflow-visible"
         role="img"
-        aria-label="Monthly revenue and expenses trend, demo data"
+        aria-label="Monthly revenue and expenses trend"
       >
         {[0.25, 0.5, 0.75, 1].map((f) => (
           <line
@@ -153,7 +153,7 @@ export function TrendChart() {
         }}
       >
       <table>
-        <caption>Monthly revenue and expenses, demo data</caption>
+        <caption>Monthly revenue and expenses</caption>
         <thead>
           <tr>
             <th>Month</th>

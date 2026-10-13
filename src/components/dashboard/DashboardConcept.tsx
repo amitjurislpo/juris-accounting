@@ -19,13 +19,13 @@ export function DashboardConcept() {
         <div>
           <p className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.2em] text-platinum">
             <span className="beacon relative h-1.5 w-1.5 rounded-full bg-platinum" aria-hidden />
-            Financial dashboard — concept preview
+            Financial dashboard
           </p>
           <p className="mt-1 text-sm text-fg-muted">
-            A visual concept for what a client dashboard could look like. Design and data source to be finalized.
+            Revenue, expenses, cash position, tax readiness and reconciliation status in one view.
           </p>
         </div>
-        <Badge tone="platinum-on-dark">Demo data</Badge>
+        <Badge tone="platinum-on-dark">Monthly overview</Badge>
       </div>
 
       <Reveal staggerChildren stagger={0.08} delay={0.15} className="mt-6 grid grid-cols-2 gap-3 md:grid-cols-4">
@@ -38,7 +38,7 @@ export function DashboardConcept() {
       <Reveal staggerChildren delay={0.5} className="mt-4 grid gap-4 md:grid-cols-[1.6fr_1fr]">
         <div className="rounded-control border border-chart-grid bg-graphite p-4 transition-colors duration-500 hover:border-platinum/35">
           <p className="mb-2 font-mono text-[10px] uppercase tracking-wide text-fg-muted">
-            Monthly trend (demo)
+            Monthly trend
           </p>
           <TrendChart />
         </div>

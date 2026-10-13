@@ -16,9 +16,9 @@ export default function PricingPage() {
   return (
     <>
       <PageHero
-        eyebrow="Pricing guide (prototype)"
+        eyebrow="Pricing guide"
         title="Pricing starts with understanding your business"
-        description="Select what you need below. This is a front-end prototype to help you understand how scope drives pricing — not a live quote engine."
+        description="Select what you need below to see how scope drives pricing. Final pricing is always a tailored quote confirmed with you."
       />
       <Section>
         <Reveal>
