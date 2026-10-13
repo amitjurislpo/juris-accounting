@@ -11,11 +11,11 @@ export type TeamMember = {
 
 export const team: TeamMember[] = [
   {
-    name: "Rajesh Iyer",
+    name: "Ritz Panchal",
     title: "Founder & Managing Principal",
     focus: "Engagement leadership",
     credentials: "15+ yrs experience",
-    bio: "Leads client engagements end to end, from scoping to delivery. Rajesh has spent over a decade helping owner-run businesses and growing companies build finance functions they can rely on.",
+    bio: "Leads client engagements end to end, from scoping to delivery. Ritz has spent over a decade helping owner-run businesses and growing companies build finance functions they can rely on.",
   },
   {
     name: "Priya Nair",
