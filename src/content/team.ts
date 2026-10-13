@@ -1,9 +1,8 @@
 // Team profiles for the About page.
-// `focus` maps each seat to a service line the site already describes.
+// `focus` maps each team to a service line the site already describes.
 
 export type TeamMember = {
   name: string;
-  title: string;
   focus: string;
   credentials: string;
   bio: string;
@@ -11,45 +10,39 @@ export type TeamMember = {
 
 export const team: TeamMember[] = [
   {
-    name: "Ritz Panchal",
-    title: "Founder & Managing Principal",
+    name: "Client Engagement & Leadership Team",
     focus: "Engagement leadership",
-    credentials: "15+ yrs experience",
-    bio: "Leads client engagements end to end, from scoping to delivery. Ritz has spent over a decade helping owner-run businesses and growing companies build finance functions they can rely on.",
+    credentials: "Client Service & Operations Management",
+    bio: "Our engagement leadership team oversees client relationships, service delivery, and operational coordination. We ensure every engagement is managed with clear communication, consistent processes, and a commitment to delivering reliable accounting and tax support.",
   },
   {
-    name: "Priya Nair",
-    title: "Head of Bookkeeping",
+    name: "Bookkeeping & Accounting Specialists",
     focus: "Bookkeeping",
-    credentials: "QuickBooks specialist",
-    bio: "Owns day-to-day transaction recording, bank and card reconciliations, and the monthly close, so every client's books are accurate and ready when they need them.",
+    credentials: "Intuit ProAdvisor | Power Query | Bookkeeping & Financial Operations",
+    bio: "Our bookkeeping specialists manage day-to-day accounting activities, including transaction categorization, bank and credit card reconciliations, accounts payable and receivable support, and monthly financial close processes to maintain accurate and organized financial records.",
   },
   {
-    name: "Anil Deshmukh",
-    title: "Senior Accounting Manager",
+    name: "Accounting & Financial Reporting Team",
     focus: "Accounting",
-    credentials: "12+ yrs experience",
-    bio: "Reviews ledgers, prepares financial statements, and turns the numbers into clear management reporting and practical analysis for decision-makers.",
+    credentials: "Accounting & Financial Reporting",
+    bio: "Our accounting professionals support businesses with financial reporting, reconciliations, month-end reviews, and preparation of meaningful financial statements. We help clients maintain accurate books and gain better visibility into their financial performance.",
   },
   {
-    name: "Kavita Sharma",
-    title: "Tax Lead",
+    name: "US Tax Preparation & Compliance Team",
     focus: "Taxation",
-    credentials: "Personal & business returns",
-    bio: "Manages preparation and review of personal and business tax returns, keeping filings organised, accurate and on schedule throughout the year.",
+    credentials: "US Tax Compliance & Preparation",
+    bio: "Our tax team supports the preparation and review of individual and business tax returns, including federal and state compliance requirements. We work closely with tax professionals to deliver accurate filings and timely tax support for our clients.",
   },
   {
-    name: "Suresh Menon",
-    title: "Outsourced Controller",
+    name: "Controller & Advisory Services Team",
     focus: "Controller services",
-    credentials: "Controls & close oversight",
-    bio: "Provides senior oversight of the accounting function, from internal controls and month-end review to accounting policy and audit readiness.",
+    credentials: "Financial Controls & Advisory",
+    bio: "Our controller services team provides accounting oversight, financial review, reporting support, and process improvements. We help businesses strengthen their financial operations and make informed decisions through reliable financial information.",
   },
   {
-    name: "Ananya Reddy",
-    title: "Client Success Manager",
+    name: "Client Success Team",
     focus: "Client communication",
-    credentials: "Dedicated point of contact",
-    bio: "Your first call for onboarding, regular check-ins and day-to-day questions, making sure every engagement runs smoothly and nothing slips through.",
+    credentials: "Client Relationship Management",
+    bio: "Our client success team manages onboarding, communication, document coordination, and ongoing engagement support. We focus on creating a seamless experience and ensuring clients receive timely assistance throughout their relationship with Juris LPO.",
   },
 ];
