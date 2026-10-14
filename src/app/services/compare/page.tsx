@@ -11,7 +11,7 @@ import { seoMetadata, seoPages } from "@/content/seo";
 import { SeoContent } from "@/components/seo/SeoContent";
 
 export const metadata: Metadata = seoMetadata("/services/compare", {
-  title: "Compare bookkeeping, accounting & taxation | Juris Accounting",
+  title: "Compare bookkeeping, accounting & taxation | Juris CFO",
   description:
     "A side-by-side comparison of bookkeeping, accounting, and taxation services, with a quick tool to identify which one fits your situation.",
 });

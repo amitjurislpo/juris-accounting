@@ -17,9 +17,9 @@ export async function generateMetadata({
 }: PageProps<"/industries/[slug]">): Promise<Metadata> {
   const { slug } = await params;
   const industry = findIndustry(slug);
-  if (!industry) return { title: "Not found | Juris Accounting" };
+  if (!industry) return { title: "Not found | Juris CFO" };
   return seoMetadata(industry.href, {
-    title: `${industry.name} | Juris Accounting`,
+    title: `${industry.name} | Juris CFO`,
     description: industry.oneLiner,
   });
 }

@@ -6,7 +6,7 @@ import { seoMetadata, seoPages } from "@/content/seo";
 import { SeoContent } from "@/components/seo/SeoContent";
 
 export const metadata: Metadata = seoMetadata("/industries", {
-  title: "Industries | Juris Accounting",
+  title: "Industries | Juris CFO",
   description:
     "Bookkeeping, accounting, and taxation services structured to support almost every industry.",
 });

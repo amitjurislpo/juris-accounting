@@ -15,7 +15,7 @@ const SEGMENT_LABELS: Record<string, string> = {
   pricing: "Pricing",
   industries: "Industries",
   process: "Process",
-  "why-juris": "Why Juris Accounting",
+  "why-juris": "Why Juris CFO",
   about: "About",
   faq: "FAQ",
   resources: "Resources",

@@ -19,9 +19,9 @@ export async function generateMetadata({
 }: PageProps<"/resources/[slug]">): Promise<Metadata> {
   const { slug } = await params;
   const article = findArticle(slug);
-  if (!article) return { title: "Resource not found | Juris Accounting" };
+  if (!article) return { title: "Resource not found | Juris CFO" };
   return {
-    title: `${article.title} | Juris Accounting`,
+    title: `${article.title} | Juris CFO`,
     description: article.excerpt,
   };
 }

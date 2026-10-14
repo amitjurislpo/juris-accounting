@@ -4,7 +4,7 @@
 // SEO-facing pages with their own content. Descriptions here are generic,
 // factual statements about how accounting challenges typically show up in
 // each industry — no client counts, testimonials, or other unconfirmed
-// specifics about Juris Accounting itself.
+// specifics about Juris CFO itself.
 
 export type IndustryPageId =
   | "saas-startups"

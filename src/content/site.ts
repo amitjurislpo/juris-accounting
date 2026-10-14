@@ -1,18 +1,18 @@
 // Site-wide constants.
 
 export const site = {
-  name: "Juris Accounting",
+  name: "Juris CFO",
   shortName: "Juris",
   tagline: "Bookkeeping, accounting, and taxation — one accountable partner.",
   description:
-    "Juris Accounting provides bookkeeping, accounting, and taxation services for businesses and individuals, structured around what your engagement actually needs.",
+    "Juris CFO provides bookkeeping, accounting, and taxation services for businesses and individuals, structured around what your engagement actually needs.",
   email: "contact@jurislpo.com",
   phone: "+1 (646) 233-8454",
   hours: "Mon–Fri • 9 AM – 6 PM",
 } as const;
 
 export const legalNotice =
-  "Juris Accounting is an accounting, bookkeeping, and taxation service provider. Nothing on this website is legal, investment, or audit assurance advice. Service availability, credentials, and jurisdictions are confirmed directly with our team.";
+  "Juris CFO is an accounting, bookkeeping, and taxation service provider. Nothing on this website is legal, investment, or audit assurance advice. Service availability, credentials, and jurisdictions are confirmed directly with our team.";
 
 export type NavChild = {
   label: string;
@@ -158,7 +158,7 @@ export const footerNav = {
   ],
   company: [
     { label: "About", href: "/about" },
-    { label: "Why Juris Accounting", href: "/why-juris" },
+    { label: "Why Juris CFO", href: "/why-juris" },
     { label: "Process", href: "/process" },
     { label: "Industries", href: "/industries" },
   ],

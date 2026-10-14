@@ -4,8 +4,8 @@ import { Section } from "@/components/ui/Section";
 import { Reveal } from "@/components/motion/Reveal";
 
 export const metadata: Metadata = {
-  title: "Terms of service | Juris Accounting",
-  description: "Terms of service for Juris Accounting.",
+  title: "Terms of service | Juris CFO",
+  description: "Terms of service for Juris CFO.",
 };
 
 const sections = [

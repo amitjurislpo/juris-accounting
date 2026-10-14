@@ -1,10 +1,10 @@
 import { cn } from "@/lib/cn";
 
-/** The brand gold from the Juris Accounting logo. */
+/** The brand gold from the Juris CFO logo. */
 export const BRAND_GOLD = "#c9974f";
 
 /**
- * Juris Accounting monogram, redrawn as a vector from the brand logo: a
+ * Juris CFO monogram, redrawn as a vector from the brand logo: a
  * "J" and a "C" mirrored about a central pillar, capped top and bottom by
  * a bar — transparent so it sits cleanly on the dark UI.
  */

@@ -4,7 +4,7 @@ import { extraServices } from "@/content/extraServices";
 import { seoMetadata } from "@/content/seo";
 
 export const metadata: Metadata = seoMetadata("/sales-tax-compliance", {
-  title: `${extraServices["sales-tax-compliance"].name} | Juris Accounting`,
+  title: `${extraServices["sales-tax-compliance"].name} | Juris CFO`,
   description: extraServices["sales-tax-compliance"].oneLiner,
 });
 
