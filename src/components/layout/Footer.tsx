@@ -1,6 +1,7 @@
 import { Link } from "@/components/ui/AppLink";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/motion/Reveal";
+import { FooterWordmark } from "@/components/layout/FooterWordmark";
 import { footerNav, site, legalNotice } from "@/content/site";
 
 function FooterColumn({
@@ -52,21 +53,8 @@ export function Footer() {
         aria-hidden
       />
 
-      {/* Oversized brand wordmark as the footer's backdrop, behind all
-          content. */}
-      <div className="pointer-events-none absolute inset-0 -z-10 flex select-none items-center justify-center overflow-hidden" aria-hidden>
-        <p
-          className="scroll-rise whitespace-nowrap text-[9.5vw] font-semibold uppercase leading-none tracking-[-0.04em]"
-          style={{
-            background: "linear-gradient(180deg, rgba(190,240,215,0.075), rgba(190,240,215,0.015))",
-            WebkitBackgroundClip: "text",
-            backgroundClip: "text",
-            color: "transparent",
-          }}
-        >
-          {first} {rest.join(" ")}
-        </p>
-      </div>
+      {/* Oversized brand wordmark as the footer's backdrop; highlights when hovered. */}
+      <FooterWordmark text={`${first} ${rest.join(" ")}`} />
 
       <Container className="pt-4 md:pt-6">
 
