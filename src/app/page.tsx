@@ -1,4 +1,4 @@
-import { Hero } from "@/components/home/Hero";
+import { HeroSplitCards } from "@/components/home/HeroSplitCards";
 import { DashboardSection } from "@/components/home/DashboardSection";
 import { ServiceOverview } from "@/components/home/ServiceOverview";
 import { WhichServiceFlow } from "@/components/home/WhichServiceFlow";
@@ -10,7 +10,7 @@ import { FinalCta } from "@/components/home/FinalCta";
 export default function Home() {
   return (
     <>
-      <Hero />
+      <HeroSplitCards />
       <DashboardSection />
       <ServiceOverview />
       <WhichServiceFlow />

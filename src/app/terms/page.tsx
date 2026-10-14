@@ -47,7 +47,7 @@ export default function TermsPage() {
         <Reveal className="flex max-w-2xl flex-col gap-8">
           {sections.map((s) => (
             <div key={s.heading}>
-              <h2 className="text-xl text-fg">{s.heading}</h2>
+              <h2 className="text-h3 text-fg">{s.heading}</h2>
               <p className="mt-2 text-sm leading-relaxed text-fg-muted">{s.body}</p>
             </div>
           ))}

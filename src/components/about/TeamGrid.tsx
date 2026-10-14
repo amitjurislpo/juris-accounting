@@ -21,17 +21,17 @@ export function TeamGrid() {
               />
             </div>
             <div className="min-w-0">
-              <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-fg-subtle">
+              <p className="font-mono text-eyebrow uppercase text-fg-subtle">
                 {member.focus}
               </p>
-              <h3 className="mt-1.5 text-lg leading-snug tracking-[-0.02em] text-fg">{member.name}</h3>
+              <h3 className="mt-1.5 text-h3 text-fg">{member.name}</h3>
             </div>
           </div>
 
           <p className="mt-5 flex-1 text-sm leading-relaxed text-fg-muted">{member.bio}</p>
 
           <div className="mt-5 flex items-center justify-between gap-3 border-t border-line pt-4">
-            <span className="rounded-xs border border-line px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.14em] text-fg-subtle">
+            <span className="rounded-xs border border-line px-2.5 py-1 font-mono text-eyebrow uppercase text-fg-subtle">
               {member.credentials}
             </span>
             <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-signal opacity-60 transition-opacity duration-500 group-hover:opacity-100" aria-hidden />

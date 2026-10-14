@@ -131,7 +131,7 @@ export function HeroCore({ className }: { className?: string }) {
     <div ref={wrapRef} className={`relative mx-auto w-full max-w-[min(32rem,calc(100svh-14rem))] ${className ?? ""}`} aria-hidden>
       <div className="relative aspect-square">
         {/* Floor glow + orbit ellipse */}
-        <div className="absolute inset-x-[12%] bottom-[10%] h-[22%] rounded-[50%] bg-white/[0.07] blur-2xl" />
+        <div className="absolute inset-x-[12%] bottom-[10%] h-[22%] rounded-[50%] bg-[rgba(201,151,79,0.1)] blur-2xl" />
         <svg viewBox="0 0 400 400" className="absolute inset-0 h-full w-full overflow-visible">
           <ellipse cx="200" cy="262" rx="170" ry="62" fill="none" stroke="white" strokeOpacity="0.12" />
           <ellipse cx="200" cy="262" rx="170" ry="62" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" pathLength={1} className="core-orbit" />

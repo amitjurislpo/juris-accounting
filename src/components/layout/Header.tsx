@@ -89,7 +89,7 @@ function MegaPanel({ item, id, open, pathname }: { item: NavItem; id: string; op
         <Container className="relative grid gap-10 py-8 lg:grid-cols-[16rem_1fr]">
           {/* Preview rail — shows the hovered destination */}
           <div className="flex min-h-[12rem] flex-col border-r border-line pr-8">
-            <p className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.28em] text-fg-subtle">
+            <p className="flex items-center gap-2 font-mono text-eyebrow uppercase text-fg-subtle">
               <span className="h-1 w-1 rounded-full bg-signal" aria-hidden />
               {item.label}
             </p>
@@ -99,7 +99,7 @@ function MegaPanel({ item, id, open, pathname }: { item: NavItem; id: string; op
                   <PreviewIcon size={22} />
                 </span>
               )}
-              <p className="text-xl leading-snug tracking-[-0.03em] text-fg">
+              <p className="text-h3 text-fg">
                 {preview ? preview.label : (item.footer?.note ?? item.label)}
               </p>
               {preview?.description && (
@@ -139,12 +139,12 @@ function MegaPanel({ item, id, open, pathname }: { item: NavItem; id: string; op
                     onPointerEnter={() => setPreview(child)}
                     onFocus={() => setPreview(child)}
                     className={cn(
-                      "group relative flex items-start gap-4 rounded-control border border-transparent px-3.5 py-3.5 transition-[background-color,border-color] duration-300 hover:border-line hover:bg-white/[0.035]",
-                      childActive && "border-line bg-white/[0.035]",
+                      "group relative flex items-start gap-4 rounded-control border border-transparent px-3.5 py-3.5 transition-[background-color,border-color] duration-300 hover:border-line hover:bg-[rgba(201,151,79,0.08)]",
+                      childActive && "border-line bg-[rgba(201,151,79,0.08)]",
                     )}
                   >
                     <span
-                      className="icon-draw grid h-9 w-9 shrink-0 place-items-center border border-line bg-white/[0.02] text-fg-muted transition-[color,border-color] duration-500 group-hover:border-white/25 group-hover:text-fg"
+                      className="icon-draw grid h-9 w-9 shrink-0 place-items-center border border-line bg-[rgba(201,151,79,0.04)] text-fg-muted transition-[color,border-color] duration-500 group-hover:border-white/25 group-hover:text-fg"
                       aria-hidden
                     >
                       <Icon size={16} />
@@ -197,8 +197,8 @@ function DesktopItem({
   const panelId = `mega-${index}`;
 
   const itemClasses = cn(
-    "relative z-10 flex items-center gap-1.5 whitespace-nowrap px-3 py-2 text-[13px] tracking-[0.01em] transition-colors duration-300 hover:text-fg",
-    isActive || isOpen ? "text-fg" : "text-fg-muted",
+    "relative z-10 flex items-center gap-1.5 whitespace-nowrap px-3 py-2 text-nav transition-colors duration-300 hover:text-[#9a6f2e]",
+    isActive || isOpen ? "text-[#9a6f2e]" : "text-[#1a1a1a]",
   );
   const label = (
     <>
@@ -295,7 +295,7 @@ function IndexGroup({
         {item.children && (
           <button
             type="button"
-            className="grid h-10 w-10 place-items-center border border-line text-fg-muted transition-colors hover:border-white/30 hover:text-fg"
+            className="grid h-10 w-10 place-items-center border border-line text-fg-muted transition-colors hover:border-[rgba(201,151,79,0.6)] hover:text-fg"
             aria-expanded={open}
             aria-controls={groupId}
             aria-label={`${open ? "Hide" : "Show"} ${item.label} pages`}
@@ -448,19 +448,19 @@ export function Header() {
           block for the fixed index overlay. */}
       <div
         className={cn(
-          "absolute inset-0 -z-10 border-b transition-[background-color,border-color] duration-700",
-          solid ? "border-line bg-canvas/80 backdrop-blur-xl" : "border-transparent bg-canvas/0",
+          "absolute inset-0 -z-10 border-b border-[rgba(201,151,79,0.4)] shadow-[0_1px_0_rgba(17,17,17,0.04),0_10px_24px_-18px_rgba(17,17,17,0.25)] backdrop-blur-xl transition-[background-color] duration-700",
+          solid ? "bg-[rgba(244,241,234,0.96)]" : "bg-[rgba(247,244,238,0.92)]",
         )}
         aria-hidden
       />
       <span
         key={pathname}
-        className="route-sweep pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-white/60 to-transparent"
+        className="route-sweep pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[#c9974f] to-transparent"
         aria-hidden
       />
       {highlight && (
         <span
-          className="pointer-events-none absolute top-[1.125rem] hidden h-9 rounded-control border border-line bg-white/[0.04] transition-[left,width] duration-500 ease-lux lg:block"
+          className="pointer-events-none absolute top-[1.125rem] hidden h-9 rounded-control border border-[rgba(201,151,79,0.4)] bg-[rgba(201,151,79,0.08)] transition-[left,width] duration-500 ease-lux lg:block"
           style={{ left: highlight.left, width: highlight.width }}
           aria-hidden
         />
@@ -472,7 +472,7 @@ export function Header() {
           <button
             ref={toggleRef}
             type="button"
-            className="group flex h-10 items-center gap-3 border border-line px-3.5 text-fg transition-colors hover:border-white/30 lg:hidden"
+            className="group flex h-10 items-center gap-3 border border-line px-3.5 text-fg transition-colors hover:border-[rgba(201,151,79,0.6)] lg:hidden"
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             aria-expanded={menuOpen}
             aria-controls={menuMounted ? "site-index" : undefined}
@@ -485,7 +485,7 @@ export function Header() {
               <span className="burger-line block h-px w-[18px] bg-current" />
               <span className="burger-line block h-px w-3 bg-current" />
             </span>
-            <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-fg-muted" aria-hidden>
+            <span className="font-mono text-eyebrow uppercase text-fg-muted" aria-hidden>
               {menuOpen ? "Close" : "Menu"}
             </span>
           </button>
@@ -520,14 +520,9 @@ export function Header() {
           className="menu-panel fixed inset-x-0 bottom-0 top-[4.5rem] z-40 overflow-y-auto overscroll-contain border-t border-line bg-canvas"
         >
           <div className="bg-grid pointer-events-none absolute inset-0 opacity-60" aria-hidden />
-          <div
-            className="ambient-drift pointer-events-none absolute -left-40 -top-40 h-[34rem] w-[34rem] rounded-full opacity-[0.06] blur-3xl"
-            style={{ background: "radial-gradient(closest-side, #fff, transparent)" }}
-            aria-hidden
-          />
           <Container className="relative grid min-h-full gap-10 pb-10 pt-6 lg:grid-cols-[1fr_18rem] lg:pt-10">
             <nav aria-label="Site index">
-              <p className="mb-4 font-mono text-[10px] uppercase tracking-[0.3em] text-fg-subtle">Index</p>
+              <p className="mb-4 font-mono text-eyebrow uppercase text-fg-subtle">Index</p>
               <ul className="menu-stagger flex flex-col border-t border-line">
                 {primaryNav.map((item, index) => (
                   <IndexGroup
@@ -542,7 +537,7 @@ export function Header() {
             </nav>
             <aside className="flex flex-col gap-8 lg:border-l lg:border-line lg:pl-10">
               <div className="enter" style={{ "--enter-delay": "0.3s" } as CSSProperties}>
-                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-fg-subtle">Also here</p>
+                <p className="font-mono text-eyebrow uppercase text-fg-subtle">Also here</p>
                 <ul className="mt-4 flex flex-col">
                   {footerNav.resources.map((link) => (
                     <li key={link.href}>

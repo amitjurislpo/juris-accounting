@@ -4,20 +4,20 @@ import { Button } from "@/components/ui/Button";
 
 export function FinalCta() {
   return (
-    <Section tone="deep" border={false} id="final-cta" className="isolate overflow-hidden">
+    <Section tone="deep" border={false} id="final-cta" className="isolate overflow-hidden !bg-[#faf8f4] border-y border-[rgba(201,151,79,0.3)]">
       <div className="pointer-events-none absolute inset-0 -z-10" aria-hidden>
         <div className="bg-grid absolute inset-0 opacity-60" />
         <div
           className="absolute -right-24 top-1/2 h-[26rem] w-[26rem] -translate-y-1/2 rounded-full opacity-[0.08] blur-3xl"
-          style={{ background: "radial-gradient(closest-side, var(--platinum), transparent)" }}
+          style={{ background: "radial-gradient(closest-side, var(--gold), transparent)" }}
         />
       </div>
       <Reveal className="flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
         <div className="max-w-xl">
-          <h2 className="text-3xl leading-[1.08] md:text-[2.75rem]">
+          <h2 className="text-h2">
             Ready to see which service fits your business?
           </h2>
-          <p className="mt-3 text-fg">
+          <p className="mt-3 max-w-[62ch] text-lead text-fg-muted">
             A short consultation is the fastest way to get a clear answer on
             scope and pricing — no obligation, no guesswork.
           </p>

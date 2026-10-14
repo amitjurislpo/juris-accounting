@@ -76,7 +76,7 @@ export function IndustryPage({ industryId }: { industryId: IndustryPageId }) {
               href={service.href}
               className="lux-card group flex flex-col rounded-control p-6"
             >
-              <h3 className="text-xl text-fg">{service.name}</h3>
+              <h3 className="text-h3 text-fg">{service.name}</h3>
               <p className="mt-2 text-sm leading-relaxed text-fg-muted">{service.oneLiner}</p>
               <span className="mt-4 flex items-center gap-2 text-sm font-medium text-silver">
                 Learn more
@@ -96,7 +96,7 @@ export function IndustryPage({ industryId }: { industryId: IndustryPageId }) {
               href={other.href}
               className="lux-card group flex flex-col rounded-control p-6"
             >
-              <h3 className="text-lg text-fg">{other.name}</h3>
+              <h3 className="text-h3 text-fg">{other.name}</h3>
               <p className="mt-2 text-sm leading-relaxed text-fg-muted">{other.oneLiner}</p>
               <span className="mt-4 flex items-center gap-2 text-sm font-medium text-silver">
                 Learn more

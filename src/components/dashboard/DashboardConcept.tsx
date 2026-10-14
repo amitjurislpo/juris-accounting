@@ -8,7 +8,7 @@ import { Reveal } from "@/components/motion/Reveal";
 
 export function DashboardConcept() {
   return (
-    <div className="relative isolate overflow-hidden rounded-card border border-line bg-void p-5 shadow-[0_50px_100px_-40px_rgba(0,0,0,0.9)] md:p-8">
+    <div className="relative isolate overflow-hidden rounded-card border border-line bg-void p-5 shadow-[0_50px_100px_-40px_rgba(17,17,17,0.2)] md:p-8">
       <div className="hairline-rule absolute inset-x-0 top-0" aria-hidden />
       <div
         className="pointer-events-none absolute -right-32 -top-32 -z-10 h-80 w-80 rounded-full opacity-[0.08] blur-3xl"
@@ -17,7 +17,7 @@ export function DashboardConcept() {
       />
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
-          <p className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.2em] text-platinum">
+          <p className="flex items-center gap-2 font-mono text-eyebrow uppercase text-platinum">
             <span className="beacon relative h-1.5 w-1.5 rounded-full bg-platinum" aria-hidden />
             Financial dashboard
           </p>
@@ -37,7 +37,7 @@ export function DashboardConcept() {
 
       <Reveal staggerChildren delay={0.5} className="mt-4 grid gap-4 md:grid-cols-[1.6fr_1fr]">
         <div className="rounded-control border border-chart-grid bg-graphite p-4 transition-colors duration-500 hover:border-platinum/35">
-          <p className="mb-2 font-mono text-[10px] uppercase tracking-wide text-fg-muted">
+          <p className="mb-2 font-mono text-eyebrow uppercase text-fg-muted">
             Monthly trend
           </p>
           <TrendChart />
