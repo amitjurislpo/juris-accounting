@@ -140,6 +140,7 @@ export const primaryNav: NavItem[] = [
     footer: { note: "Industry pages carry the long-tail traffic.", label: "All industries", href: "/industries" },
   },
   { label: "Process", href: "/process" },
+  { label: "Why Juris Accounting", href: "/why-juris" },
   { label: "About", href: "/about" },
 ];
 

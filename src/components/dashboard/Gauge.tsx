@@ -33,7 +33,7 @@ export function Gauge({
 
   return (
     <div className="rounded-control border border-chart-grid bg-graphite p-4 transition-colors duration-500 hover:border-platinum/35">
-      <p className="font-mono text-eyebrow uppercase text-fg-muted">
+      <p className="font-mono text-[10px] uppercase tracking-wide text-fg-muted">
         {label}
       </p>
       <div className="mt-2 flex items-center gap-4">

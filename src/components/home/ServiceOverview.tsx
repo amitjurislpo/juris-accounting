@@ -51,7 +51,7 @@ export function ServiceOverview() {
                   </span>
                   <span
                     className={cn(
-                      "font-display text-h3 transition-[color,translate] duration-500 ease-out",
+                      "font-display text-xl tracking-[-0.03em] transition-[color,translate] duration-500 ease-out sm:text-2xl md:text-[1.6rem]",
                       isActive ? "translate-x-2 text-fg" : "text-fg-muted group-hover:text-fg",
                     )}
                   >
@@ -84,7 +84,7 @@ export function ServiceOverview() {
                         {service.keyActions.map((action) => (
                           <li
                             key={action}
-                            className="rounded-xs border border-line bg-surface px-2.5 py-1 font-mono text-eyebrow uppercase text-silver"
+                            className="rounded-xs border border-line bg-surface px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.12em] text-silver"
                           >
                             {action}
                           </li>
@@ -98,7 +98,7 @@ export function ServiceOverview() {
                         <ArrowRight size={16} className="transition-transform duration-500 group-hover/link:translate-x-1" aria-hidden />
                       </Link>
                     </div>
-                    <div className="relative h-28 w-28 shrink-0 border border-line bg-surface/60 p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.9)]">
+                    <div className="relative h-28 w-28 shrink-0 border border-line bg-surface/60 p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
                       <ServiceGlyph kind={service.icon} />
                     </div>
                   </div>
