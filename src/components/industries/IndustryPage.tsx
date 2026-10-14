@@ -6,6 +6,8 @@ import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/motion/Reveal";
 import { serviceList } from "@/content/services";
 import { industryPageList, type IndustryPageId } from "@/content/industryPages";
+import { SeoContent } from "@/components/seo/SeoContent";
+import { seoPages } from "@/content/seo";
 
 export function IndustryPage({ industryId }: { industryId: IndustryPageId }) {
   const industry = industryPageList.find((i) => i.id === industryId)!;
@@ -15,7 +17,7 @@ export function IndustryPage({ industryId }: { industryId: IndustryPageId }) {
     <>
       <PageHero
         eyebrow="Built for this industry"
-        title={industry.name}
+        title={seoPages[industry.href]?.h1 ?? industry.name}
         description={industry.positioning}
         crumbs={[{ label: "Industries", href: "/industries" }, { label: industry.name }]}
       >
@@ -26,6 +28,8 @@ export function IndustryPage({ industryId }: { industryId: IndustryPageId }) {
           See our services
         </Button>
       </PageHero>
+
+      <SeoContent path={industry.href} part="intro" />
 
       <Section tone="raised">
         <div className="grid gap-10 md:grid-cols-2">
@@ -66,6 +70,8 @@ export function IndustryPage({ industryId }: { industryId: IndustryPageId }) {
           ))}
         </Reveal>
       </Section>
+
+      <SeoContent path={industry.href} part="faq" />
 
       <Section tone="raised">
         <SectionHeading eyebrow="What we bring to any industry" title="Bookkeeping, accounting & taxation" />
