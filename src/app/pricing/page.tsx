@@ -9,7 +9,7 @@ import { seoMetadata, seoPages } from "@/content/seo";
 import { SeoContent } from "@/components/seo/SeoContent";
 
 export const metadata: Metadata = seoMetadata("/pricing", {
-  title: "Pricing | Juris Accounting",
+  title: "Pricing | Juris CFO",
   description:
     "See how bookkeeping, accounting, and taxation pricing is structured around Service, Module, and Entity — and get an indicative starting point.",
 });

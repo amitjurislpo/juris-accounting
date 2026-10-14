@@ -5,8 +5,8 @@ import { Reveal } from "@/components/motion/Reveal";
 import { site } from "@/content/site";
 
 export const metadata: Metadata = {
-  title: "Privacy policy | Juris Accounting",
-  description: "How Juris Accounting collects, uses, and protects your information.",
+  title: "Privacy policy | Juris CFO",
+  description: "How Juris CFO collects, uses, and protects your information.",
 };
 
 const sections = [

@@ -79,7 +79,7 @@ export const faqItems: FaqItem[] = [
   {
     slug: "getting-started",
     category: "General",
-    question: "What happens after I contact Juris Accounting?",
+    question: "What happens after I contact Juris CFO?",
     answer:
       "We start with a short consultation to understand your business, current records, and requirements. From there we confirm which services fit, outline scope, and provide pricing tailored to your situation before any engagement begins.",
   },

@@ -5,9 +5,9 @@ import { FaqPageContent } from "@/components/faq/FaqPageContent";
 import { FinalCta } from "@/components/home/FinalCta";
 
 export const metadata: Metadata = {
-  title: "FAQ | Juris Accounting",
+  title: "FAQ | Juris CFO",
   description:
-    "Answers to common questions about bookkeeping, accounting, taxation, and how pricing works at Juris Accounting.",
+    "Answers to common questions about bookkeeping, accounting, taxation, and how pricing works at Juris CFO.",
 };
 
 export default function FaqPage() {

@@ -5,9 +5,9 @@ import { Reveal } from "@/components/motion/Reveal";
 import { ContactDetails } from "@/components/contact/ContactDetails";
 
 export const metadata: Metadata = {
-  title: "Contact | Juris Accounting",
+  title: "Contact | Juris CFO",
   description:
-    "Get in touch with Juris Accounting to discuss bookkeeping, accounting, and taxation requirements and pricing.",
+    "Get in touch with Juris CFO to discuss bookkeeping, accounting, and taxation requirements and pricing.",
 };
 
 export default function ContactPage() {

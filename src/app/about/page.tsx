@@ -10,9 +10,9 @@ import { seoMetadata, seoPages } from "@/content/seo";
 import { SeoContent } from "@/components/seo/SeoContent";
 
 export const metadata: Metadata = seoMetadata("/about", {
-  title: "About | Juris Accounting",
+  title: "About | Juris CFO",
   description:
-    "Juris Accounting provides bookkeeping, accounting, payroll, and tax services designed to give business owners reliable financial support throughout the year.",
+    "Juris CFO provides bookkeeping, accounting, payroll, and tax services designed to give business owners reliable financial support throughout the year.",
 });
 
 const approach = [

@@ -16,9 +16,9 @@ export async function generateMetadata({
 }: PageProps<"/payroll/[sub]">): Promise<Metadata> {
   const { sub: slug } = await params;
   const sub = findSub(slug);
-  if (!sub) return { title: "Not found | Juris Accounting" };
+  if (!sub) return { title: "Not found | Juris CFO" };
   return {
-    title: `${sub.name} | Juris Accounting`,
+    title: `${sub.name} | Juris CFO`,
     description: sub.oneLiner,
   };
 }
