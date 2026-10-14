@@ -8,7 +8,7 @@ import { articles } from "@/content/articles";
 import { FinalCta } from "@/components/home/FinalCta";
 
 export const metadata: Metadata = {
-  title: "Resources | Juris Accounting",
+  title: "Resources | Juris CFO",
   description:
     "Guides and explainers on bookkeeping, accounting, and taxation basics.",
 };

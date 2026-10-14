@@ -4,7 +4,7 @@ import { services } from "@/content/services";
 import { seoMetadata } from "@/content/seo";
 
 export const metadata: Metadata = seoMetadata("/taxation", {
-  title: `${services.taxation.name} services | Juris Accounting`,
+  title: `${services.taxation.name} services | Juris CFO`,
   description: services.taxation.oneLiner,
 });
 

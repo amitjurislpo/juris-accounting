@@ -4,25 +4,25 @@ export const coreSeoPages: SeoPageContent[] = [
   // ───────────────────────────── Home ─────────────────────────────
   {
     path: "/",
-    title: "Outsourced Accounting Services | Juris Accounting",
+    title: "Outsourced Accounting Services | Juris CFO",
     metaDescription:
-      "Outsourced accounting services for US small businesses: bookkeeping, accounting and taxation scoped to your needs. Book a consultation with Juris Accounting.",
+      "Outsourced accounting services for US small businesses: bookkeeping, accounting and taxation scoped to your needs. Book a consultation with Juris CFO.",
     answer:
-      "Outsourced accounting services mean a remote team handles your bookkeeping, accounting and tax work so you don't need in-house staff. Juris Accounting scopes each engagement to your business and confirms pricing in a consultation rather than a fixed package.",
+      "Outsourced accounting services mean a remote team handles your bookkeeping, accounting and tax work so you don't need in-house staff. Juris CFO scopes each engagement to your business and confirms pricing in a consultation rather than a fixed package.",
     sections: [],
     faqs: [
       {
         question: "Who is the best outsourced accounting firm for small business?",
         answer:
-          "The best fit depends on your industry, volume and needs, so no honest list names a universal winner. Compare written scopes, ask who performs the work, and confirm data handling and record ownership. Juris Accounting, an online accounting firm, offers a consultation so you can judge the fit first.",
+          "The best fit depends on your industry, volume and needs, so no honest list names a universal winner. Compare written scopes, ask who performs the work, and confirm data handling and record ownership. Juris CFO, an online accounting firm, offers a consultation so you can judge the fit first.",
       },
       {
         question: "How much does outsourced accounting cost?",
         answer:
-          "Cost for an outsourced accounting company depends on the services included, transaction volume, bank accounts, entities and reporting needs. Because these vary widely, Juris Accounting confirms a tailored quote after a short scoping conversation instead of publishing one fixed price.",
+          "Cost for an outsourced accounting company depends on the services included, transaction volume, bank accounts, entities and reporting needs. Because these vary widely, Juris CFO confirms a tailored quote after a short scoping conversation instead of publishing one fixed price.",
       },
       {
-        question: "Does Juris Accounting offer outsourced accounting and bookkeeping for US small businesses?",
+        question: "Does Juris CFO offer outsourced accounting and bookkeeping for US small businesses?",
         answer:
           "Yes. We provide outsourced accounting and bookkeeping for US small businesses, covering bookkeeping and accounting services, taxation, payroll, compliance and controller support. Availability by service and jurisdiction is confirmed directly with the team, so mention your state and entity type.",
       },
@@ -36,15 +36,20 @@ export const coreSeoPages: SeoPageContent[] = [
         answer:
           "Typically bank and card access or statements, prior tax returns, any existing accounting file, and details on payroll, loans and entities. If records are incomplete, the team can scope cleanup first, then move into recurring work.",
       },
+      {
+        question: "What does CFO mean in Juris CFO?",
+        answer:
+          "CFO stands for Chief Financial Officer, the senior role that guides a company's budgeting, cash flow, reporting and financial decisions. Juris CFO brings that financial clarity to small businesses through bookkeeping, accounting, taxation and controller support, with outsourced CFO services when you need strategic guidance.",
+      },
     ],
   },
 
   // ───────────────────────── Services hub ─────────────────────────
   {
     path: "/services/compare",
-    title: "Accounting and Bookkeeping Services | Juris Accounting",
+    title: "Accounting and Bookkeeping Services | Juris CFO",
     metaDescription:
-      "Compare accounting and bookkeeping services, taxation, payroll and CFO support to see what your small business needs. Talk to Juris Accounting.",
+      "Compare accounting and bookkeeping services, taxation, payroll and CFO support to see what your small business needs. Talk to Juris CFO.",
     h1: "Accounting and Bookkeeping Services Compared",
     answer:
       "Accounting and bookkeeping services differ in purpose: bookkeeping records transactions, accounting reviews and reports on them, and taxation turns them into filings. Most small businesses start with bookkeeping, then add accounting, payroll, compliance or senior financial support as they grow.",
@@ -54,7 +59,7 @@ export const coreSeoPages: SeoPageContent[] = [
         heading: "Which accounting and bookkeeping services fit your stage?",
         paragraphs: [
           "Think of the range by question: bookkeeping answers what happened, accounting answers what it means, taxation answers what you owe, and controller or CFO support answers what to do next.",
-          "Bookkeeping payroll and tax services are often bought together because they share the same data. Juris Accounting scopes each line separately, so you pay only for what you need.",
+          "Bookkeeping payroll and tax services are often bought together because they share the same data. Juris CFO scopes each line separately, so you pay only for what you need.",
         ],
         bullets: [
           "Books behind or unreconciled: start with bookkeeping",
@@ -68,7 +73,7 @@ export const coreSeoPages: SeoPageContent[] = [
         heading: "How to evaluate accounting service providers",
         paragraphs: [
           "Look past the menu to delivery: what is written into scope, who prepares and who reviews, and how questions are answered. A full service accounting firm only helps if the pieces are coordinated.",
-          "Juris Accounting offers business accounting solutions through a consultation, with final scope and jurisdictions confirmed directly with the team.",
+          "Juris CFO offers business accounting solutions through a consultation, with final scope and jurisdictions confirmed directly with the team.",
         ],
       },
     ],
@@ -76,7 +81,7 @@ export const coreSeoPages: SeoPageContent[] = [
       {
         question: "What services does an outsourced accounting firm offer?",
         answer:
-          "An outsourced accounting firm typically offers bookkeeping, accounting, tax preparation, payroll, compliance filings, accounts payable and receivable support, and controller or CFO guidance. Juris Accounting offers these as separate lines you can combine.",
+          "An outsourced accounting firm typically offers bookkeeping, accounting, tax preparation, payroll, compliance filings, accounts payable and receivable support, and controller or CFO guidance. Juris CFO offers these as separate lines you can combine.",
       },
       {
         question: "What is the bookkeeping vs accounting services difference?",
@@ -104,19 +109,19 @@ export const coreSeoPages: SeoPageContent[] = [
   // ───────────────────────────── Pricing ─────────────────────────────
   {
     path: "/pricing",
-    title: "Bookkeeping Services Pricing | Juris Accounting",
+    title: "Bookkeeping Services Pricing | Juris CFO",
     metaDescription:
-      "See what drives bookkeeping services pricing, from volume to entities and reporting. Get a tailored quote from Juris Accounting after a short consultation.",
+      "See what drives bookkeeping services pricing, from volume to entities and reporting. Get a tailored quote from Juris CFO after a short consultation.",
     h1: "Bookkeeping Services Pricing, Explained",
     answer:
-      "Bookkeeping services pricing depends on scope: which services you need, transaction volume, accounts, entities and reporting. Juris Accounting does not publish a flat rate. A short consultation defines the work, and final pricing is confirmed before any engagement begins.",
+      "Bookkeeping services pricing depends on scope: which services you need, transaction volume, accounts, entities and reporting. Juris CFO does not publish a flat rate. A short consultation defines the work, and final pricing is confirmed before any engagement begins.",
     sections: [
       {
         eyebrow: "Cost drivers",
         heading: "What affects bookkeeping services cost?",
         paragraphs: [
           "Bookkeeping services cost follows the effort needed to keep records accurate: more transactions, accounts, revenue streams and reporting mean more work. Past periods needing cleanup are scoped separately from monthly upkeep.",
-          "Monthly bookkeeping cost therefore differs between a quiet single-entity company and a busy business with several processors. Juris Accounting keeps the agreed scope in writing.",
+          "Monthly bookkeeping cost therefore differs between a quiet single-entity company and a busy business with several processors. Juris CFO keeps the agreed scope in writing.",
         ],
       },
       {
@@ -132,12 +137,12 @@ export const coreSeoPages: SeoPageContent[] = [
       {
         question: "How much does bookkeeping cost per month?",
         answer:
-          "It depends on transaction volume, accounts, entities, reporting needs and whether past records need catch-up work. Juris Accounting confirms a tailored monthly quote after a short consultation so the fee matches a defined scope.",
+          "It depends on transaction volume, accounts, entities, reporting needs and whether past records need catch-up work. Juris CFO confirms a tailored monthly quote after a short consultation so the fee matches a defined scope.",
       },
       {
         question: "How much do accountants charge small businesses?",
         answer:
-          "It varies by whether the accountant bills hourly, monthly or per return, and by scope. Ask for a written list of what is included and excluded. Juris Accounting confirms a quote after understanding your services and complexity.",
+          "It varies by whether the accountant bills hourly, monthly or per return, and by scope. Ask for a written list of what is included and excluded. Juris CFO confirms a quote after understanding your services and complexity.",
       },
       {
         question: "Is outsourced bookkeeping cheaper than hiring in-house?",
@@ -145,14 +150,14 @@ export const coreSeoPages: SeoPageContent[] = [
           "Often, because you avoid salary, benefits, payroll taxes, software and training and pay only for the scope needed. Very high-volume businesses may justify a hire. Compare a written quote with your true total in-house cost.",
       },
       {
-        question: "Why does Juris Accounting not list fixed prices?",
+        question: "Why does Juris CFO not list fixed prices?",
         answer:
           "Fixed prices rarely fit real businesses. Pricing is built from service, module and entity, then confirmed after scoping. Nothing on the pricing page is a binding quote.",
       },
       {
         question: "Does payroll services cost come bundled with bookkeeping?",
         answer:
-          "Not automatically. Payroll is scoped separately because it depends on headcount, pay frequency and states. Juris Accounting can combine it with bookkeeping, with final pricing confirmed for the combined scope.",
+          "Not automatically. Payroll is scoped separately because it depends on headcount, pay frequency and states. Juris CFO can combine it with bookkeeping, with final pricing confirmed for the combined scope.",
       },
     ],
   },
@@ -160,9 +165,9 @@ export const coreSeoPages: SeoPageContent[] = [
   // ───────────────────────────── Process ─────────────────────────────
   {
     path: "/process",
-    title: "How Outsourced Bookkeeping Works | Juris Accounting",
+    title: "How Outsourced Bookkeeping Works | Juris CFO",
     metaDescription:
-      "See how outsourced bookkeeping works, from consultation and scope review to onboarding and reporting. Start with Juris Accounting.",
+      "See how outsourced bookkeeping works, from consultation and scope review to onboarding and reporting. Start with Juris CFO.",
     h1: "How Outsourced Bookkeeping Works",
     answer:
       "How outsourced bookkeeping works: you hold a consultation, the provider confirms scope and pricing, then reviews your records during onboarding. After setup, the team delivers recurring bookkeeping and reports on an agreed schedule, so you see current financials without doing data entry.",
@@ -172,7 +177,7 @@ export const coreSeoPages: SeoPageContent[] = [
         heading: "What to expect from the bookkeeping onboarding process",
         paragraphs: [
           "The bookkeeping onboarding process covers access to bank and card accounts, prior returns, your existing accounting file and payroll or loan details. Speed depends mainly on the state of your records and how quickly documents arrive.",
-          "Juris Accounting does not promise fixed timelines. Expectations are set during scoping, and missing or past-due periods are handled in a cleanup phase first.",
+          "Juris CFO does not promise fixed timelines. Expectations are set during scoping, and missing or past-due periods are handled in a cleanup phase first.",
         ],
       },
       {
@@ -188,12 +193,12 @@ export const coreSeoPages: SeoPageContent[] = [
       {
         question: "What to expect when you hire a bookkeeping service?",
         answer:
-          "Expect a discovery conversation, a written scope and pricing confirmation, then a records review. After that, recurring bookkeeping, reconciliations and reports follow an agreed schedule. Juris Accounting confirms scope and cost before work starts.",
+          "Expect a discovery conversation, a written scope and pricing confirmation, then a records review. After that, recurring bookkeeping, reconciliations and reports follow an agreed schedule. Juris CFO confirms scope and cost before work starts.",
       },
       {
         question: "How long does bookkeeping onboarding take?",
         answer:
-          "It depends on your records, number of accounts and how quickly you share documents. Clean books move fast; missing statements need cleanup first. Juris Accounting sets expectations during scoping rather than guaranteeing a fixed timeline.",
+          "It depends on your records, number of accounts and how quickly you share documents. Clean books move fast; missing statements need cleanup first. Juris CFO sets expectations during scoping rather than guaranteeing a fixed timeline.",
       },
       {
         question: "How to switch from one accountant to another?",
@@ -208,7 +213,7 @@ export const coreSeoPages: SeoPageContent[] = [
       {
         question: "Do I still need to do anything once bookkeeping is running?",
         answer:
-          "Your involvement is light: answer occasional transaction questions, upload documents when asked, and review reports. Juris Accounting agrees a check-in cadence so work stays current without taking over your calendar.",
+          "Your involvement is light: answer occasional transaction questions, upload documents when asked, and review reports. Juris CFO agrees a check-in cadence so work stays current without taking over your calendar.",
       },
     ],
   },
@@ -216,9 +221,9 @@ export const coreSeoPages: SeoPageContent[] = [
   // ───────────────────────────── Why Juris ─────────────────────────────
   {
     path: "/why-juris",
-    title: "Why Outsource Accounting? Pros & Cons | Juris Accounting",
+    title: "Why Outsource Accounting? Pros & Cons | Juris CFO",
     metaDescription:
-      "Why outsource accounting? Compare benefits, costs and trade-offs of outsourced vs in-house accounting, and see how Juris Accounting approaches it.",
+      "Why outsource accounting? Compare benefits, costs and trade-offs of outsourced vs in-house accounting, and see how Juris CFO approaches it.",
     answer:
       "Why outsource accounting? It gives a business a coordinated bookkeeping, accounting and tax team without the salary, benefits and management overhead of in-house staff. The main benefits are consistency, flexibility and focus; the trade-offs are remote communication and the need to choose a provider carefully.",
     sections: [
@@ -235,7 +240,7 @@ export const coreSeoPages: SeoPageContent[] = [
         heading: "Outsourced vs in-house accounting: how to decide",
         paragraphs: [
           "Outsourced vs in-house accounting is a question of control, cost and capacity. Count total employment cost, not just salary, and compare it with a written outsourced quote.",
-          "When you choose among accounting outsourcing companies, verify scope, who reviews the work and data handling. Juris Accounting would rather earn trust through a transparent process than claims it cannot back up.",
+          "When you choose among accounting outsourcing companies, verify scope, who reviews the work and data handling. Juris CFO would rather earn trust through a transparent process than claims it cannot back up.",
         ],
       },
     ],
@@ -253,12 +258,12 @@ export const coreSeoPages: SeoPageContent[] = [
       {
         question: "How to choose an outsourced accounting firm?",
         answer:
-          "Verify the scope in writing, who does and reviews the work, how pricing is set, how data is protected, and that you keep access to your records. Avoid unverifiable guarantees. Juris Accounting invites you to test these points in a consultation.",
+          "Verify the scope in writing, who does and reviews the work, how pricing is set, how data is protected, and that you keep access to your records. Avoid unverifiable guarantees. Juris CFO invites you to test these points in a consultation.",
       },
       {
         question: "Can I outsource only part of my accounting?",
         answer:
-          "Yes. Many businesses outsource bookkeeping or tax preparation and keep other tasks internal. Juris Accounting scopes services individually, so you can add more later.",
+          "Yes. Many businesses outsource bookkeeping or tax preparation and keep other tasks internal. Juris CFO scopes services individually, so you can add more later.",
       },
       {
         question: "Does outsourcing mean losing control of my finances?",
@@ -271,15 +276,15 @@ export const coreSeoPages: SeoPageContent[] = [
   // ───────────────────────────── About ─────────────────────────────
   {
     path: "/about",
-    title: "About Juris Accounting | Trusted Accounting Partner",
+    title: "About Juris CFO | Trusted Accounting Partner",
     metaDescription:
-      "About Juris Accounting: an outsourced accounting firm for US small business offering bookkeeping, accounting and taxation with clear scope. Talk with us.",
+      "About Juris CFO: an outsourced accounting firm for US small business offering bookkeeping, accounting and taxation with clear scope. Talk with us.",
     answer:
-      "Juris Accounting is an outsourced accounting firm serving US small businesses with bookkeeping, accounting, taxation and controller support. We scope each engagement in a consultation, explain pricing before work begins, and keep your records accessible to you.",
+      "Juris CFO is an outsourced accounting firm serving US small businesses with bookkeeping, accounting, taxation and controller support. We scope each engagement in a consultation, explain pricing before work begins, and keep your records accessible to you.",
     sections: [
       {
         eyebrow: "Who we are",
-        heading: "Who is Juris Accounting?",
+        heading: "Who is Juris CFO?",
         paragraphs: [
           "We are an outsourced accounting firm USA owners can reach directly, organized as specialist teams for bookkeeping, accounting, tax and controller work. As an accounting firm for small business, we scope service to your needs.",
           "Our accounting team for small business is coordinated by client success and engagement leadership. Credentials and jurisdictions are confirmed directly with the team.",
@@ -296,12 +301,12 @@ export const coreSeoPages: SeoPageContent[] = [
     ],
     faqs: [
       {
-        question: "Who is Juris Accounting?",
+        question: "Who is Juris CFO?",
         answer:
           "We are an accounting, bookkeeping and taxation service provider working with US small businesses and individuals, offering bookkeeping, accounting, tax, controller, payroll and compliance support, scoped through a consultation.",
       },
       {
-        question: "Is Juris Accounting legit?",
+        question: "Is Juris CFO legit?",
         answer:
           "Judge any provider by what you can verify. We use a transparent process: a consultation, written scope, pricing confirmed before work, and records that stay yours. Ask who does the work, how data is handled and what credentials apply, then compare firms.",
       },
@@ -326,12 +331,12 @@ export const coreSeoPages: SeoPageContent[] = [
   // ───────────────────────────── Industries ─────────────────────────────
   {
     path: "/industries",
-    title: "Accounting Services by Industry | Juris Accounting",
+    title: "Accounting Services by Industry | Juris CFO",
     metaDescription:
-      "Accounting services by industry for SaaS, e-commerce, healthcare, real estate, construction, restaurants and more. Talk with Juris Accounting about yours.",
+      "Accounting services by industry for SaaS, e-commerce, healthcare, real estate, construction, restaurants and more. Talk with Juris CFO about yours.",
     h1: "Accounting Services by Industry",
     answer:
-      "Accounting services by industry adapt bookkeeping, reporting and tax work to how a type of business earns and spends money, such as deferred revenue for software or trust accounts for property managers. Juris Accounting has pages for eight industries and scopes each engagement individually.",
+      "Accounting services by industry adapt bookkeeping, reporting and tax work to how a type of business earns and spends money, such as deferred revenue for software or trust accounts for property managers. Juris CFO has pages for eight industries and scopes each engagement individually.",
     sections: [
       {
         eyebrow: "Why it matters",
@@ -361,19 +366,19 @@ export const coreSeoPages: SeoPageContent[] = [
           "The best accounting firm for niche businesses explains how it would handle your unusual accounts and reports, is open about its limits, and coordinates with tax professionals when needed.",
       },
       {
-        question: "Which industries does Juris Accounting have pages for?",
+        question: "Which industries does Juris CFO have pages for?",
         answer:
           "SaaS and startups, e-commerce and DTC, healthcare practices, real estate and property, construction and trades, agencies, consultancies and law firms, restaurants, and consulting services.",
       },
       {
         question: "Does industry specific accounting cost more?",
         answer:
-          "Not necessarily. Cost follows scope: volume, accounts, entities and reporting. Inventory or trust accounting can add complexity. Juris Accounting confirms a tailored quote after a consultation.",
+          "Not necessarily. Cost follows scope: volume, accounts, entities and reporting. Inventory or trust accounting can add complexity. Juris CFO confirms a tailored quote after a consultation.",
       },
       {
         question: "What if my industry is not listed?",
         answer:
-          "Contact Juris Accounting and describe how your business earns and spends money. We will confirm whether the service fits and how it would be scoped.",
+          "Contact Juris CFO and describe how your business earns and spends money. We will confirm whether the service fits and how it would be scoped.",
       },
     ],
   },

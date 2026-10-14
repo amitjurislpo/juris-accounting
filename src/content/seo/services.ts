@@ -3,12 +3,12 @@ import type { SeoPageContent } from "./types";
 export const servicesSeoPages: SeoPageContent[] = [
   {
     path: "/bookkeeping",
-    title: "Bookkeeping Services for Small Business | Juris Accounting",
+    title: "Bookkeeping Services for Small Business | Juris CFO",
     metaDescription:
-      "Bookkeeping services from Juris Accounting: accurate, reconciled books every month so you can trust your numbers. Talk to our team for a tailored quote.",
+      "Bookkeeping services from Juris CFO: accurate, reconciled books every month so you can trust your numbers. Talk to our team for a tailored quote.",
     h1: "Bookkeeping for Small Businesses",
     answer:
-      "Bookkeeping services record and reconcile every sale, expense, and bank or card transaction so your records stay accurate and current. Juris Accounting handles this remotely, leaving you with organized books ready for accounting review or tax preparation.",
+      "Bookkeeping services record and reconcile every sale, expense, and bank or card transaction so your records stay accurate and current. Juris CFO handles this remotely, leaving you with organized books ready for accounting review or tax preparation.",
     sections: [
       {
         eyebrow: "The basics",
@@ -29,7 +29,7 @@ export const servicesSeoPages: SeoPageContent[] = [
         heading: "How does remote bookkeeping work?",
         paragraphs: [
           "Online bookkeeping services are delivered remotely: you securely share statements and documents, and our team records and reconciles them. Virtual bookkeeping services follow the same model, with a remote team in place of a desk in your office.",
-          "Monthly bookkeeping services run on a regular cadence, with reconciliation after each statement closes. Cost depends on transaction volume, accounts, entities, and the state of your records, so Juris Accounting gives a tailored quote after a short consultation, with final scope confirmed before work begins.",
+          "Monthly bookkeeping services run on a regular cadence, with reconciliation after each statement closes. Cost depends on transaction volume, accounts, entities, and the state of your records, so Juris CFO gives a tailored quote after a short consultation, with final scope confirmed before work begins.",
         ],
       },
     ],
@@ -37,38 +37,38 @@ export const servicesSeoPages: SeoPageContent[] = [
       {
         question: "How much do bookkeeping services cost?",
         answer:
-          "The cost depends on transaction volume, the number of bank and card accounts, how many entities are covered, and how clean your existing records are. Juris Accounting provides a tailored quote after a short consultation rather than a fixed public price. Combining services is scoped together.",
+          "The cost depends on transaction volume, the number of bank and card accounts, how many entities are covered, and how clean your existing records are. Juris CFO provides a tailored quote after a short consultation rather than a fixed public price. Combining services is scoped together.",
       },
       {
         question: "What does a bookkeeper do for a small business?",
         answer:
-          "A bookkeeper records and categorizes transactions, reconciles bank and card statements, and organizes source documents. Juris Accounting keeps these records current so the owner, accountant, or tax preparer can rely on them without cleaning up first. It does not interpret performance or file returns; those belong to accounting and taxation.",
+          "A bookkeeper records and categorizes transactions, reconciles bank and card statements, and organizes source documents. Juris CFO keeps these records current so the owner, accountant, or tax preparer can rely on them without cleaning up first. It does not interpret performance or file returns; those belong to accounting and taxation.",
       },
       {
         question: "Do I need a bookkeeper for my small business?",
         answer:
-          "You likely do if accounts are unreconciled, expenses are uncategorized, or tax time is a scramble. Very small businesses with few transactions may self-manage for a while. Juris Accounting can help you judge when professional bookkeeping becomes worthwhile, and a short consultation is a low-pressure way to find out.",
+          "You likely do if accounts are unreconciled, expenses are uncategorized, or tax time is a scramble. Very small businesses with few transactions may self-manage for a while. Juris CFO can help you judge when professional bookkeeping becomes worthwhile, and a short consultation is a low-pressure way to find out.",
       },
       {
         question: "What is the difference between ongoing bookkeeping and catch-up work?",
         answer:
-          "Ongoing bookkeeping maintains records that are already current. Catch-up work rebuilds records that have fallen behind, sometimes over many months. Juris Accounting can scope either, and the amount of catch-up needed is a key driver of the quote. Mixing personal and business spending also adds clean-up, so separate accounts help.",
+          "Ongoing bookkeeping maintains records that are already current. Catch-up work rebuilds records that have fallen behind, sometimes over many months. Juris CFO can scope either, and the amount of catch-up needed is a key driver of the quote. Mixing personal and business spending also adds clean-up, so separate accounts help.",
       },
       {
-        question: "What should I send Juris Accounting to get started?",
+        question: "What should I send Juris CFO to get started?",
         answer:
-          "Typically bank and credit card statements or read-only feeds, invoices, receipts, and a list of your accounts. Juris Accounting confirms exactly what is needed during the consultation, so you do not have to gather everything in advance. Prior-period records help if they exist. If some records are missing, say so; recovering them is part of scoping the work.",
+          "Typically bank and credit card statements or read-only feeds, invoices, receipts, and a list of your accounts. Juris CFO confirms exactly what is needed during the consultation, so you do not have to gather everything in advance. Prior-period records help if they exist. If some records are missing, say so; recovering them is part of scoping the work.",
       },
     ],
   },
   {
     path: "/accounting",
-    title: "Accounting Services for Small Business | Juris Accounting",
+    title: "Accounting Services for Small Business | Juris CFO",
     metaDescription:
-      "Accounting services for small business from Juris Accounting: reviewed books, monthly financial statements, and plain-language insight. Request a quote today.",
+      "Accounting services for small business from Juris CFO: reviewed books, monthly financial statements, and plain-language insight. Request a quote today.",
     h1: "Accounting Services for Small Business",
     answer:
-      "Accounting services for small business review your recorded transactions and turn them into reconciled financial statements, with plain-language explanations of performance. Juris Accounting checks your books for accuracy so you can make informed decisions about hiring, pricing, and spending.",
+      "Accounting services for small business review your recorded transactions and turn them into reconciled financial statements, with plain-language explanations of performance. Juris CFO checks your books for accuracy so you can make informed decisions about hiring, pricing, and spending.",
     sections: [
       {
         eyebrow: "Why it matters",
@@ -90,22 +90,22 @@ export const servicesSeoPages: SeoPageContent[] = [
       {
         question: "What do accounting services include?",
         answer:
-          "Typically reviewing and reconciling recorded transactions, preparing financial statements such as profit and loss, analyzing performance, and explaining results in plain language. Juris Accounting confirms the exact reports and frequency with each client during consultation.",
+          "Typically reviewing and reconciling recorded transactions, preparing financial statements such as profit and loss, analyzing performance, and explaining results in plain language. Juris CFO confirms the exact reports and frequency with each client during consultation.",
       },
       {
         question: "What is the difference between bookkeeping and accounting?",
         answer:
-          "Bookkeeping records transactions accurately; accounting reviews that record, produces financial statements, and interprets performance. Bookkeeping answers what happened, accounting answers what it means. Juris Accounting offers both, building accounting on clean bookkeeping.",
+          "Bookkeeping records transactions accurately; accounting reviews that record, produces financial statements, and interprets performance. Bookkeeping answers what happened, accounting answers what it means. Juris CFO offers both, building accounting on clean bookkeeping.",
       },
       {
         question: "How much does small business accounting cost?",
         answer:
-          "It depends on transaction volume, the number of accounts and entities, how often you want reports, and how clean your books are. Juris Accounting provides a tailored quote after a short consultation instead of a fixed public price.",
+          "It depends on transaction volume, the number of accounts and entities, how often you want reports, and how clean your books are. Juris CFO provides a tailored quote after a short consultation instead of a fixed public price.",
       },
       {
         question: "Do I need accounting if I already have bookkeeping?",
         answer:
-          "If you only need accurate records, bookkeeping may be enough. If you also want to understand profit, cash, and financial position, or need statements for a lender, accounting adds review and explanation. Juris Accounting can help you decide.",
+          "If you only need accurate records, bookkeeping may be enough. If you also want to understand profit, cash, and financial position, or need statements for a lender, accounting adds review and explanation. Juris CFO can help you decide.",
       },
       {
         question: "Can accounting support a lender or investor conversation?",
@@ -116,12 +116,12 @@ export const servicesSeoPages: SeoPageContent[] = [
   },
   {
     path: "/taxation",
-    title: "Business Tax Preparation Services | Juris Accounting",
+    title: "Business Tax Preparation Services | Juris CFO",
     metaDescription:
-      "Business tax preparation services from Juris Accounting: personal and business returns prepared from accurate records. Contact our team for a tailored quote.",
+      "Business tax preparation services from Juris CFO: personal and business returns prepared from accurate records. Contact our team for a tailored quote.",
     h1: "Business Tax Preparation for Owners",
     answer:
-      "Business tax preparation services calculate what a business owes and prepare the return from its income and expense records. Juris Accounting prepares personal and business returns with supporting documentation. Entity type, state, and filing period affect scope, so details are confirmed with our team.",
+      "Business tax preparation services calculate what a business owes and prepare the return from its income and expense records. Juris CFO prepares personal and business returns with supporting documentation. Entity type, state, and filing period affect scope, so details are confirmed with our team.",
     sections: [
       {
         eyebrow: "Return types",
@@ -143,12 +143,12 @@ export const servicesSeoPages: SeoPageContent[] = [
       {
         question: "How much does business tax preparation cost?",
         answer:
-          "It depends on entity type, number of entities, record quality, states involved, and whether personal returns are included. Juris Accounting provides a tailored quote after a short consultation rather than a published price.",
+          "It depends on entity type, number of entities, record quality, states involved, and whether personal returns are included. Juris CFO provides a tailored quote after a short consultation rather than a published price.",
       },
       {
         question: "When should a business hire an accountant for taxes?",
         answer:
-          "Typically when it has employees, multiple owners, income in more than one state, or records it cannot confidently reconcile. Engaging help before the deadline leaves time for review. Juris Accounting can confirm scope in a short consultation.",
+          "Typically when it has employees, multiple owners, income in more than one state, or records it cannot confidently reconcile. Engaging help before the deadline leaves time for review. Juris CFO can confirm scope in a short consultation.",
       },
       {
         question: "What are business tax filing deadlines in the US?",
@@ -156,25 +156,25 @@ export const servicesSeoPages: SeoPageContent[] = [
           "For calendar-year entities, typically mid-March for partnerships and S corporations and mid-April for C corporations and sole proprietors, with extensions often available. State dates can differ, so check your state and confirm with our team.",
       },
       {
-        question: "Does Juris Accounting prepare both personal and business returns?",
+        question: "Does Juris CFO prepare both personal and business returns?",
         answer:
-          "Yes. Juris Accounting prepares personal and business returns with supporting documentation. If you are unsure whether you need a personal return, a business return, or both, our team can help work that out before any pricing conversation.",
+          "Yes. Juris CFO prepares personal and business returns with supporting documentation. If you are unsure whether you need a personal return, a business return, or both, our team can help work that out before any pricing conversation.",
       },
       {
         question: "What should I prepare before tax preparation starts?",
         answer:
-          "Typically prior returns, year-end financial statements, payroll summaries, and records of income and larger expenses. Current, reconciled books make preparation smoother. Juris Accounting confirms the exact document list for your entity during consultation.",
+          "Typically prior returns, year-end financial statements, payroll summaries, and records of income and larger expenses. Current, reconciled books make preparation smoother. Juris CFO confirms the exact document list for your entity during consultation.",
       },
     ],
   },
   {
     path: "/controller-services",
-    title: "Outsourced Controller Services | Juris Accounting",
+    title: "Outsourced Controller Services | Juris CFO",
     metaDescription:
-      "Outsourced controller services from Juris Accounting: senior oversight of closes, controls, and reporting without a full-time hire. Book a consultation.",
+      "Outsourced controller services from Juris CFO: senior oversight of closes, controls, and reporting without a full-time hire. Book a consultation.",
     h1: "Outsourced Controller Services",
     answer:
-      "Outsourced controller services give a business senior-level oversight of its accounting function without a full-time hire. Juris Accounting supervises the monthly close, reconciliations, internal controls, and management reporting, so growing businesses get reliable financials and a documented process.",
+      "Outsourced controller services give a business senior-level oversight of its accounting function without a full-time hire. Juris CFO supervises the monthly close, reconciliations, internal controls, and management reporting, so growing businesses get reliable financials and a documented process.",
     sections: [
       {
         eyebrow: "The role",
@@ -201,17 +201,17 @@ export const servicesSeoPages: SeoPageContent[] = [
       {
         question: "Outsourced controller vs bookkeeper: which do I need?",
         answer:
-          "Choose a bookkeeper to record and reconcile transactions. Choose an outsourced controller to supervise that work, standardize closes, and produce reliable reporting. Many businesses use both, and Juris Accounting offers each separately.",
+          "Choose a bookkeeper to record and reconcile transactions. Choose an outsourced controller to supervise that work, standardize closes, and produce reliable reporting. Many businesses use both, and Juris CFO offers each separately.",
       },
       {
         question: "How much does a fractional controller cost?",
         answer:
-          "It depends on entities, transaction volume, team size, reporting needs, and any audit or financing support. Juris Accounting provides a tailored quote after a consultation instead of a standard fee.",
+          "It depends on entities, transaction volume, team size, reporting needs, and any audit or financing support. Juris CFO provides a tailored quote after a consultation instead of a standard fee.",
       },
       {
         question: "Is a fractional controller the same as a fractional CFO?",
         answer:
-          "No. A controller oversees accounting accuracy, closes, controls, and reporting. A CFO focuses on strategy, forecasting, and financing. Juris Accounting offers them as separate services and can advise which fits your stage.",
+          "No. A controller oversees accounting accuracy, closes, controls, and reporting. A CFO focuses on strategy, forecasting, and financing. Juris CFO offers them as separate services and can advise which fits your stage.",
       },
       {
         question: "When is a business ready for a controller?",

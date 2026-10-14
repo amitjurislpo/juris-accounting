@@ -3,12 +3,12 @@ import type { SeoPageContent } from "./types";
 export const industries2SeoPages: SeoPageContent[] = [
   {
     path: "/industries/construction-trades",
-    title: "Construction Accounting Services | Juris Accounting",
+    title: "Construction Accounting Services | Juris CFO",
     metaDescription:
-      "Construction accounting services with job costing, WIP schedules and retainage tracking so you see which jobs earn money. Book a call with Juris Accounting.",
+      "Construction accounting services with job costing, WIP schedules and retainage tracking so you see which jobs earn money. Book a call with Juris CFO.",
     h1: "Construction Accounting Services",
     answer:
-      "Construction accounting services track revenue, cost and cash by job instead of by month. Juris Accounting provides job-costed books, work-in-progress schedules and retainage tracking so contractors can see which projects are profitable and which are losing money.",
+      "Construction accounting services track revenue, cost and cash by job instead of by month. Juris CFO provides job-costed books, work-in-progress schedules and retainage tracking so contractors can see which projects are profitable and which are losing money.",
     sections: [
       {
         eyebrow: "Job Costing",
@@ -46,7 +46,7 @@ export const industries2SeoPages: SeoPageContent[] = [
       {
         question: "What is the best accounting method for contractors?",
         answer:
-          "It depends on project size, contract length and tax rules. Percentage of completion suits longer jobs, while completed-contract is often used for short ones. Juris Accounting sets up the reporting; confirm the final method with your tax advisor.",
+          "It depends on project size, contract length and tax rules. Percentage of completion suits longer jobs, while completed-contract is often used for short ones. Juris CFO sets up the reporting; confirm the final method with your tax advisor.",
       },
       {
         question: "What is a WIP schedule and why does it matter?",
@@ -54,27 +54,27 @@ export const industries2SeoPages: SeoPageContent[] = [
           "A work-in-progress schedule lists each open job with contract value, cost to date, percent complete, earned revenue and billings. It reveals overbilling and underbilling, and lenders or bonding companies often ask for it.",
       },
       {
-        question: "How does Juris Accounting handle subcontractor payments and 1099s?",
+        question: "How does Juris CFO handle subcontractor payments and 1099s?",
         answer:
-          "Juris Accounting tracks subcontractor bills, payments and W-9s throughout the year, then prepares 1099-NEC information for payees above the IRS reporting threshold. Pricing is a tailored quote after a consultation.",
+          "Juris CFO tracks subcontractor bills, payments and W-9s throughout the year, then prepares 1099-NEC information for payees above the IRS reporting threshold. Pricing is a tailored quote after a consultation.",
       },
     ],
   },
   {
     path: "/industries/agencies-consultancies-law-firms",
-    title: "Law Firm Accounting Services | Juris Accounting",
+    title: "Law Firm Accounting Services | Juris CFO",
     metaDescription:
-      "Law firm accounting services covering trust account reconciliation, retainers and billable time, plus agency and consultancy books. Talk to Juris Accounting today.",
+      "Law firm accounting services covering trust account reconciliation, retainers and billable time, plus agency and consultancy books. Talk to Juris CFO today.",
     h1: "Law Firm Accounting Services",
     answer:
-      "Law firm accounting services combine standard bookkeeping with careful handling of client funds, retainers and billable time. Juris Accounting supports trust account reconciliation and utilization reporting, while the firm remains responsible for its own ethics and compliance obligations.",
+      "Law firm accounting services combine standard bookkeeping with careful handling of client funds, retainers and billable time. Juris CFO supports trust account reconciliation and utilization reporting, while the firm remains responsible for its own ethics and compliance obligations.",
     sections: [
       {
         eyebrow: "Client Funds",
         heading: "How does trust accounting for law firms work?",
         paragraphs: [
           "Trust accounting for law firms holds client money separately and records every entry against the specific client. IOLTA accounting rules vary by state, so check your state bar's rules.",
-          "Juris Accounting supports bookkeeping and reconciliation of trust records in line with the firm's own rules. It does not provide legal services.",
+          "Juris CFO supports bookkeeping and reconciliation of trust records in line with the firm's own rules. It does not provide legal services.",
         ],
       },
       {
@@ -108,9 +108,9 @@ export const industries2SeoPages: SeoPageContent[] = [
           "Record time by client and matter, invoice promptly and apply retainers as work is performed. Unearned retainers remain a liability belonging to the client; earned amounts become revenue. Monthly unbilled-work reports show whether time converts to cash.",
       },
       {
-        question: "Is Juris Accounting's trust accounting IOLTA-compliant?",
+        question: "Is Juris CFO's trust accounting IOLTA-compliant?",
         answer:
-          "Juris Accounting supports reconciliation of trust records in line with your firm's own rules but does not certify compliance or provide legal services. Ethics and compliance responsibility stays with the firm, and state rules vary.",
+          "Juris CFO supports reconciliation of trust records in line with your firm's own rules but does not certify compliance or provide legal services. Ethics and compliance responsibility stays with the firm, and state rules vary.",
       },
       {
         question: "What is the difference between earned and unearned retainers?",
@@ -121,12 +121,12 @@ export const industries2SeoPages: SeoPageContent[] = [
   },
   {
     path: "/industries/restaurants",
-    title: "Restaurant Accounting Services | Juris Accounting",
+    title: "Restaurant Accounting Services | Juris CFO",
     metaDescription:
-      "Restaurant accounting services that reconcile POS sales, track food cost and tips, and show prime cost clearly. Book a consultation with Juris Accounting.",
+      "Restaurant accounting services that reconcile POS sales, track food cost and tips, and show prime cost clearly. Book a consultation with Juris CFO.",
     h1: "Restaurant Accounting Services",
     answer:
-      "Restaurant accounting services reconcile daily sales, food cost, labor, tips and delivery-app payouts to the bank so owners see real margins. Juris Accounting provides restaurant bookkeeping with POS reconciliation and prime cost reporting.",
+      "Restaurant accounting services reconcile daily sales, food cost, labor, tips and delivery-app payouts to the bank so owners see real margins. Juris CFO provides restaurant bookkeeping with POS reconciliation and prime cost reporting.",
     sections: [
       {
         eyebrow: "Daily Sales",
@@ -172,27 +172,27 @@ export const industries2SeoPages: SeoPageContent[] = [
           "Prime cost is cost of goods sold plus total labor, shown as a percentage of sales. Many operators aim for roughly 60 to 65 percent, but the right target varies by concept. Your own weekly trend matters most.",
       },
       {
-        question: "How is restaurant bookkeeping priced at Juris Accounting?",
+        question: "How is restaurant bookkeeping priced at Juris CFO?",
         answer:
-          "Juris Accounting gives a tailored quote after a consultation. Cost drivers include number of locations, sales channels, payroll and tip complexity, sales tax filings and how much cleanup the existing books need.",
+          "Juris CFO gives a tailored quote after a consultation. Cost drivers include number of locations, sales channels, payroll and tip complexity, sales tax filings and how much cleanup the existing books need.",
       },
     ],
   },
   {
     path: "/industries/consulting-services",
-    title: "Accounting for Consultants | Juris Accounting",
+    title: "Accounting for Consultants | Juris CFO",
     metaDescription:
-      "Accounting for consultants that tracks project profitability, retainers, contractor 1099s and estimated taxes. Book a free consultation with Juris Accounting.",
+      "Accounting for consultants that tracks project profitability, retainers, contractor 1099s and estimated taxes. Book a free consultation with Juris CFO.",
     h1: "Accounting for Consultants",
     answer:
-      "Accounting for consultants means tracking revenue and profit by client and engagement, not just in total. Juris Accounting covers retainer and milestone billing, unbilled work, contractor payments and cash flow visibility.",
+      "Accounting for consultants means tracking revenue and profit by client and engagement, not just in total. Juris CFO covers retainer and milestone billing, unbilled work, contractor payments and cash flow visibility.",
     sections: [
       {
         eyebrow: "Client Profit",
         heading: "What does accounting for consultants involve?",
         paragraphs: [
           "Consulting firm accounting shows revenue and cost by client, so you know which engagements earn their time. Bookkeeping for consultants also keeps business and personal money separate.",
-          "Consultant bookkeeping services at Juris Accounting run a monthly reconciliation and receivables review.",
+          "Consultant bookkeeping services at Juris CFO run a monthly reconciliation and receivables review.",
         ],
       },
       {

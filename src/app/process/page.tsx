@@ -6,9 +6,9 @@ import { seoMetadata, seoPages } from "@/content/seo";
 import { SeoContent } from "@/components/seo/SeoContent";
 
 export const metadata: Metadata = seoMetadata("/process", {
-  title: "Our process | Juris Accounting",
+  title: "Our process | Juris CFO",
   description:
-    "What happens after you contact Juris Accounting — from initial consultation to ongoing bookkeeping, accounting, and taxation service.",
+    "What happens after you contact Juris CFO — from initial consultation to ongoing bookkeeping, accounting, and taxation service.",
 });
 
 export default function ProcessPage() {

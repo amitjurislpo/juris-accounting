@@ -3,11 +3,11 @@ import type { SeoPageContent } from "./types";
 export const extra2SeoPages: SeoPageContent[] = [
   {
     path: "/accounts-payable-receivable",
-    title: "Accounts Payable and Receivable Services | Juris Accounting",
+    title: "Accounts Payable and Receivable Services | Juris CFO",
     metaDescription:
-      "Accounts payable and receivable services from Juris Accounting: bills paid on schedule, invoices followed up, balances reconciled. Book a free consultation.",
+      "Accounts payable and receivable services from Juris CFO: bills paid on schedule, invoices followed up, balances reconciled. Book a free consultation.",
     answer:
-      "Accounts payable and receivable services handle both sides of cash flow: recording and paying vendor bills on schedule, and invoicing customers and following up until they pay. Juris Accounting tracks both, reconciles each balance to your books, and reports on what is owed and due.",
+      "Accounts payable and receivable services handle both sides of cash flow: recording and paying vendor bills on schedule, and invoicing customers and following up until they pay. Juris CFO tracks both, reconciles each balance to your books, and reports on what is owed and due.",
     sections: [
       {
         eyebrow: "The Basics",
@@ -43,38 +43,38 @@ export const extra2SeoPages: SeoPageContent[] = [
       {
         question: "How to manage accounts payable and receivable without falling behind?",
         answer:
-          "Use a fixed routine: record bills on arrival, pay on a set schedule, invoice promptly, follow up weekly, and reconcile both balances to the books each month. Juris Accounting runs this cycle and reports on what is outstanding.",
+          "Use a fixed routine: record bills on arrival, pay on a set schedule, invoice promptly, follow up weekly, and reconcile both balances to the books each month. Juris CFO runs this cycle and reports on what is outstanding.",
       },
       {
         question: "What are the benefits of outsourcing accounts receivable?",
         answer:
-          "Benefits include consistent invoicing, regular follow-up on late payers, and a current aging report. Juris Accounting handles routine follow-up, while credit decisions stay with you.",
+          "Benefits include consistent invoicing, regular follow-up on late payers, and a current aging report. Juris CFO handles routine follow-up, while credit decisions stay with you.",
       },
       {
         question: "How to collect overdue invoices from customers politely?",
         answer:
-          "Send a friendly reminder soon after the due date, restate the amount and payment options, then escalate in steps. Juris Accounting handles this sequence and flags accounts that need a personal call from you.",
+          "Send a friendly reminder soon after the due date, restate the amount and payment options, then escalate in steps. Juris CFO handles this sequence and flags accounts that need a personal call from you.",
       },
       {
         question: "Does outsourced accounts payable mean you pay my bills for me?",
         answer:
-          "Outsourced accounts payable means Juris Accounting records and checks bills and coordinates payments on a schedule. The exact payment process is confirmed with you during onboarding.",
+          "Outsourced accounts payable means Juris CFO records and checks bills and coordinates payments on a schedule. The exact payment process is confirmed with you during onboarding.",
       },
       {
         question: "What drives the cost of accounts payable outsourcing?",
         answer:
-          "Bill volume, number of vendors, payment frequency, and the state of existing balances. Juris Accounting gives a tailored quote after a consultation rather than a fixed price list.",
+          "Bill volume, number of vendors, payment frequency, and the state of existing balances. Juris CFO gives a tailored quote after a consultation rather than a fixed price list.",
       },
     ],
   },
   {
     path: "/bookkeeping-software-support",
-    title: "QuickBooks Online Setup Services | Juris Accounting",
+    title: "QuickBooks Online Setup Services | Juris CFO",
     metaDescription:
-      "QuickBooks Online setup services from Juris Accounting: setup, cleanup, chart of accounts, bank feeds, and migration so your books are right. Book a call.",
+      "QuickBooks Online setup services from Juris CFO: setup, cleanup, chart of accounts, bank feeds, and migration so your books are right. Book a call.",
     h1: "QuickBooks Online Setup Services",
     answer:
-      "QuickBooks Online setup services configure your accounting file correctly, then fix or migrate it when needed. Juris Accounting sets up settings, accounts, bank feeds, and rules so QuickBooks Online bookkeeping stays accurate and every report built on the file can be trusted.",
+      "QuickBooks Online setup services configure your accounting file correctly, then fix or migrate it when needed. Juris CFO sets up settings, accounts, bank feeds, and rules so QuickBooks Online bookkeeping stays accurate and every report built on the file can be trusted.",
     sections: [
       {
         eyebrow: "What It Is",
@@ -104,37 +104,37 @@ export const extra2SeoPages: SeoPageContent[] = [
       {
         question: "How to clean up QuickBooks Online when the books are a mess?",
         answer:
-          "Review uncategorized balances, fix duplicates and miscategorized items, clear stale open items, then reconcile every bank and card account to statements. Juris Accounting does this in a safe order and documents the changes.",
+          "Review uncategorized balances, fix duplicates and miscategorized items, clear stale open items, then reconcile every bank and card account to statements. Juris CFO does this in a safe order and documents the changes.",
       },
       {
         question: "How to migrate from QuickBooks Desktop to QuickBooks Online?",
         answer:
-          "Map accounts, choose a cutover date, bring over opening balances and needed history, and confirm balances match across systems. Juris Accounting manages the mapping and checks, and says which history is summarized.",
+          "Map accounts, choose a cutover date, bring over opening balances and needed history, and confirm balances match across systems. Juris CFO manages the mapping and checks, and says which history is summarized.",
       },
       {
         question: "Why are my QuickBooks bank feeds not matching?",
         answer:
-          "Common causes are duplicate transactions, overlapping start dates, a disconnected feed that left a gap, or rules posting to the wrong account. Juris Accounting corrects these and resets the feed so the account reconciles.",
+          "Common causes are duplicate transactions, overlapping start dates, a disconnected feed that left a gap, or rules posting to the wrong account. Juris CFO corrects these and resets the feed so the account reconciles.",
       },
       {
         question: "What is the difference between cleanup and catch-up bookkeeping?",
         answer:
-          "Cleanup fixes records that exist but are inaccurate. Catch-up bookkeeping rebuilds records that are missing for past months. Juris Accounting reviews your file first and tells you which one fits.",
+          "Cleanup fixes records that exist but are inaccurate. Catch-up bookkeeping rebuilds records that are missing for past months. Juris CFO reviews your file first and tells you which one fits.",
       },
       {
         question: "Is ongoing bookkeeping included with setup?",
         answer:
-          "No. Setup covers configuration, cleanup, feeds, and migration, then hands off. Monthly bookkeeping is a separate Juris Accounting service, and scope and pricing are confirmed before work starts.",
+          "No. Setup covers configuration, cleanup, feeds, and migration, then hands off. Monthly bookkeeping is a separate Juris CFO service, and scope and pricing are confirmed before work starts.",
       },
     ],
   },
   {
     path: "/sales-tax-compliance",
-    title: "Sales Tax Compliance Services | Juris Accounting",
+    title: "Sales Tax Compliance Services | Juris CFO",
     metaDescription:
-      "Sales tax compliance services from Juris Accounting: nexus review, registration, calculation, and filing across states. Book a consultation to get started.",
+      "Sales tax compliance services from Juris CFO: nexus review, registration, calculation, and filing across states. Book a consultation to get started.",
     answer:
-      "Sales tax compliance services identify where you must collect sales tax, register in those states, calculate tax due, and file returns on each state's schedule. Juris Accounting handles the cycle and reconciles tax collected against tax remitted, with state details confirmed with you.",
+      "Sales tax compliance services identify where you must collect sales tax, register in those states, calculate tax due, and file returns on each state's schedule. Juris CFO handles the cycle and reconciles tax collected against tax remitted, with state details confirmed with you.",
     sections: [
       {
         eyebrow: "The Basics",
@@ -164,27 +164,27 @@ export const extra2SeoPages: SeoPageContent[] = [
       {
         question: "Do I need to collect sales tax out of state?",
         answer:
-          "Possibly, if you have nexus there through physical presence or by passing a state's economic threshold. Rules differ, so check each state. Juris Accounting reviews your sales by state and flags likely obligations for confirmation.",
+          "Possibly, if you have nexus there through physical presence or by passing a state's economic threshold. Rules differ, so check each state. Juris CFO reviews your sales by state and flags likely obligations for confirmation.",
       },
       {
         question: "How to register for sales tax in a new state?",
         answer:
-          "Confirm nexus, then apply for a seller's permit with the state's revenue department. Sales tax registration generally comes before collecting. Juris Accounting prepares and submits registrations in applicable states.",
+          "Confirm nexus, then apply for a seller's permit with the state's revenue department. Sales tax registration generally comes before collecting. Juris CFO prepares and submits registrations in applicable states.",
       },
       {
         question: "How often do I have to file sales tax?",
         answer:
-          "It depends on the state and your sales volume; monthly, quarterly, and annual schedules are common. Juris Accounting files on the schedule each state assigns and tracks the deadlines.",
+          "It depends on the state and your sales volume; monthly, quarterly, and annual schedules are common. Juris CFO files on the schedule each state assigns and tracks the deadlines.",
       },
       {
         question: "Do marketplace facilitators handle my sales tax?",
         answer:
-          "In many states, marketplace facilitators collect and remit tax on sales through their platforms. You may still have registration or reporting duties, so Juris Accounting reviews each sales channel.",
+          "In many states, marketplace facilitators collect and remit tax on sales through their platforms. You may still have registration or reporting duties, so Juris CFO reviews each sales channel.",
       },
       {
         question: "What do sales tax filing services cost?",
         answer:
-          "Sales tax filing services are priced by number of states, filing frequency, volume, and record condition. Juris Accounting provides a tailored quote after a consultation.",
+          "Sales tax filing services are priced by number of states, filing frequency, volume, and record condition. Juris CFO provides a tailored quote after a consultation.",
       },
     ],
   },
