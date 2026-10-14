@@ -13,7 +13,7 @@ export default function NotFound() {
       <Container className="max-w-lg text-center">
         <p className="enter font-display text-7xl italic text-metal md:text-8xl">404</p>
         <h1
-          className="enter mt-6 text-h2 text-fg"
+          className="enter mt-6 text-3xl text-fg md:text-4xl"
           style={{ "--enter-delay": "0.1s" } as React.CSSProperties}
         >
           That page doesn&apos;t exist

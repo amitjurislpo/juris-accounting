@@ -60,7 +60,7 @@ export function Tabs<T extends string>({
     <div ref={listRef} role="tablist" aria-label={label} className="relative flex flex-wrap gap-1.5">
       <span
         ref={indicatorRef}
-        className="pointer-events-none absolute left-0 top-0 rounded-control bg-platinum opacity-0 shadow-[0_8px_24px_-12px_rgba(17,17,17,0.35)] transition-[transform,width,height,opacity] duration-500 ease-lux"
+        className="pointer-events-none absolute left-0 top-0 rounded-control bg-platinum opacity-0 shadow-[0_8px_24px_-12px_rgba(255,255,255,0.35)] transition-[transform,width,height,opacity] duration-500 ease-lux"
         aria-hidden
       />
       {items.map((item, i) => {

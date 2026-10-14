@@ -5,15 +5,15 @@ import { cn } from "@/lib/cn";
 type Variant = "primary" | "secondary" | "ghost" | "on-void";
 
 const PRIMARY =
-  "bg-platinum text-[#ffffff] hover:bg-black hover:shadow-[0_0_0_1px_rgba(201,151,79,0.5),0_14px_30px_-14px_rgba(17,17,17,0.55)]";
+  "bg-platinum text-canvas shadow-[inset_0_1px_0_rgba(255,255,255,0.6),0_10px_30px_-16px_rgba(255,255,255,0.25)] hover:bg-white hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.8),0_0_0_1px_rgba(255,255,255,0.25),0_18px_50px_-16px_rgba(255,255,255,0.35)]";
 
 const variantClasses: Record<Variant, string> = {
   primary: PRIMARY,
   secondary:
-    "border border-line-strong bg-white text-fg hover:border-[rgba(201,151,79,0.7)]",
+    "border border-line-strong bg-white/[0.02] text-fg backdrop-blur-sm hover:border-white/35 hover:bg-white/[0.06]",
   ghost: "link-draw bg-transparent text-fg-muted hover:text-fg",
   // Kept as an alias so existing callers on dark bands keep working —
-  // every surface is white now, so it matches primary.
+  // every surface is dark now, so it matches primary.
   "on-void": PRIMARY,
 };
 
@@ -68,7 +68,7 @@ export function Button({
   const magnetic = variant !== "ghost";
 
   const base = cn(
-    "group relative inline-flex items-center justify-center gap-2.5 rounded-control text-btn transition-[background-color,color,border-color,box-shadow,scale,translate] duration-300 ease-out active:scale-[0.98] disabled:pointer-events-none disabled:opacity-60",
+    "group relative inline-flex items-center justify-center gap-2.5 rounded-control text-sm font-medium tracking-[0.01em] transition-[background-color,color,border-color,box-shadow,scale,translate] duration-300 ease-out active:scale-[0.98] disabled:pointer-events-none disabled:opacity-60",
     variant === "ghost" ? "px-0 py-1" : "px-6 py-3.5",
     variantClasses[variant],
     glow && "btn-orbit",

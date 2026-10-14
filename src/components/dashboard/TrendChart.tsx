@@ -23,7 +23,7 @@ export function TrendChart() {
 
   return (
     <div className="w-full">
-      <div className="mb-3 flex items-center gap-5 font-mono text-eyebrow uppercase text-fg-muted">
+      <div className="mb-3 flex items-center gap-5 font-mono text-[11px] uppercase tracking-wide text-fg-muted">
         <span className="flex items-center gap-1.5">
           <span className="inline-block h-2 w-2 rounded-full bg-series-revenue" />
           Revenue

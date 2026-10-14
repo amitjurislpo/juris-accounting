@@ -23,7 +23,7 @@ export function ResourcesPreview() {
             <Badge tone="muted" className="w-fit">
               {article.category}
             </Badge>
-            <h3 className="mt-3 text-h3 text-fg">{article.title}</h3>
+            <h3 className="mt-3 text-base leading-snug text-fg">{article.title}</h3>
             <p className="mt-2 flex-1 text-sm leading-relaxed text-fg-muted">
               {article.excerpt}
             </p>

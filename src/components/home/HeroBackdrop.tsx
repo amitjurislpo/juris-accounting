@@ -76,8 +76,8 @@ export function HeroBackdrop() {
       {/* Perspective grid floor with a glowing horizon */}
       <div className="hb-floor-wrap absolute inset-x-0 bottom-0 h-[58%]">
         <div className="hb-floor absolute inset-x-[-40%] bottom-[-30%] top-0" />
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[rgba(201,151,79,0.5)] to-transparent" />
-        <div className="absolute inset-x-[10%] top-0 h-24 -translate-y-1/2 rounded-full bg-[rgba(201,151,79,0.08)] blur-3xl" />
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent" />
+        <div className="absolute inset-x-[10%] top-0 h-24 -translate-y-1/2 rounded-full bg-white/[0.05] blur-3xl" />
       </div>
 
       {/* Ledger streams */}

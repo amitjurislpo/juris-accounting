@@ -14,10 +14,10 @@ export function StatTile({
 }) {
   return (
     <div className="rounded-control border border-chart-grid bg-graphite p-4 transition-colors duration-500 hover:border-platinum/35">
-      <p className="font-mono text-eyebrow uppercase text-fg-muted">
+      <p className="font-mono text-[10px] uppercase tracking-wide text-fg-muted">
         {label}
       </p>
-      <p className="mt-2 text-num text-fg tabular-nums">
+      <p className="mt-2 font-display text-[1.7rem] tracking-[-0.02em] text-fg">
         $<AnimatedNumber value={value} />
         {unit}
       </p>
