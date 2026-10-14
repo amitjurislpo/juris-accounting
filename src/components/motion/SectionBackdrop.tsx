@@ -19,12 +19,12 @@ const BARS = [38, 52, 44, 66, 58, 78, 70, 92, 84];
 
 function Ledger() {
   return (
-    <svg viewBox="0 0 400 280" className="sb-v sb-ledger" fill="none" stroke="white">
+    <svg viewBox="0 0 400 280" className="sb-v sb-ledger" fill="none" stroke="#d9b878">
       <text x="24" y="26" className="sb-label">DATE</text>
       <text x="96" y="26" className="sb-label">ENTRY</text>
       <text x="300" y="26" className="sb-label" textAnchor="end">DR / CR</text>
       <line x1="20" x2="380" y1="36" y2="36" strokeOpacity="0.5" />
-      <rect x="20" y="42" width="360" height="30" fill="white" fillOpacity="0.06" stroke="none" className="sb-scan" />
+      <rect x="20" y="42" width="360" height="30" fill="#d9b878" fillOpacity="0.06" stroke="none" className="sb-scan" />
       {ROWS.map((r) => {
         const y = 58 + r * 36;
         return (
@@ -46,14 +46,14 @@ function Chart() {
     <div className="sb-v sb-chart">
       <div className="flex h-full items-end gap-[6%]">
         {BARS.map((h, n) => (
-          <span key={n} className="sb-bar block flex-1 border border-white/50 bg-white/10" style={{ height: `${h}%`, ...i(n) }} />
+          <span key={n} className="sb-bar block flex-1 border border-[rgba(201,151,79,0.5)] bg-[rgba(201,151,79,0.1)]" style={{ height: `${h}%`, ...i(n) }} />
         ))}
       </div>
       <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="absolute inset-0 h-full w-full overflow-visible">
         <polyline
           points="0,70 12,56 24,62 36,40 48,46 60,28 72,34 84,14 100,20"
           fill="none"
-          stroke="white"
+          stroke="#d9b878"
           strokeWidth="1.5"
           vectorEffect="non-scaling-stroke"
           pathLength={1}
@@ -67,7 +67,7 @@ function Chart() {
 function Tax() {
   return (
     <div className="sb-v sb-tax">
-      <svg viewBox="0 0 220 280" fill="none" stroke="white" className="h-full w-auto">
+      <svg viewBox="0 0 220 280" fill="none" stroke="#d9b878" className="h-full w-auto">
         <rect x="10" y="10" width="200" height="260" rx="8" strokeOpacity="0.5" />
         <text x="30" y="42" className="sb-label">RETURN · FY</text>
         <line x1="30" x2="150" y1="56" y2="56" strokeOpacity="0.5" strokeWidth="3" strokeLinecap="round" />
@@ -89,7 +89,7 @@ function Tax() {
         { ch: "§", l: "110%", t: "55%", d: "-6s" },
         { ch: "$", l: "-20%", t: "70%", d: "-11s" },
       ].map((s) => (
-        <span key={s.ch} className="hb-symbol absolute font-serif text-6xl italic text-white" style={{ left: s.l, top: s.t, animationDelay: s.d }}>
+        <span key={s.ch} className="hb-symbol absolute font-serif text-6xl italic text-silver" style={{ left: s.l, top: s.t, animationDelay: s.d }}>
           {s.ch}
         </span>
       ))}

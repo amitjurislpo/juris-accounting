@@ -26,14 +26,14 @@ export function LogoMark({ className }: { className?: string }) {
   );
 }
 
-/** Full lockup: mark + JURIS ACCOUNTING wordmark (+ optional tagline). */
+/** Full lockup: mark + JURIS CFO wordmark (+ optional tagline). */
 export function Logo({ tagline = true, className }: { tagline?: boolean; className?: string }) {
   return (
     <span className={cn("flex items-center gap-3", className)}>
       <LogoMark className="h-9 w-9 sm:h-10 sm:w-10" />
       <span className="flex flex-col leading-none">
         <span className="text-[0.95rem] font-semibold uppercase tracking-[0.12em] text-fg sm:text-[1.05rem]">
-          Juris <span style={{ color: BRAND_GOLD }}>Accounting</span>
+          Juris <span style={{ color: BRAND_GOLD }}>CFO</span>
         </span>
         {tagline && (
           <span className="mt-1.5 hidden border-t pt-1.5 text-[8.5px] font-medium uppercase tracking-[0.2em] text-fg-muted sm:block" style={{ borderColor: `${BRAND_GOLD}80` }}>

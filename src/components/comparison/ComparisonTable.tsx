@@ -46,7 +46,7 @@ export function ComparisonTable({ limit }: { limit?: number }) {
                     aria-pressed={selected === col.id}
                     className={cn(
                       "w-full select-none px-4 py-4 text-left font-mono text-[11px] uppercase tracking-[0.16em] transition-colors duration-300",
-                      highlighted === col.id ? "bg-platinum text-void" : "text-fg hover:text-platinum",
+                      highlighted === col.id ? "bg-platinum text-on-accent" : "text-fg hover:text-platinum",
                     )}
                   >
                     {col.label}

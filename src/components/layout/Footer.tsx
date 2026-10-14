@@ -17,7 +17,7 @@ function FooterColumn({
 }) {
   return (
     <div className={className}>
-      <p className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.28em] text-fg-subtle">
+      <p className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.22em] text-fg-subtle">
         <span className="h-px w-5 bg-line-strong" aria-hidden />
         {title}
       </p>
@@ -48,7 +48,7 @@ export function Footer() {
       <div className="bg-grid pointer-events-none absolute inset-0 -z-10 opacity-50" aria-hidden />
       <div
         className="pointer-events-none absolute -top-40 left-1/2 -z-10 h-80 w-[70rem] -translate-x-1/2 rounded-full opacity-[0.05] blur-3xl"
-        style={{ background: "radial-gradient(closest-side, #fff, transparent)" }}
+        style={{ background: "radial-gradient(closest-side, rgba(201,151,79,0.9), transparent)" }}
         aria-hidden
       />
 
@@ -58,7 +58,7 @@ export function Footer() {
         <p
           className="scroll-rise whitespace-nowrap text-[9.5vw] font-semibold uppercase leading-none tracking-[-0.04em]"
           style={{
-            background: "linear-gradient(180deg, rgba(255,255,255,0.075), rgba(255,255,255,0.015))",
+            background: "linear-gradient(180deg, rgba(190,240,215,0.075), rgba(190,240,215,0.015))",
             WebkitBackgroundClip: "text",
             backgroundClip: "text",
             color: "transparent",
@@ -72,7 +72,7 @@ export function Footer() {
 
         <Reveal staggerChildren className="grid grid-cols-2 gap-x-10 gap-y-10 py-10 md:grid-cols-[1.1fr_1.6fr_1fr_1fr]">
           <div className="col-span-2 md:col-span-1">
-            <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-fg-subtle">Practice</p>
+            <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-fg-subtle">Practice</p>
             <p className="mt-6 max-w-xs text-sm leading-relaxed text-fg-muted">{site.description}</p>
           </div>
           <FooterColumn title="Services" links={footerNav.services} split className="col-span-2 md:col-span-1" />

@@ -60,7 +60,7 @@ export function Tabs<T extends string>({
     <div ref={listRef} role="tablist" aria-label={label} className="relative flex flex-wrap gap-1.5">
       <span
         ref={indicatorRef}
-        className="pointer-events-none absolute left-0 top-0 rounded-control bg-platinum opacity-0 shadow-[0_8px_24px_-12px_rgba(255,255,255,0.35)] transition-[transform,width,height,opacity] duration-500 ease-lux"
+        className="pointer-events-none absolute left-0 top-0 rounded-control bg-platinum opacity-0 shadow-[0_8px_24px_-12px_rgba(201,151,79,0.45)] transition-[transform,width,height,opacity] duration-500 ease-lux"
         aria-hidden
       />
       {items.map((item, i) => {
@@ -78,7 +78,7 @@ export function Tabs<T extends string>({
             onKeyDown={(e) => onKeyDown(e, i)}
             className={cn(
               "relative z-10 rounded-control border px-4 py-2 text-sm transition-[color,border-color] duration-300",
-              selected ? "border-transparent text-canvas" : "border-line text-fg-muted hover:border-line-strong hover:text-fg",
+              selected ? "border-transparent text-on-accent" : "border-line text-fg-muted hover:border-line-strong hover:text-fg",
             )}
           >
             {item}

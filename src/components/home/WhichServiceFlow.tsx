@@ -73,7 +73,7 @@ export function WhichServiceFlow() {
                       className={cn(
                         "rounded-control border px-4 py-1.5 text-sm transition-[background-color,border-color,color,box-shadow] duration-300",
                         active
-                          ? "border-fg bg-fg text-canvas shadow-[0_10px_30px_-14px_rgba(255,255,255,0.3)]"
+                          ? "border-platinum bg-platinum text-on-accent shadow-[0_10px_30px_-14px_rgba(201,151,79,0.45)]"
                           : "border-line bg-canvas text-fg hover:border-silver",
                       )}
                     >
@@ -123,7 +123,7 @@ export function WhichServiceFlow() {
               <Button
                 href="/contact"
                 variant="secondary"
-                className="border-fg-muted text-fg hover:bg-canvas hover:text-void"
+                className="border-fg-muted text-fg hover:border-gold hover:bg-[rgba(201,151,79,0.06)] hover:text-fg"
               >
                 Talk to us
               </Button>

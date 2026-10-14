@@ -32,7 +32,7 @@ export function FaqPageContent() {
         </div>
       ) : (
         <div className="recommendation-fade rounded-card border border-dashed border-line-strong bg-surface/50 px-6 py-14 text-center">
-          <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-fg-subtle">Nothing here yet</p>
+          <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-fg-subtle">Nothing here yet</p>
           <p className="mt-3 text-sm text-fg-muted">
             No questions in this category yet — ask us directly and we&apos;ll answer.
           </p>

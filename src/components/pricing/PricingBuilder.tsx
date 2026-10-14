@@ -59,7 +59,7 @@ export function PricingBuilder() {
                   className={cn(
                     "rounded-control border px-4 py-4 text-left transition-[background-color,border-color,color,box-shadow,translate] duration-300 hover:-translate-y-px",
                     active
-                      ? "border-fg bg-fg text-canvas shadow-[0_10px_30px_-14px_rgba(255,255,255,0.3)]"
+                      ? "border-platinum bg-platinum text-on-accent shadow-[0_10px_30px_-14px_rgba(201,151,79,0.45)]"
                       : "border-line bg-raised text-fg hover:border-silver",
                   )}
                 >
@@ -67,7 +67,7 @@ export function PricingBuilder() {
                   <span
                     className={cn(
                       "mt-1 block text-xs leading-snug",
-                      active ? "text-canvas/70" : "text-fg-muted",
+                      active ? "text-on-accent/75" : "text-fg-muted",
                     )}
                   >
                     {service.oneLiner}
@@ -92,7 +92,7 @@ export function PricingBuilder() {
                 className={cn(
                   "flex-1 rounded-control border px-4 py-3 text-sm font-medium capitalize transition-[background-color,border-color,color,box-shadow,translate] duration-300 hover:-translate-y-px",
                   entityType === type
-                    ? "border-fg bg-fg text-canvas shadow-[0_10px_30px_-14px_rgba(255,255,255,0.3)]"
+                    ? "border-platinum bg-platinum text-on-accent shadow-[0_10px_30px_-14px_rgba(201,151,79,0.45)]"
                     : "border-line bg-raised text-fg hover:border-silver",
                 )}
               >
@@ -148,7 +148,7 @@ export function PricingBuilder() {
                 className={cn(
                   "rounded-control border px-4 py-3 text-left transition-[background-color,border-color,color,box-shadow,translate] duration-300 hover:-translate-y-px",
                   complexity === tier.id
-                    ? "border-fg bg-fg text-canvas shadow-[0_10px_30px_-14px_rgba(255,255,255,0.3)]"
+                    ? "border-platinum bg-platinum text-on-accent shadow-[0_10px_30px_-14px_rgba(201,151,79,0.45)]"
                     : "border-line bg-raised text-fg hover:border-silver",
                 )}
               >
@@ -156,7 +156,7 @@ export function PricingBuilder() {
                 <span
                   className={cn(
                     "mt-1 block text-xs",
-                    complexity === tier.id ? "text-canvas/70" : "text-fg-muted",
+                    complexity === tier.id ? "text-on-accent/75" : "text-fg-muted",
                   )}
                 >
                   {tier.helper}

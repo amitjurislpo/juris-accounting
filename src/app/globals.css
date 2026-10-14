@@ -3,53 +3,54 @@
 /* ==================================================================
    Design tokens
 
-   A black monochrome system with a single logo-gold accent: black →
-   near-black → charcoal → graphite → soft grey, lit from the top-left
-   like a single studio light. Contrast is controlled (every text
-   pairing below clears WCAG AA). The gold accent (--gold, --silver,
-   --signal) is reserved for eyebrows, links, numerals, live/status
-   dots, focus rings and active indicators.
+   An "Emerald + Gold" system: deep emerald-green surfaces (void →
+   canvas → raised → graphite → surface) lit from the top-left, with
+   the logo gold (#c9974f) as the single accent. Every text pairing
+   below clears WCAG AA. Gold (--gold, --silver, --signal, --platinum)
+   is reserved for buttons, eyebrows, links, numerals, chart bars,
+   icon outlines, focus rings and active indicators.
    ================================================================== */
 :root {
   /* Surfaces, darkest → lightest */
-  --void: #030303; /* deepest band: footer, final CTA */
-  --canvas: #070707; /* page background */
-  --raised: #0c0c0c; /* alternate section band */
-  --graphite: #101010; /* dark panels (dashboard tiles) */
-  --surface: #141414; /* cards, inputs */
-  --surface-hover: #1b1b1b;
+  --void: #03100b; /* deepest band: footer, final CTA */
+  --canvas: #061711; /* page background */
+  --raised: #081d16; /* alternate section band */
+  --graphite: #0b241b; /* dark panels (dashboard tiles) */
+  --surface: #0d2a20; /* cards, inputs */
+  --surface-hover: #113328;
 
   /* Lines */
-  --line: rgba(255, 255, 255, 0.08);
-  --line-strong: rgba(214, 194, 156, 0.18);
+  --line: rgba(190, 240, 215, 0.1);
+  --line-strong: rgba(201, 151, 79, 0.22);
 
   /* Text */
-  --fg: #fbfbf9; /* primary — 18:1 on canvas */
-  --fg-muted: #dcdcd9; /* secondary — ≥14:1 */
-  --fg-subtle: #c0c0bd; /* metadata — ≥10:1 on every surface */
+  --fg: #f3f8f5; /* headings & primary text */
+  --fg-muted: #c3d6cc; /* body / descriptions */
+  --fg-subtle: #9fb8ab; /* metadata, captions */
 
-  /* Metals — tonal accents, not colours */
-  --silver: #d6c29c; /* champagne gold: eyebrows, links, numerals */
-  --platinum: #ececea; /* bright fills (primary buttons, active chips) */
+  /* Gold tones */
+  --silver: #e0c084; /* gold TEXT: eyebrows, links, numerals (brighter than the #c9974f fill) */
+  --platinum: #c9974f; /* primary button / active chip fill = logo gold */
 
   /* The single colour accent: status dots, focus, active indicators */
   --signal: #c9974f; /* logo gold */
   --gold: #c9974f;
+  --on-accent: #0a1a12; /* text colour on gold fills */
 
   /* Dashboard / data */
-  --chart-grid: rgba(255, 255, 255, 0.06);
-  --chart-axis: rgba(255, 255, 255, 0.14);
-  --series-revenue: #e2c58d;
-  --series-expenses: #5e5444;
+  --chart-grid: rgba(190, 240, 215, 0.07);
+  --chart-axis: rgba(190, 240, 215, 0.16);
+  --series-revenue: #d9b878;
+  --series-expenses: #2f5a49;
   --status-good: #7fd6a4;
   --status-warning: #e3c16f;
   --status-serious: #e0916b;
   --status-critical: #e57373;
 
   /* Depth */
-  --shadow-lift: 0 30px 60px -30px rgba(0, 0, 0, 0.85), inset 0 1px 0 rgba(255, 255, 255, 0.05);
-  --shadow-float: 0 40px 90px -40px rgba(0, 0, 0, 0.95);
-  --edge-light: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  --shadow-lift: 0 30px 60px -30px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  --shadow-float: 0 40px 90px -40px rgba(0, 0, 0, 0.9);
+  --edge-light: inset 0 1px 0 rgba(255, 255, 255, 0.05);
 
   /* Motion */
   --dur-fast: 0.2s;
@@ -84,6 +85,7 @@
   --color-platinum: var(--platinum);
   --color-signal: var(--signal);
   --color-gold: var(--gold);
+  --color-on-accent: var(--on-accent);
 
   --color-chart-grid: var(--chart-grid);
   --color-chart-axis: var(--chart-axis);
@@ -133,11 +135,15 @@
 body {
   font-size: 0.94rem;
   background:
-    radial-gradient(120% 70% at 0% 0%, rgba(201, 151, 79, 0.07), transparent 55%),
-    radial-gradient(140% 100% at 50% 120%, rgba(0, 0, 0, 0.6), transparent 60%),
+    radial-gradient(110% 70% at 0% 0%, rgba(201, 151, 79, 0.07), transparent 55%),
+    radial-gradient(90% 60% at 100% 100%, rgba(16, 80, 58, 0.35), transparent 60%),
     var(--canvas);
   background-attachment: fixed;
   color: var(--fg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-optical-sizing: auto;
 }
 body::after {
   content: "";
@@ -155,18 +161,65 @@ body::after {
   h3,
   h4 {
     font-family: var(--font-display);
-    font-weight: 400;
+    color: var(--fg);
     letter-spacing: -0.035em;
+  }
+  h1 {
+    font-weight: 600;
+    line-height: 1.05;
+  }
+  h2 {
+    font-weight: 500;
+    line-height: 1.1;
+  }
+  h3,
+  h4 {
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+  }
+
+  /* Body copy: readable muted colour, relaxed leading, comfortable measure. */
+  p:not(.font-mono),
+  li {
+    color: var(--fg-muted);
+    line-height: 1.7;
+  }
+  p {
+    max-width: 68ch;
+  }
+  .text-center p {
+    margin-inline: auto;
+  }
+  p strong,
+  li strong {
+    color: var(--fg);
+    font-weight: 600;
+  }
+  /* Small mono uppercase labels: a touch heavier so tiny type holds up. */
+  .font-mono.uppercase {
+    font-weight: 500;
+  }
+  /* Links inside running copy */
+  :where(p, li) a:where(:not([class])) {
+    color: var(--silver);
+    text-underline-offset: 3px;
+  }
+  :where(p, li) a:where(:not([class])):hover {
+    text-decoration: underline;
+  }
+  :where(p, li) a:where(:not([class])):visited {
+    color: var(--silver);
   }
 
   ::selection {
-    background: rgba(143, 180, 200, 0.35);
-    color: var(--fg);
+    background: rgba(201, 151, 79, 0.35);
+    color: #fff;
   }
 
   :focus-visible {
-    outline: 1.5px solid var(--signal);
-    outline-offset: 3px;
+    outline: 2px solid var(--signal);
+    outline-offset: 2px;
   }
 }
 
@@ -174,8 +227,8 @@ body::after {
   /* Fine technical grid, masked so it fades out toward the edges. */
   .bg-grid {
     background-image:
-      linear-gradient(to right, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+      linear-gradient(to right, rgba(190, 240, 215, 0.045) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(190, 240, 215, 0.045) 1px, transparent 1px);
     background-size: 72px 72px;
     mask-image: radial-gradient(ellipse 70% 60% at 30% 20%, #000 20%, transparent 75%);
   }
@@ -183,12 +236,12 @@ body::after {
   /* Hairline that fades in from both ends. */
   .hairline-rule {
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.22) 30%, rgba(255, 255, 255, 0.22) 70%, transparent);
+    background: linear-gradient(90deg, transparent, rgba(190, 240, 215, 0.22) 30%, rgba(190, 240, 215, 0.22) 70%, transparent);
   }
 
   /* Brushed-metal text, used sparingly on display words. */
   .text-metal {
-    background: linear-gradient(100deg, #8a6a35 0%, #f6e7c6 38%, #c9a464 58%, #fff4dc 72%, #8a6a35 100%);
+    background: linear-gradient(100deg, #c39a55 0%, #f5e2b8 40%, #d9b170 66%, #efd29a 100%);
     background-size: 200% 100%;
     background-clip: text;
     -webkit-background-clip: text;
@@ -212,7 +265,7 @@ body::after {
     position: relative;
     isolation: isolate;
     border: 1px solid var(--line);
-    background: linear-gradient(180deg, #151515 0%, #0e0e0e 100%);
+    background: linear-gradient(180deg, #0f2d22 0%, #0b241b 100%);
     box-shadow: var(--edge-light);
     transition:
       border-color 0.4s ease,
@@ -225,7 +278,7 @@ body::after {
     inset: 0;
     z-index: -1;
     border-radius: inherit;
-    background: radial-gradient(420px circle at var(--mx, 50%) var(--my, -20%), rgba(255, 255, 255, 0.07), transparent 60%);
+    background: radial-gradient(420px circle at var(--mx, 50%) var(--my, -20%), rgba(201, 151, 79, 0.07), transparent 60%);
     opacity: 0;
     transition: opacity 0.5s ease;
     pointer-events: none;
@@ -235,7 +288,7 @@ body::after {
     position: absolute;
     inset: -1px -1px auto;
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.55), transparent);
+    background: linear-gradient(90deg, transparent, rgba(201, 151, 79, 0.55), transparent);
     transform: scaleX(0);
     transition: transform 0.8s var(--ease-lux);
     pointer-events: none;
@@ -279,7 +332,7 @@ body::after {
     width: 100%;
     border: 1px solid var(--line);
     border-radius: var(--radius-control);
-    background: linear-gradient(180deg, #121212, #0e0e0e);
+    background: linear-gradient(180deg, #0d2a20, #0b241b);
     padding: 1.45rem 1rem 0.55rem;
     color: var(--fg);
     outline: none;
@@ -294,20 +347,25 @@ body::after {
   }
   .field:focus,
   .field:focus-visible {
-    border-color: rgba(143, 180, 200, 0.6);
+    border-color: rgba(201, 151, 79, 0.6);
     box-shadow:
-      0 0 0 4px rgba(143, 180, 200, 0.1),
+      0 0 0 4px rgba(201, 151, 79, 0.12),
       var(--edge-light);
     outline: none;
   }
   .field:user-invalid {
     border-color: rgba(229, 115, 115, 0.6);
   }
+  .field::placeholder {
+    color: var(--fg-subtle);
+    opacity: 1;
+  }
   .field-label {
     position: absolute;
     left: 1rem;
     top: 1.05rem;
-    color: var(--fg-subtle);
+    color: var(--fg-muted);
+    font-weight: 500;
     font-size: 0.925rem;
     pointer-events: none;
     transform-origin: left top;
@@ -321,7 +379,7 @@ body::after {
     color: var(--fg-muted);
   }
   .field-wrap:focus-within .field-label {
-    color: var(--signal);
+    color: var(--silver);
   }
   .field-line {
     position: absolute;
@@ -472,7 +530,7 @@ body::after {
     inset-inline: 0;
     bottom: 0;
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+    background: linear-gradient(90deg, transparent, rgba(201, 151, 79, 0.5), transparent);
   }
   @keyframes curtain-lift {
     from {
@@ -492,7 +550,7 @@ body::after {
     height: 1px;
     transform-origin: left;
     transform: scaleX(var(--progress, 0));
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), var(--fg));
+    background: linear-gradient(90deg, rgba(201, 151, 79, 0.1), var(--silver));
     pointer-events: none;
   }
 
@@ -506,7 +564,7 @@ body::after {
     width: 34px;
     height: 34px;
     margin: -17px 0 0 -17px;
-    border: 1px solid rgba(255, 255, 255, 0.35);
+    border: 1px solid rgba(201, 151, 79, 0.35);
     border-radius: 9999px;
     pointer-events: none;
     opacity: 0;
@@ -525,8 +583,8 @@ body::after {
     width: 58px;
     height: 58px;
     margin: -29px 0 0 -29px;
-    background: rgba(255, 255, 255, 0.04);
-    border-color: rgba(255, 255, 255, 0.55);
+    background: rgba(201, 151, 79, 0.04);
+    border-color: rgba(201, 151, 79, 0.55);
   }
   .cursor-ring.is-pressed {
     width: 26px;
@@ -628,9 +686,9 @@ body::after {
     transition-delay: calc(0.3s + var(--i, 0) * 0.4s);
   }
   .process-flow-line.is-drawn .process-node {
-    border-color: rgba(255, 255, 255, 0.55);
+    border-color: rgba(201, 151, 79, 0.55);
     color: var(--fg);
-    box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.03), 0 0 30px -6px rgba(255, 255, 255, 0.35);
+    box-shadow: 0 0 0 6px rgba(201, 151, 79, 0.03), 0 0 30px -6px rgba(201, 151, 79, 0.35);
   }
 
   /* Slow drift for ambient light blobs behind heroes. */
@@ -731,14 +789,10 @@ body::after {
 
   /* Hero headline: bright top-lit gradient with a soft halo. */
   .hero-title-word {
-    background: linear-gradient(180deg, #ffffff 30%, #c9c3b8 100%);
+    background: linear-gradient(180deg, #ffffff 35%, #d3e3db 100%);
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
-    filter: drop-shadow(0 0 28px rgba(255, 255, 255, 0.14));
-  }
-  .hero-title-glow {
-    filter: drop-shadow(0 0 22px rgba(255, 255, 255, 0.22));
   }
 
   /* Hero backdrop (home/HeroBackdrop.tsx) */
@@ -749,8 +803,8 @@ body::after {
   }
   .hb-floor {
     background-image:
-      linear-gradient(to right, rgba(255, 255, 255, 0.09) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.09) 1px, transparent 1px);
+      linear-gradient(to right, rgba(190, 240, 215, 0.09) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(190, 240, 215, 0.09) 1px, transparent 1px);
     background-size: 64px 64px;
     transform: rotateX(62deg);
     transform-origin: top;
@@ -878,7 +932,7 @@ body::after {
     font-family: var(--font-geist-mono);
     font-size: 9px;
     letter-spacing: 0.14em;
-    fill: white;
+    fill: var(--fg);
     fill-opacity: 0.6;
     stroke: none;
   }
@@ -1012,7 +1066,7 @@ body::after {
 
   /* Team card portrait placeholder: slow scan + orbiting ring. */
   .team-scan {
-    background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.08));
+    background: linear-gradient(to bottom, transparent, rgba(190, 240, 215, 0.08));
     animation: team-scan 4.5s var(--ease-in-out-lux) infinite;
   }
   @keyframes team-scan {
@@ -1057,18 +1111,18 @@ body::after {
   .core-base {
     transform: translateZ(0);
     background-image:
-      linear-gradient(to right, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+      linear-gradient(to right, rgba(190, 240, 215, 0.08) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(190, 240, 215, 0.08) 1px, transparent 1px);
     background-size: 20px 20px;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    box-shadow: 0 0 80px rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(190, 240, 215, 0.12);
+    box-shadow: 0 0 80px rgba(190, 240, 215, 0.05);
   }
   .core-pane {
     transform: translateZ(calc(var(--z) * var(--gap)));
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.015) 60%);
-    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: linear-gradient(135deg, rgba(190, 240, 215, 0.07), rgba(190, 240, 215, 0.015) 60%);
+    border: 1px solid rgba(190, 240, 215, 0.14);
     box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.12),
+      inset 0 1px 0 rgba(190, 240, 215, 0.12),
       0 20px 40px -20px rgba(0, 0, 0, 0.9);
     opacity: 0.5;
     transition:
@@ -1088,20 +1142,20 @@ body::after {
   .core-pane.is-active {
     transform: translateZ(calc(var(--z) * var(--gap) + 46px));
     opacity: 1;
-    border-color: rgba(255, 255, 255, 0.55);
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.03) 65%);
+    border-color: rgba(201, 151, 79, 0.55);
+    background: linear-gradient(135deg, rgba(201, 151, 79, 0.14), rgba(201, 151, 79, 0.03) 65%);
     box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.3),
-      0 0 50px rgba(255, 255, 255, 0.14),
+      inset 0 1px 0 rgba(201, 151, 79, 0.3),
+      0 0 50px rgba(201, 151, 79, 0.14),
       0 30px 60px -20px rgba(0, 0, 0, 0.95);
   }
   /* Holographic scanner plane sweeping up and down through the stack. */
   .core-scanner {
-    border: 1px solid rgba(255, 255, 255, 0.7);
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0) 55%);
+    border: 1px solid rgba(201, 151, 79, 0.7);
+    background: linear-gradient(135deg, rgba(201, 151, 79, 0.1), rgba(201, 151, 79, 0) 55%);
     box-shadow:
-      0 0 30px rgba(255, 255, 255, 0.35),
-      inset 0 0 30px rgba(255, 255, 255, 0.12);
+      0 0 30px rgba(201, 151, 79, 0.35),
+      inset 0 0 30px rgba(201, 151, 79, 0.12);
     animation: core-scan 5.5s var(--ease-in-out-lux) infinite alternate;
     pointer-events: none;
   }
@@ -1218,8 +1272,8 @@ body::after {
     }
   }
   .core-beam {
-    background: linear-gradient(to top, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.05) 85%, transparent);
-    box-shadow: 0 0 18px 2px rgba(255, 255, 255, 0.18);
+    background: linear-gradient(to top, rgba(201, 151, 79, 0.55), rgba(201, 151, 79, 0.05) 85%, transparent);
+    box-shadow: 0 0 18px 2px rgba(201, 151, 79, 0.18);
   }
   .core-particle {
     position: absolute;
@@ -1228,8 +1282,8 @@ body::after {
     height: 3px;
     margin-left: -1px;
     border-radius: 9999px;
-    background: white;
-    box-shadow: 0 0 8px 2px rgba(255, 255, 255, 0.5);
+    background: var(--silver);
+    box-shadow: 0 0 8px 2px rgba(201, 151, 79, 0.5);
     animation: core-particle 3.3s linear infinite;
   }
   @keyframes core-particle {

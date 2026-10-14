@@ -37,7 +37,7 @@ export function DashboardConcept() {
 
       <Reveal staggerChildren delay={0.5} className="mt-4 grid gap-4 md:grid-cols-[1.6fr_1fr]">
         <div className="rounded-control border border-chart-grid bg-graphite p-4 transition-colors duration-500 hover:border-platinum/35">
-          <p className="mb-2 font-mono text-[10px] uppercase tracking-wide text-fg-muted">
+          <p className="mb-2 font-mono text-[10px] uppercase tracking-wide text-fg-subtle">
             Monthly trend
           </p>
           <TrendChart />

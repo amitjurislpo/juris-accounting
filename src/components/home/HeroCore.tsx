@@ -16,7 +16,7 @@ import { prefersReducedMotion } from "@/lib/motion";
 const CYCLE_MS = 3600;
 const W = 200;
 
-const S = { fill: "none", stroke: "white", strokeLinecap: "round", strokeLinejoin: "round" } as const;
+const S = { fill: "none", stroke: "#d9b878", strokeLinecap: "round", strokeLinejoin: "round" } as const;
 
 function d(seconds: number) {
   return { "--d": `${seconds}s` } as CSSProperties;
@@ -46,7 +46,7 @@ function ChartPane() {
   return (
     <g>
       {bars.map((h, n) => (
-        <rect key={n} x={26 + n * 32} y={176 - h} width="20" height={h} rx="2" fill="white" fillOpacity={0.12 + n * 0.1} className="core-bar" style={d(n * 0.12)} />
+        <rect key={n} x={26 + n * 32} y={176 - h} width="20" height={h} rx="2" fill="#d9b878" fillOpacity={0.12 + n * 0.1} className="core-bar" style={d(n * 0.12)} />
       ))}
       <polyline points="36,128 68,106 100,116 132,84 164,62" {...S} strokeWidth="2.5" pathLength={1} className="core-draw" style={d(0.5)} />
     </g>
@@ -67,7 +67,7 @@ function TaxPane() {
           </g>
         );
       })}
-      <text x="172" y="180" textAnchor="end" fontSize="26" fill="white" fillOpacity="0.8" className="font-serif italic">
+      <text x="172" y="180" textAnchor="end" fontSize="26" fill="#d9b878" fillOpacity="0.8" className="font-serif italic">
         %
       </text>
     </g>
@@ -131,11 +131,11 @@ export function HeroCore({ className }: { className?: string }) {
     <div ref={wrapRef} className={`relative mx-auto w-full max-w-[min(32rem,calc(100svh-14rem))] ${className ?? ""}`} aria-hidden>
       <div className="relative aspect-square">
         {/* Floor glow + orbit ellipse */}
-        <div className="absolute inset-x-[12%] bottom-[10%] h-[22%] rounded-[50%] bg-white/[0.07] blur-2xl" />
+        <div className="absolute inset-x-[12%] bottom-[10%] h-[22%] rounded-[50%] bg-[rgba(79,160,125,0.12)] blur-2xl" />
         <svg viewBox="0 0 400 400" className="absolute inset-0 h-full w-full overflow-visible">
-          <ellipse cx="200" cy="262" rx="170" ry="62" fill="none" stroke="white" strokeOpacity="0.12" />
-          <ellipse cx="200" cy="262" rx="170" ry="62" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" pathLength={1} className="core-orbit" />
-          <ellipse cx="200" cy="262" rx="130" ry="46" fill="none" stroke="white" strokeOpacity="0.08" strokeDasharray="2 6" />
+          <ellipse cx="200" cy="262" rx="170" ry="62" fill="none" stroke="#d9b878" strokeOpacity="0.12" />
+          <ellipse cx="200" cy="262" rx="170" ry="62" fill="none" stroke="#d9b878" strokeWidth="2" strokeLinecap="round" pathLength={1} className="core-orbit" />
+          <ellipse cx="200" cy="262" rx="130" ry="46" fill="none" stroke="#d9b878" strokeOpacity="0.08" strokeDasharray="2 6" />
         </svg>
 
         {/* The 3D stack */}
@@ -150,10 +150,10 @@ export function HeroCore({ className }: { className?: string }) {
                 style={{ "--z": i + 1 } as CSSProperties}
               >
                 <svg viewBox={`0 0 ${W} ${W}`} className={`h-full w-full ${i === active ? "is-live" : ""}`}>
-                  <text x="22" y="32" fontSize="10" letterSpacing="2" fill="white" fillOpacity="0.55" className="font-mono">
+                  <text x="22" y="32" fontSize="10" letterSpacing="2" fill="#d9b878" fillOpacity="0.55" className="font-mono">
                     {serviceList[i].shortName.toUpperCase()}
                   </text>
-                  <line x1="22" x2="178" y1="42" y2="42" stroke="white" strokeOpacity="0.15" />
+                  <line x1="22" x2="178" y1="42" y2="42" stroke="#d9b878" strokeOpacity="0.15" />
                   <Pane />
                 </svg>
               </div>
@@ -169,7 +169,7 @@ export function HeroCore({ className }: { className?: string }) {
             <div key={chip} className="core-arm absolute inset-0" style={{ "--k": k } as CSSProperties}>
               <span className="core-chip absolute left-1/2 top-0">
                 <span className="core-chip-counter block">
-                  <span className="core-chip-face block whitespace-nowrap rounded-xs border border-line-strong bg-canvas/80 px-2 py-1 font-mono text-[9px] tracking-[0.16em] text-fg shadow-[0_0_16px_rgba(255,255,255,0.12)] backdrop-blur-sm">
+                  <span className="core-chip-face block whitespace-nowrap rounded-xs border border-line-strong bg-canvas/80 px-2 py-1 font-mono text-[9px] tracking-[0.16em] text-fg shadow-[0_0_16px_rgba(201,151,79,0.18)] backdrop-blur-sm">
                     {chip}
                   </span>
                 </span>
@@ -189,7 +189,7 @@ export function HeroCore({ className }: { className?: string }) {
       {/* Caption: the active service */}
       <div className="relative -mt-20 flex items-end justify-between gap-6 border-t border-line pt-4 sm:-mt-24">
         <div key={active} className="recommendation-fade min-w-0">
-          <p className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.26em] text-fg-subtle">
+          <p className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-fg-subtle">
             <span className="beacon relative h-1.5 w-1.5 rounded-full bg-signal" />
             {service.shortName}
           </p>
