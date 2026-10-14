@@ -81,7 +81,7 @@ export function ProcessSection() {
                 <span className="process-node relative z-10 flex h-14 w-14 items-center justify-center rounded-full border border-line-strong bg-surface font-mono text-sm text-platinum shadow-[0_14px_30px_-12px_rgba(0,0,0,0.6)] ring-[6px] ring-raised transition-[scale] duration-500 hover:scale-110">
                   {String(step.step).padStart(2, "0")}
                 </span>
-                <h3 className="mt-5 text-h3 text-fg">{step.title}</h3>
+                <h3 className="mt-5 text-lg text-fg">{step.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-fg-muted">
                   {step.description}
                 </p>

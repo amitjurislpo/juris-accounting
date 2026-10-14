@@ -23,7 +23,7 @@ export function ComparisonTable({ limit }: { limit?: number }) {
   return (
     <div>
       <div
-        className="overflow-x-auto overflow-y-hidden rounded-card border border-line bg-surface shadow-[0_30px_60px_-45px_rgba(17,17,17,0.18)]"
+        className="overflow-x-auto overflow-y-hidden rounded-card border border-line bg-surface shadow-[0_30px_60px_-45px_rgba(0,0,0,0.5)]"
         tabIndex={0}
         role="region"
         aria-label="Bookkeeping, accounting, and taxation comparison table"
@@ -31,7 +31,7 @@ export function ComparisonTable({ limit }: { limit?: number }) {
         <table className="w-full min-w-[720px] border-collapse text-sm">
           <thead>
             <tr className="bg-surface text-fg">
-              <th className="w-1/4 px-4 py-4 text-left font-mono text-eyebrow uppercase text-platinum">
+              <th className="w-1/4 px-4 py-4 text-left font-mono text-[11px] uppercase tracking-[0.16em] text-platinum">
                 Dimension
               </th>
               {COLUMNS.map((col) => (
@@ -45,7 +45,7 @@ export function ComparisonTable({ limit }: { limit?: number }) {
                     onBlur={() => setHovered(null)}
                     aria-pressed={selected === col.id}
                     className={cn(
-                      "w-full select-none px-4 py-4 text-left font-mono text-eyebrow uppercase transition-colors duration-300",
+                      "w-full select-none px-4 py-4 text-left font-mono text-[11px] uppercase tracking-[0.16em] transition-colors duration-300",
                       highlighted === col.id ? "bg-platinum text-void" : "text-fg hover:text-platinum",
                     )}
                   >
@@ -64,7 +64,7 @@ export function ComparisonTable({ limit }: { limit?: number }) {
                   "border-t border-line transition-colors duration-300 hover:bg-platinum/10",
                 )}
               >
-                <th scope="row" className="px-4 py-4 text-left text-small font-medium text-fg">
+                <th scope="row" className="px-4 py-4 text-left font-display text-[15px] font-normal text-fg">
                   {row.dimension}
                 </th>
                 {COLUMNS.map((col) => (

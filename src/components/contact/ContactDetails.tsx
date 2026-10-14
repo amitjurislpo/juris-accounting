@@ -31,7 +31,7 @@ export function ContactDetails() {
           <span className="grid h-11 w-11 place-items-center rounded-full border border-line-strong text-gold">
             <Icon size={20} aria-hidden />
           </span>
-          <h3 className="text-h3 text-fg">{title}</h3>
+          <h3 className="text-xl tracking-[-0.03em] text-fg">{title}</h3>
           <p className="text-sm text-fg-muted">{note}</p>
           <p className="text-lg text-silver">{label}</p>
         </a>

@@ -60,7 +60,7 @@ export function Eyebrow({
   return (
     <p
       className={cn(
-        "inline-flex items-center gap-3 font-mono text-eyebrow uppercase",
+        "inline-flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.26em]",
         dark ? "text-fg-muted" : "text-fg-subtle",
         className,
       )}
@@ -102,8 +102,8 @@ export function SectionHeading({
       {eyebrow && <Eyebrow tone={dark ? "void" : "canvas"}>{eyebrow}</Eyebrow>}
       <Heading
         className={cn(
-          "mt-5 text-h2 text-balance text-fg",
-          wide && "lg:whitespace-nowrap",
+          "mt-5 text-[1.7rem] leading-[1.08] tracking-[-0.04em] text-balance",
+          wide ? "md:text-[2.2rem] lg:whitespace-nowrap lg:text-[2.4rem]" : "md:text-[2.2rem] lg:text-[2.6rem]",
         )}
       >
         {title}
@@ -111,7 +111,8 @@ export function SectionHeading({
       {description && (
         <p
           className={cn(
-            "mt-6 max-w-[62ch] text-lead text-fg-muted",
+            "mt-6 text-base leading-relaxed md:text-[1.07rem]",
+            dark ? "text-fg-muted" : "text-fg-muted",
           )}
         >
           {description}

@@ -6,6 +6,7 @@ import { Link } from "@/components/ui/AppLink";
 import { Container } from "./Container";
 import { Eyebrow } from "./Section";
 import { SplitHeadline } from "@/components/motion/SplitHeadline";
+import { Parallax } from "@/components/motion/Parallax";
 import { HeroBackdrop } from "@/components/home/HeroBackdrop";
 
 const SEGMENT_LABELS: Record<string, string> = {
@@ -69,6 +70,22 @@ export function PageHero({
   return (
     <section className="relative isolate overflow-hidden border-b border-line text-fg">
       <HeroBackdrop />
+      <Parallax speed={0.18} className="absolute inset-0 -z-10">
+        <div
+          className="absolute -left-[15%] -top-[60%] h-[180%] w-[55%] rotate-[-24deg] opacity-[0.06] blur-3xl"
+          style={{ background: "linear-gradient(90deg, transparent, #fff 45%, transparent)" }}
+        />
+        <div
+          className="ambient-drift absolute -right-32 -top-32 h-[26rem] w-[26rem] rounded-full opacity-[0.06] blur-3xl"
+          style={{ background: "radial-gradient(closest-side, #fff, transparent)" }}
+        />
+      </Parallax>
+      <div
+        className="pointer-events-none absolute inset-0 -z-10"
+        style={{ background: "radial-gradient(120% 90% at 30% 0%, transparent 45%, rgba(0,0,0,0.65) 100%)" }}
+        aria-hidden
+      />
+
       <Container className="relative pb-14 pt-6 md:pb-16 md:pt-8">
         {/* HUD row: breadcrumb */}
         <div
@@ -76,7 +93,7 @@ export function PageHero({
           style={enter(0)}
         >
           <nav aria-label="Breadcrumb">
-            <ol className="flex flex-wrap items-center gap-2 font-mono text-eyebrow uppercase text-fg-subtle">
+            <ol className="flex flex-wrap items-center gap-2 font-mono text-[10px] uppercase tracking-[0.24em] text-fg-subtle">
               <li>
                 <Link href="/" className="link-draw transition-colors hover:text-fg">
                   Home
@@ -106,7 +123,7 @@ export function PageHero({
               <Eyebrow>{eyebrow}</Eyebrow>
             </div>
           )}
-          <h1 className="mt-5 text-display text-balance text-fg">
+          <h1 className="mt-5 text-[2rem] leading-[1.05] tracking-[-0.04em] text-balance text-fg md:text-[3.1rem]">
             {typeof title === "string" ? (
               <SplitHeadline text={title} trigger="load" baseDelay={0.12} stagger={0.045} />
             ) : (
@@ -115,7 +132,7 @@ export function PageHero({
           </h1>
           {description && (
             <p
-              className="enter mt-8 max-w-[62ch] text-lead text-fg-muted"
+              className="enter mt-8 max-w-2xl text-lg leading-relaxed text-fg-muted"
               style={enter(0.35)}
             >
               {description}

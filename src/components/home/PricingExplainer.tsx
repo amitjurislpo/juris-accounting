@@ -39,7 +39,7 @@ export function PricingExplainer() {
             <span className="icon-draw block text-silver" aria-hidden>
               <p.icon size={24} />
             </span>
-            <h3 className="mt-3 text-h3 text-fg">{p.title}</h3>
+            <h3 className="mt-3 text-lg text-fg">{p.title}</h3>
             <p className="mt-2 text-sm leading-relaxed text-fg-muted">{p.body}</p>
           </div>
         ))}

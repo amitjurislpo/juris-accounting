@@ -51,7 +51,7 @@ export function FaqAccordion({ items }: { items: FaqItem[] }) {
             >
               <span
                 className={cn(
-                  "font-display text-h3 transition-colors duration-300",
+                  "font-display text-lg transition-colors duration-300 md:text-[1.35rem]",
                   isOpen ? "text-fg" : "text-fg-muted group-hover:text-fg",
                 )}
               >
