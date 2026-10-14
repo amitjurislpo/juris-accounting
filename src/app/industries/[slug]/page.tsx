@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { IndustryPage } from "@/components/industries/IndustryPage";
 import { industryPageList } from "@/content/industryPages";
+import { seoMetadata } from "@/content/seo";
 
 export function generateStaticParams() {
   return industryPageList.map((industry) => ({ slug: industry.id }));
@@ -17,10 +18,10 @@ export async function generateMetadata({
   const { slug } = await params;
   const industry = findIndustry(slug);
   if (!industry) return { title: "Not found | Juris Accounting" };
-  return {
+  return seoMetadata(industry.href, {
     title: `${industry.name} | Juris Accounting`,
     description: industry.oneLiner,
-  };
+  });
 }
 
 export default async function IndustryDetailPage({
