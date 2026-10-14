@@ -22,11 +22,11 @@ export function Hero() {
       <Parallax speed={0.25} className="enter-fade absolute inset-0 -z-10">
         <div
           className="absolute -left-[20%] -top-[40%] h-[140%] w-[70%] rotate-[-24deg] opacity-[0.07] blur-3xl"
-          style={{ background: "linear-gradient(90deg, transparent, #fff 45%, transparent)" }}
+          style={{ background: "linear-gradient(90deg, transparent, rgba(201,151,79,0.9) 45%, transparent)" }}
         />
         <div
           className="ambient-drift absolute -right-40 top-10 h-[36rem] w-[36rem] rounded-full opacity-[0.08] blur-3xl"
-          style={{ background: "radial-gradient(closest-side, #fff, transparent)" }}
+          style={{ background: "radial-gradient(closest-side, rgba(201,151,79,0.9), transparent)" }}
         />
       </Parallax>
       <div
@@ -38,7 +38,7 @@ export function Hero() {
       <Container className="relative pb-12 pt-6 md:pb-14 md:pt-8">
         {/* HUD metadata row */}
         <div
-          className="enter flex items-center justify-between gap-6 border-b border-line pb-4 font-mono text-[10px] uppercase tracking-[0.28em] text-fg-subtle"
+          className="enter flex items-center justify-between gap-6 border-b border-line pb-4 font-mono text-[10px] uppercase tracking-[0.22em] text-fg-subtle"
           style={enter(0)}
         >
           <span className="flex items-center gap-3">
@@ -61,7 +61,7 @@ export function Hero() {
                 wordClassName="text-metal hero-title-glow pr-[0.04em]"
               />
             </h1>
-            <p className="enter mt-7 max-w-lg border-l border-white/25 pl-5 text-base font-medium leading-relaxed text-fg sm:text-[1.15rem]" style={enter(0.55)}>
+            <p className="enter mt-7 max-w-lg border-l border-[rgba(201,151,79,0.4)] pl-5 text-base font-medium leading-relaxed text-fg sm:text-[1.15rem]" style={enter(0.55)}>
               <span className="text-fg">Bookkeeping, accounting, taxation, and controller oversight</span> —
               engineered as <span className="font-semibold text-fg">one accountable system</span>, structured around what
               your business actually needs.

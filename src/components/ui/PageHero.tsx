@@ -73,11 +73,11 @@ export function PageHero({
       <Parallax speed={0.18} className="absolute inset-0 -z-10">
         <div
           className="absolute -left-[15%] -top-[60%] h-[180%] w-[55%] rotate-[-24deg] opacity-[0.06] blur-3xl"
-          style={{ background: "linear-gradient(90deg, transparent, #fff 45%, transparent)" }}
+          style={{ background: "linear-gradient(90deg, transparent, rgba(201,151,79,0.9) 45%, transparent)" }}
         />
         <div
           className="ambient-drift absolute -right-32 -top-32 h-[26rem] w-[26rem] rounded-full opacity-[0.06] blur-3xl"
-          style={{ background: "radial-gradient(closest-side, #fff, transparent)" }}
+          style={{ background: "radial-gradient(closest-side, rgba(201,151,79,0.9), transparent)" }}
         />
       </Parallax>
       <div
@@ -93,7 +93,7 @@ export function PageHero({
           style={enter(0)}
         >
           <nav aria-label="Breadcrumb">
-            <ol className="flex flex-wrap items-center gap-2 font-mono text-[10px] uppercase tracking-[0.24em] text-fg-subtle">
+            <ol className="flex flex-wrap items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-fg-subtle">
               <li>
                 <Link href="/" className="link-draw transition-colors hover:text-fg">
                   Home

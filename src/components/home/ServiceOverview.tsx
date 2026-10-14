@@ -98,7 +98,7 @@ export function ServiceOverview() {
                         <ArrowRight size={16} className="transition-transform duration-500 group-hover/link:translate-x-1" aria-hidden />
                       </Link>
                     </div>
-                    <div className="relative h-28 w-28 shrink-0 border border-line bg-surface/60 p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
+                    <div className="relative h-28 w-28 shrink-0 border border-line bg-surface/60 p-3 shadow-[inset_0_1px_0_rgba(190,240,215,0.05)]">
                       <ServiceGlyph kind={service.icon} />
                     </div>
                   </div>

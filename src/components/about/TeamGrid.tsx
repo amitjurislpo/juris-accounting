@@ -12,16 +12,16 @@ export function TeamGrid() {
       {team.map((member, i) => (
         <article key={i} className="lux-card group flex flex-col rounded-card p-6">
           <div className="flex items-center gap-4">
-            <div className="relative grid h-16 w-16 shrink-0 place-items-center overflow-hidden rounded-full border border-line-strong bg-[radial-gradient(circle_at_35%_25%,#222,#0b0b0b_70%)]">
+            <div className="relative grid h-16 w-16 shrink-0 place-items-center overflow-hidden rounded-full border border-line-strong bg-[radial-gradient(circle_at_35%_25%,#113328,var(--graphite)_70%)]">
               <Users size={26} className="text-fg-subtle transition-colors duration-500 group-hover:text-fg-muted" aria-hidden />
               <span className="team-scan pointer-events-none absolute inset-x-0 top-0 h-1/2" aria-hidden />
               <span
-                className="team-orbit pointer-events-none absolute -inset-px rounded-full border border-transparent border-t-white/50"
+                className="team-orbit pointer-events-none absolute -inset-px rounded-full border border-transparent border-t-[rgba(201,151,79,0.6)]"
                 aria-hidden
               />
             </div>
             <div className="min-w-0">
-              <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-fg-subtle">
+              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-fg-subtle">
                 {member.focus}
               </p>
               <h3 className="mt-1.5 text-lg leading-snug tracking-[-0.02em] text-fg">{member.name}</h3>

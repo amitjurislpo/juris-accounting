@@ -76,8 +76,8 @@ export function HeroBackdrop() {
       {/* Perspective grid floor with a glowing horizon */}
       <div className="hb-floor-wrap absolute inset-x-0 bottom-0 h-[58%]">
         <div className="hb-floor absolute inset-x-[-40%] bottom-[-30%] top-0" />
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent" />
-        <div className="absolute inset-x-[10%] top-0 h-24 -translate-y-1/2 rounded-full bg-white/[0.05] blur-3xl" />
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[rgba(201,151,79,0.45)] to-transparent" />
+        <div className="absolute inset-x-[10%] top-0 h-24 -translate-y-1/2 rounded-full bg-[rgba(201,151,79,0.07)] blur-3xl" />
       </div>
 
       {/* Ledger streams */}
@@ -90,7 +90,7 @@ export function HeroBackdrop() {
         <polyline
           points="0,320 120,300 220,310 320,250 420,270 520,200 620,220 720,150 820,170 920,110 1020,130 1200,60"
           fill="none"
-          stroke="white"
+          stroke="#d9b878"
           strokeWidth="1.2"
           vectorEffect="non-scaling-stroke"
           pathLength={1}
@@ -102,7 +102,7 @@ export function HeroBackdrop() {
           [720, 150],
           [920, 110],
         ].map(([x, y], i) => (
-          <circle key={i} cx={x} cy={y} r="3" fill="white" className="hb-node" style={{ animationDelay: `${i * 0.9}s` }} />
+          <circle key={i} cx={x} cy={y} r="3" fill="#d9b878" className="hb-node" style={{ animationDelay: `${i * 0.9}s` }} />
         ))}
       </svg>
 
@@ -111,12 +111,12 @@ export function HeroBackdrop() {
         <defs>
           <path id="hb-seal-path" d="M200,200 m-160,0 a160,160 0 1,1 320,0 a160,160 0 1,1 -320,0" />
         </defs>
-        <circle cx="200" cy="200" r="186" fill="none" stroke="white" strokeWidth="1" />
-        <circle cx="200" cy="200" r="134" fill="none" stroke="white" strokeWidth="0.75" strokeDasharray="2 5" />
-        <text fill="white" fontSize="17" letterSpacing="7.2" className="font-mono">
+        <circle cx="200" cy="200" r="186" fill="none" stroke="#d9b878" strokeWidth="1" />
+        <circle cx="200" cy="200" r="134" fill="none" stroke="#d9b878" strokeWidth="0.75" strokeDasharray="2 5" />
+        <text fill="#d9b878" fontSize="17" letterSpacing="7.2" className="font-mono">
           <textPath href="#hb-seal-path">BOOKKEEPING · ACCOUNTING · TAXATION · CONTROLLER · RECONCILED · FILED ·</textPath>
         </text>
-        <text x="200" y="222" textAnchor="middle" fill="white" fontSize="64" className="font-serif italic">
+        <text x="200" y="222" textAnchor="middle" fill="#d9b878" fontSize="64" className="font-serif italic">
           Σ
         </text>
       </svg>
