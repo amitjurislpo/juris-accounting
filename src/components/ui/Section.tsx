@@ -50,18 +50,16 @@ export function Section({
 export function Eyebrow({
   children,
   className,
-  tone = "canvas",
 }: {
   children: React.ReactNode;
   className?: string;
   tone?: Tone;
 }) {
-  const dark = darkTones.includes(tone);
   return (
     <p
       className={cn(
-        "inline-flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.26em]",
-        dark ? "text-fg-muted" : "text-fg-subtle",
+        "inline-flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.22em]",
+        "text-silver",
         className,
       )}
     >

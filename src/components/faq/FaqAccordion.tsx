@@ -60,7 +60,7 @@ export function FaqAccordion({ items }: { items: FaqItem[] }) {
               <span
                 className={cn(
                   "grid h-9 w-9 shrink-0 place-items-center border transition-colors duration-300",
-                  isOpen ? "border-silver bg-silver text-canvas" : "border-line text-silver group-hover:border-silver",
+                  isOpen ? "border-silver bg-silver text-on-accent" : "border-line text-silver group-hover:border-silver",
                 )}
                 aria-hidden
               >
