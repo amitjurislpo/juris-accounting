@@ -53,7 +53,7 @@ export default function AboutPage() {
               <span className="icon-draw block text-silver" aria-hidden>
                 <item.icon size={24} />
               </span>
-              <h3 className="mt-3 text-h3 text-fg">{item.title}</h3>
+              <h3 className="mt-3 text-lg text-fg">{item.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-fg-muted">{item.body}</p>
             </div>
           ))}

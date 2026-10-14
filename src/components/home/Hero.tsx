@@ -22,23 +22,23 @@ export function Hero() {
       <Parallax speed={0.25} className="enter-fade absolute inset-0 -z-10">
         <div
           className="absolute -left-[20%] -top-[40%] h-[140%] w-[70%] rotate-[-24deg] opacity-[0.07] blur-3xl"
-          style={{ background: "linear-gradient(90deg, transparent, #c9974f 45%, transparent)" }}
+          style={{ background: "linear-gradient(90deg, transparent, #fff 45%, transparent)" }}
         />
         <div
           className="ambient-drift absolute -right-40 top-10 h-[36rem] w-[36rem] rounded-full opacity-[0.08] blur-3xl"
-          style={{ background: "radial-gradient(closest-side, #c9974f, transparent)" }}
+          style={{ background: "radial-gradient(closest-side, #fff, transparent)" }}
         />
       </Parallax>
       <div
         className="pointer-events-none absolute inset-0 -z-10"
-        style={{ background: "radial-gradient(120% 80% at 50% 0%, transparent 40%, rgba(17,17,17,0.05) 100%)" }}
+        style={{ background: "radial-gradient(120% 80% at 50% 0%, transparent 40%, rgba(0,0,0,0.7) 100%)" }}
         aria-hidden
       />
 
       <Container className="relative pb-12 pt-6 md:pb-14 md:pt-8">
         {/* HUD metadata row */}
         <div
-          className="enter flex items-center justify-between gap-6 border-b border-line pb-4 font-mono text-eyebrow uppercase text-fg-subtle"
+          className="enter flex items-center justify-between gap-6 border-b border-line pb-4 font-mono text-[10px] uppercase tracking-[0.28em] text-fg-subtle"
           style={enter(0)}
         >
           <span className="flex items-center gap-3">
@@ -51,17 +51,17 @@ export function Hero() {
 
         <div className="mt-10 grid gap-12 md:mt-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-10">
           <div>
-            <h1 className="hero-title text-display text-fg">
+            <h1 className="hero-title text-[2.7rem] font-semibold leading-[0.95] tracking-[-0.055em] text-fg sm:text-[4rem] lg:text-[4.6rem] xl:text-[5.2rem]">
               <SplitHeadline text="Clarity behind" trigger="load" baseDelay={0.1} className="block" wordClassName="hero-title-word" />
               <SplitHeadline
                 text="every number."
                 trigger="load"
                 baseDelay={0.3}
-                className="block font-serif text-[1.1em] font-normal italic leading-none tracking-[-0.01em]"
+                className="block font-serif text-[1.12em] font-normal italic leading-[0.9] tracking-[-0.02em]"
                 wordClassName="text-metal hero-title-glow pr-[0.04em]"
               />
             </h1>
-            <p className="enter mt-7 max-w-lg border-l border-[rgba(201,151,79,0.5)] pl-5 text-lead text-fg" style={enter(0.55)}>
+            <p className="enter mt-7 max-w-lg border-l border-white/25 pl-5 text-base font-medium leading-relaxed text-fg sm:text-[1.15rem]" style={enter(0.55)}>
               <span className="text-fg">Bookkeeping, accounting, taxation, and controller oversight</span> —
               engineered as <span className="font-semibold text-fg">one accountable system</span>, structured around what
               your business actually needs.
