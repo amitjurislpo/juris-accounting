@@ -22,7 +22,7 @@ export function AdditionalServices() {
             href={service.href}
             className="lux-card group flex flex-col rounded-control p-6"
           >
-            <h3 className="text-xl text-fg">{service.name}</h3>
+            <h3 className="text-h3 text-fg">{service.name}</h3>
             <p className="mt-2 text-sm leading-relaxed text-fg-muted">{service.oneLiner}</p>
             <span className="mt-4 flex items-center gap-2 text-sm font-medium text-silver">
               Explore {service.shortName.toLowerCase()}
@@ -35,7 +35,7 @@ export function AdditionalServices() {
       <Reveal staggerChildren className="mt-10 grid gap-x-10 gap-y-8 border-t border-line pt-8 sm:grid-cols-2">
         {additionalServices.map((service) => (
           <div key={service.name} className="border-b border-line pb-6">
-            <h3 className="text-lg font-medium text-fg">{service.name}</h3>
+            <h3 className="text-h3 text-fg">{service.name}</h3>
             <p className="mt-1.5 text-sm leading-relaxed text-fg-muted">{service.note}</p>
           </div>
         ))}

@@ -5,7 +5,7 @@ export default function Loading() {
       role="status"
       className="flex min-h-[60vh] flex-col items-center justify-center gap-5"
     >
-      <span className="font-mono text-[11px] uppercase tracking-[0.3em] text-silver">
+      <span className="font-mono text-eyebrow uppercase text-silver">
         Loading
       </span>
       <span className="loader-line" aria-hidden />

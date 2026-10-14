@@ -46,7 +46,7 @@ function Chart() {
     <div className="sb-v sb-chart">
       <div className="flex h-full items-end gap-[6%]">
         {BARS.map((h, n) => (
-          <span key={n} className="sb-bar block flex-1 border border-white/50 bg-white/10" style={{ height: `${h}%`, ...i(n) }} />
+          <span key={n} className="sb-bar block flex-1 border border-[rgba(201,151,79,0.5)] bg-[rgba(201,151,79,0.12)]" style={{ height: `${h}%`, ...i(n) }} />
         ))}
       </div>
       <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="absolute inset-0 h-full w-full overflow-visible">
@@ -89,7 +89,7 @@ function Tax() {
         { ch: "§", l: "110%", t: "55%", d: "-6s" },
         { ch: "$", l: "-20%", t: "70%", d: "-11s" },
       ].map((s) => (
-        <span key={s.ch} className="hb-symbol absolute font-serif text-6xl italic text-white" style={{ left: s.l, top: s.t, animationDelay: s.d }}>
+        <span key={s.ch} className="hb-symbol absolute font-serif text-6xl italic text-[#c9974f]" style={{ left: s.l, top: s.t, animationDelay: s.d }}>
           {s.ch}
         </span>
       ))}

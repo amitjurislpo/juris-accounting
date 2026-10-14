@@ -59,7 +59,7 @@ export function PricingBuilder() {
                   className={cn(
                     "rounded-control border px-4 py-4 text-left transition-[background-color,border-color,color,box-shadow,translate] duration-300 hover:-translate-y-px",
                     active
-                      ? "border-fg bg-fg text-canvas shadow-[0_10px_30px_-14px_rgba(255,255,255,0.3)]"
+                      ? "border-fg bg-fg text-[#ffffff] shadow-[0_10px_30px_-14px_rgba(17,17,17,0.35)]"
                       : "border-line bg-raised text-fg hover:border-silver",
                   )}
                 >
@@ -67,7 +67,7 @@ export function PricingBuilder() {
                   <span
                     className={cn(
                       "mt-1 block text-xs leading-snug",
-                      active ? "text-canvas/70" : "text-fg-muted",
+                      active ? "text-[#ffffff]/70" : "text-fg-muted",
                     )}
                   >
                     {service.oneLiner}
@@ -92,7 +92,7 @@ export function PricingBuilder() {
                 className={cn(
                   "flex-1 rounded-control border px-4 py-3 text-sm font-medium capitalize transition-[background-color,border-color,color,box-shadow,translate] duration-300 hover:-translate-y-px",
                   entityType === type
-                    ? "border-fg bg-fg text-canvas shadow-[0_10px_30px_-14px_rgba(255,255,255,0.3)]"
+                    ? "border-fg bg-fg text-[#ffffff] shadow-[0_10px_30px_-14px_rgba(17,17,17,0.35)]"
                     : "border-line bg-raised text-fg hover:border-silver",
                 )}
               >
@@ -116,7 +116,7 @@ export function PricingBuilder() {
               >
                 <Minus size={16} />
               </button>
-              <span key={entityCount} className="recommendation-fade w-10 text-center font-display text-3xl text-fg">
+              <span key={entityCount} className="recommendation-fade w-10 text-center text-num text-fg tabular-nums">
                 {entityCount}
               </span>
               <button
@@ -148,7 +148,7 @@ export function PricingBuilder() {
                 className={cn(
                   "rounded-control border px-4 py-3 text-left transition-[background-color,border-color,color,box-shadow,translate] duration-300 hover:-translate-y-px",
                   complexity === tier.id
-                    ? "border-fg bg-fg text-canvas shadow-[0_10px_30px_-14px_rgba(255,255,255,0.3)]"
+                    ? "border-fg bg-fg text-[#ffffff] shadow-[0_10px_30px_-14px_rgba(17,17,17,0.35)]"
                     : "border-line bg-raised text-fg hover:border-silver",
                 )}
               >
@@ -156,7 +156,7 @@ export function PricingBuilder() {
                 <span
                   className={cn(
                     "mt-1 block text-xs",
-                    complexity === tier.id ? "text-canvas/70" : "text-fg-muted",
+                    complexity === tier.id ? "text-[#ffffff]/70" : "text-fg-muted",
                   )}
                 >
                   {tier.helper}
@@ -170,7 +170,7 @@ export function PricingBuilder() {
       <div
         data-testid="pricing-outcome"
         aria-live="polite"
-        className="relative h-fit overflow-hidden rounded-card border border-platinum/25 bg-void p-7 text-fg shadow-[0_40px_80px_-40px_rgba(0,0,0,0.8)] lg:sticky lg:top-28"
+        className="relative h-fit overflow-hidden rounded-card border border-platinum/25 bg-void p-7 text-fg shadow-[0_40px_80px_-40px_rgba(17,17,17,0.2)] lg:sticky lg:top-28"
       >
         <div className="hairline-rule absolute inset-x-0 top-0" aria-hidden />
         <div
@@ -182,7 +182,7 @@ export function PricingBuilder() {
         <p className="font-mono text-xs uppercase tracking-wide text-platinum">
           {outcome.mode === "starting-price" ? "Indicative pricing" : "Pricing outcome"}
         </p>
-        <h3 className="mt-3 text-2xl leading-snug">{outcome.headline}</h3>
+        <h3 className="mt-3 text-h3">{outcome.headline}</h3>
         <p className="mt-3 text-sm leading-relaxed text-fg">{outcome.detail}</p>
         {outcome.factors.length > 0 && (
           <ul className="mt-4 flex flex-col gap-1.5">

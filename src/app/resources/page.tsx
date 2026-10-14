@@ -32,7 +32,7 @@ export default function ResourcesPage() {
               <Badge tone="muted" className="w-fit">
                 {article.category}
               </Badge>
-              <h2 className="mt-3 text-lg leading-snug text-fg">{article.title}</h2>
+              <h2 className="mt-3 text-h3 text-fg">{article.title}</h2>
               <p className="mt-2 flex-1 text-sm leading-relaxed text-fg-muted">
                 {article.excerpt}
               </p>

@@ -73,7 +73,7 @@ export function WhichServiceFlow() {
                       className={cn(
                         "rounded-control border px-4 py-1.5 text-sm transition-[background-color,border-color,color,box-shadow] duration-300",
                         active
-                          ? "border-fg bg-fg text-canvas shadow-[0_10px_30px_-14px_rgba(255,255,255,0.3)]"
+                          ? "border-fg bg-fg text-[#ffffff] shadow-[0_10px_30px_-14px_rgba(17,17,17,0.35)]"
                           : "border-line bg-canvas text-fg hover:border-silver",
                       )}
                     >
@@ -86,7 +86,7 @@ export function WhichServiceFlow() {
           ))}
         </div>
 
-        <div className="relative self-start overflow-hidden rounded-card border border-platinum/30 bg-void p-7 text-fg shadow-[0_30px_60px_-25px_rgba(0,0,0,0.5)] lg:sticky lg:top-28">
+        <div className="relative self-start overflow-hidden rounded-card border border-platinum/30 bg-void p-7 text-fg shadow-[0_30px_60px_-25px_rgba(17,17,17,0.18)] lg:sticky lg:top-28">
           <div
             className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full opacity-[0.08] blur-3xl"
             style={{ background: "radial-gradient(closest-side, var(--platinum), transparent)" }}
@@ -102,7 +102,7 @@ export function WhichServiceFlow() {
               <Sparkles size={13} aria-hidden />
               {answeredCount === 0 ? "Answer to see a recommendation" : "Your starting recommendation"}
             </p>
-            <h3 className="mt-3 text-2xl">{recommendation.headline}</h3>
+            <h3 className="mt-3 text-h3">{recommendation.headline}</h3>
             <p className="mt-3 text-sm leading-relaxed text-fg-muted">
               {recommendation.explanation}
             </p>
@@ -110,7 +110,7 @@ export function WhichServiceFlow() {
               {recommendation.services.map((id) => (
                 <li
                   key={id}
-                  className="rounded-xs border border-platinum/50 px-3 py-1 font-mono text-[11px] uppercase tracking-[0.12em] text-platinum"
+                  className="rounded-xs border border-platinum/50 px-3 py-1 font-mono text-eyebrow uppercase text-platinum"
                 >
                   {services[id].name}
                 </li>
@@ -123,7 +123,7 @@ export function WhichServiceFlow() {
               <Button
                 href="/contact"
                 variant="secondary"
-                className="border-fg-muted text-fg hover:bg-canvas hover:text-void"
+                className="text-fg"
               >
                 Talk to us
               </Button>
