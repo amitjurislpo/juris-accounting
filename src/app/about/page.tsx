@@ -6,12 +6,14 @@ import { Section, SectionHeading } from "@/components/ui/Section";
 import { Reveal } from "@/components/motion/Reveal";
 import { FinalCta } from "@/components/home/FinalCta";
 import { TeamGrid } from "@/components/about/TeamGrid";
+import { seoMetadata, seoPages } from "@/content/seo";
+import { SeoContent } from "@/components/seo/SeoContent";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = seoMetadata("/about", {
   title: "About | Juris Accounting",
   description:
     "Juris Accounting provides bookkeeping, accounting, payroll, and tax services designed to give business owners reliable financial support throughout the year.",
-};
+});
 
 const approach = [
   {
@@ -41,9 +43,10 @@ export default function AboutPage() {
     <>
       <PageHero
         eyebrow="About"
-        title="We're here to make the numbers easier"
+        title={seoPages["/about"]?.h1 ?? "We're here to make the numbers easier"}
         description="Managing your business is demanding enough without having to worry about whether your books are accurate, your financial records are organized, or you're ready for tax season."
       />
+      <SeoContent path="/about" part="intro" />
 
       <Section tone="raised">
         <SectionHeading eyebrow="How we work" title="Our approach" />
@@ -98,6 +101,7 @@ export default function AboutPage() {
         <TeamGrid />
       </Section>
 
+      <SeoContent path="/about" part="faq" />
       <FinalCta />
     </>
   );

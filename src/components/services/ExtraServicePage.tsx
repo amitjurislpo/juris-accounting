@@ -6,6 +6,8 @@ import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/motion/Reveal";
 import { serviceList } from "@/content/services";
 import { extraServices, type ExtraServiceId } from "@/content/extraServices";
+import { SeoContent } from "@/components/seo/SeoContent";
+import { seoPages } from "@/content/seo";
 
 export function ExtraServicePage({ serviceId }: { serviceId: ExtraServiceId }) {
   const service = extraServices[serviceId];
@@ -14,7 +16,7 @@ export function ExtraServicePage({ serviceId }: { serviceId: ExtraServiceId }) {
     <>
       <PageHero
         eyebrow="Beyond the core three"
-        title={service.name}
+        title={seoPages[service.href]?.h1 ?? service.name}
         description={service.positioning}
         crumbs={[{ label: service.name }]}
       >
@@ -25,6 +27,8 @@ export function ExtraServicePage({ serviceId }: { serviceId: ExtraServiceId }) {
           See pricing
         </Button>
       </PageHero>
+
+      <SeoContent path={service.href} part="intro" />
 
       <Section tone="raised">
         <div className="grid gap-10 md:grid-cols-2">
@@ -103,6 +107,8 @@ export function ExtraServicePage({ serviceId }: { serviceId: ExtraServiceId }) {
           </Reveal>
         </div>
       </Section>
+
+      <SeoContent path={service.href} part="faq" />
 
       <Section>
         <SectionHeading eyebrow="Not quite right?" title="Our core services" />

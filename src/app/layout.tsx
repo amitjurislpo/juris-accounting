@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { FloatingContactButton } from "@/components/layout/FloatingContactButton";
+import { ScrollToTop } from "@/components/layout/ScrollToTop";
 import { InteractionLayer } from "@/components/motion/InteractionLayer";
 import { site } from "@/content/site";
 import { motionBootScript } from "@/lib/motion";
@@ -51,6 +52,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <main className="flex-1">{children}</main>
         <Footer />
         <FloatingContactButton />
+        <ScrollToTop />
       </body>
     </html>
   );

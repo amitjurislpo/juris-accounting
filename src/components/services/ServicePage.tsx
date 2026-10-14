@@ -5,6 +5,8 @@ import { PageHero } from "@/components/ui/PageHero";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/motion/Reveal";
 import { services, serviceList, type ServiceId } from "@/content/services";
+import { SeoContent } from "@/components/seo/SeoContent";
+import { seoPages } from "@/content/seo";
 
 export function ServicePage({ serviceId }: { serviceId: ServiceId }) {
   const service = services[serviceId];
@@ -14,7 +16,7 @@ export function ServicePage({ serviceId }: { serviceId: ServiceId }) {
     <>
       <PageHero
         eyebrow={`Service ${service.order} of ${serviceList.length}`}
-        title={service.name}
+        title={seoPages[service.href]?.h1 ?? service.name}
         description={service.positioning}
         crumbs={[{ label: "Services", href: "/services/compare" }, { label: service.name }]}
       >
@@ -25,6 +27,8 @@ export function ServicePage({ serviceId }: { serviceId: ServiceId }) {
           See pricing for {service.shortName.toLowerCase()}
         </Button>
       </PageHero>
+
+      <SeoContent path={service.href} part="intro" />
 
       <Section tone="raised">
         <div className="grid gap-10 md:grid-cols-2">
@@ -84,6 +88,8 @@ export function ServicePage({ serviceId }: { serviceId: ServiceId }) {
           </Reveal>
         </div>
       </Section>
+
+      <SeoContent path={service.href} part="faq" />
 
       <Section tone="raised">
         <SectionHeading eyebrow="Not quite right?" title="Other services" />
