@@ -37,7 +37,7 @@ export function Logo({ tagline = true, className }: { tagline?: boolean; classNa
         </span>
         {tagline && (
           <span className="mt-1.5 hidden border-t pt-1.5 text-[8.5px] font-medium uppercase tracking-[0.2em] text-fg-muted sm:block" style={{ borderColor: `${BRAND_GOLD}80` }}>
-            Your trusted accounting partner
+            Your trusted finance partner
           </span>
         )}
       </span>
