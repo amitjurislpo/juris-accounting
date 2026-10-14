@@ -12,7 +12,9 @@ export type IndustryPageId =
   | "healthcare-practices"
   | "real-estate-property"
   | "construction-trades"
-  | "agencies-consultancies-law-firms";
+  | "agencies-consultancies-law-firms"
+  | "restaurants"
+  | "consulting-services";
 
 export type IndustryPageDefinition = {
   id: IndustryPageId;
@@ -182,6 +184,60 @@ export const industryPages: Record<IndustryPageId, IndustryPageDefinition> = {
       "Consulting and advisory firms",
       "Marketing, creative, and other professional service agencies",
       "Law firms needing trust accounting kept separate from operating accounts",
+    ],
+  },
+  restaurants: {
+    id: "restaurants",
+    name: "Restaurants",
+    shortName: "Restaurants",
+    oneLiner: "Bookkeeping that tracks food cost, tips, and daily sales — not just bank deposits.",
+    positioning:
+      "Restaurants run on thin margins and high daily volume — sales split across card, cash, and delivery apps, with food cost, labor, and tips all moving at once. Without them tracked separately, it's hard to tell what's actually profitable.",
+    href: "/industries/restaurants",
+    challenges: [
+      "Reconciling daily POS sales against card, cash, and delivery-platform payouts",
+      "Tracking food and beverage cost against sales to monitor margins",
+      "Tip reporting, tip pooling, and payroll for hourly and part-time staff",
+      "Sales tax collected on meals and delivery orders",
+      "Delivery-app commissions and fees netted out of payouts",
+    ],
+    weHelp: [
+      "Bookkeeping that reconciles POS reports and delivery platforms to the bank",
+      "Reporting that shows food cost, labor cost, and prime cost against sales",
+      "Payroll and tip handling set up correctly from the start",
+      "Sales tax tracking and filing support",
+    ],
+    goodFor: [
+      "Independent restaurants, cafes, and bars",
+      "Multi-location restaurant groups",
+      "Food businesses selling through dine-in, takeout, and delivery apps",
+    ],
+  },
+  "consulting-services": {
+    id: "consulting-services",
+    name: "Consulting Services",
+    shortName: "Consulting Services",
+    oneLiner: "Accounting for consultants billing by project, retainer, or hour — with cash flow that stays predictable.",
+    positioning:
+      "Consulting businesses sell expertise, so revenue depends on project timing, retainers, and how quickly clients pay. Clear books show which engagements are worth the time and keep cash flow and taxes under control.",
+    href: "/industries/consulting-services",
+    challenges: [
+      "Invoicing and tracking revenue across projects, retainers, and hourly work",
+      "Slow-paying clients and unpredictable cash flow",
+      "Reimbursable expenses and client billing for travel and costs",
+      "Contractor payments and 1099 recordkeeping",
+      "Setting aside enough for estimated taxes as income fluctuates",
+    ],
+    weHelp: [
+      "Bookkeeping that tracks revenue and profitability by client or engagement",
+      "Accounts receivable follow-up and cash flow visibility",
+      "Contractor payment tracking and 1099 preparation",
+      "Tax preparation and planning for solo consultants and consulting firms",
+    ],
+    goodFor: [
+      "Independent consultants and solo practitioners",
+      "Boutique consulting and advisory firms",
+      "Consultants working with contractors or subcontractors",
     ],
   },
 };

@@ -22,6 +22,8 @@ import {
   Scale,
   ShieldCheck,
   ShoppingBag,
+  UtensilsCrossed,
+  Users,
   Wallet,
   type LucideIcon,
 } from "lucide-react";
@@ -53,6 +55,8 @@ const ICONS: Record<string, LucideIcon> = {
   "/industries/real-estate-property": Building2,
   "/industries/construction-trades": HardHat,
   "/industries/agencies-consultancies-law-firms": Briefcase,
+  "/industries/restaurants": UtensilsCrossed,
+  "/industries/consulting-services": Users,
 };
 
 function isItemActive(item: NavItem, pathname: string) {

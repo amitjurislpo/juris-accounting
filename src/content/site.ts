@@ -126,6 +126,16 @@ export const primaryNav: NavItem[] = [
         href: "/industries/agencies-consultancies-law-firms",
         description: "Billable time, retainers, and trust or IOLTA accounts.",
       },
+      {
+        label: "Restaurants",
+        href: "/industries/restaurants",
+        description: "Food cost, tips, POS reconciliation, and delivery-app fees.",
+      },
+      {
+        label: "Consulting Services",
+        href: "/industries/consulting-services",
+        description: "Project and retainer billing, cash flow, and contractor payments.",
+      },
     ],
     footer: { note: "Industry pages carry the long-tail traffic.", label: "All industries", href: "/industries" },
   },
