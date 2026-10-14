@@ -31,7 +31,7 @@ export function CredibilitySection() {
     <Section tone="canvas" id="why-trust">
       <Reveal>
         <Eyebrow>Why work with us</Eyebrow>
-        <p className="mt-6 max-w-3xl font-display text-3xl leading-[1.1] text-fg md:text-5xl">
+        <p className="mt-6 max-w-3xl text-h2 text-fg">
           <SplitHeadline text="Precision isn't a feature." className="block" />
           <SplitHeadline
             text="It's the standard."
@@ -39,7 +39,7 @@ export function CredibilitySection() {
             className="block italic text-silver"
           />
         </p>
-        <p className="mt-6 max-w-xl text-fg-muted">
+        <p className="mt-6 max-w-xl text-body text-fg-muted">
           We&apos;d rather show you how an engagement actually runs than hide
           behind badges: clear scope, direct communication, and records that
           stay yours.
@@ -52,7 +52,7 @@ export function CredibilitySection() {
             <span className="icon-draw grid h-11 w-11 place-items-center border border-silver/30 transition-colors duration-500 group-hover:border-silver">
               <p.icon className="text-silver" size={20} aria-hidden />
             </span>
-            <h3 className="mt-5 text-lg text-fg">{p.title}</h3>
+            <h3 className="mt-5 text-h3 text-fg">{p.title}</h3>
             <p className="mt-1.5 text-sm leading-relaxed text-fg-muted">{p.body}</p>
           </div>
         ))}
