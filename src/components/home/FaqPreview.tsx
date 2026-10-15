@@ -9,7 +9,7 @@ export function FaqPreview() {
   return (
     <Section id="faq">
       <SectionHeading
-        eyebrow="Before you reach out"
+        eyebrow="FAQ"
         title="Frequently asked questions"
       />
       <Reveal className="mt-8">
