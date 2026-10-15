@@ -29,6 +29,8 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const GA_ID = "G-3T86CL41BR";
+
 export const metadata: Metadata = {
   title: `${site.name} — Bookkeeping, Accounting & Taxation`,
   description: site.description,
@@ -46,6 +48,16 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geist.variable} ${instrumentSerif.variable} ${geistMono.variable} h-full`}
     >
       <head>
+        {/* Google tag (gtag.js) — Google Analytics */}
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${GA_ID}');`,
+          }}
+        />
         <script dangerouslySetInnerHTML={{ __html: motionBootScript }} />
       </head>
       <body className="flex min-h-full flex-col font-sans text-fg antialiased">
