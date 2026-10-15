@@ -25,30 +25,30 @@ export function SeoContent({ path, part }: { path: string; part: "intro" | "faq"
     answer: faq.answer,
   }));
 
-  const jsonLd = {
+  // Two separate top-level JSON-LD blocks (rather than one @graph) so simple
+  // parsers and validators find the FAQPage without walking a graph.
+  const webPageLd = {
     "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebPage",
-        name: page.title,
-        description: page.metaDescription,
-        isPartOf: { "@type": "WebSite", name: site.name },
-      },
-      {
-        "@type": "FAQPage",
-        mainEntity: page.faqs.map((faq) => ({
-          "@type": "Question",
-          name: faq.question,
-          acceptedAnswer: { "@type": "Answer", text: faq.answer },
-        })),
-      },
-    ],
+    "@type": "WebPage",
+    name: page.title,
+    description: page.metaDescription,
+    isPartOf: { "@type": "WebSite", name: site.name },
+  };
+  const faqPageLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: page.faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: { "@type": "Answer", text: faq.answer },
+    })),
   };
 
   if (part === "faq") {
     return (
       <>
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageLd) }} />
         <Section id="faq">
           <SectionHeading eyebrow="FAQ" title="Frequently asked questions" />
           <Reveal className="mt-8">
