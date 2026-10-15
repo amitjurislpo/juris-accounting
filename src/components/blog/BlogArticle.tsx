@@ -1,3 +1,15 @@
+// Article template. No route renders it yet: Next.js static export needs at
+// least one article, so add src/app/blog/[slug]/page.tsx once the first post is
+// added to content/blog.ts:
+//
+//   export const generateStaticParams = () => blogPosts.map((p) => ({ slug: p.slug }));
+//   export async function generateMetadata({ params }: PageProps<"/blog/[slug]">) {
+//     return getArticleMetadata((await params).slug);
+//   }
+//   export default async function Page({ params }: PageProps<"/blog/[slug]">) {
+//     return <BlogArticle slug={(await params).slug} />;
+//   }
+
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ArrowLeft, Clock } from "lucide-react";
@@ -9,14 +21,9 @@ import { BlogCover } from "@/components/blog/BlogCover";
 import { ShareButtons } from "@/components/blog/ShareButtons";
 import { TrendingPosts } from "@/components/blog/TrendingPosts";
 import { FinalCta } from "@/components/home/FinalCta";
-import { blogPosts, formatPostDate, getCategory, getPost, sectionId } from "@/content/blog";
+import { formatPostDate, getCategory, getPost, sectionId } from "@/content/blog";
 
-export function generateStaticParams() {
-  return blogPosts.map((p) => ({ slug: p.slug }));
-}
-
-export async function generateMetadata({ params }: PageProps<"/blog/[slug]">): Promise<Metadata> {
-  const { slug } = await params;
+export function getArticleMetadata(slug: string): Metadata {
   const post = getPost(slug);
   if (!post) return { title: "Article not found | Juris CFO" };
   return {
@@ -27,8 +34,7 @@ export async function generateMetadata({ params }: PageProps<"/blog/[slug]">): P
   };
 }
 
-export default async function BlogPostPage({ params }: PageProps<"/blog/[slug]">) {
-  const { slug } = await params;
+export function BlogArticle({ slug }: { slug: string }) {
   const post = getPost(slug);
   if (!post) notFound();
   const category = getCategory(post.category)!;
@@ -41,7 +47,7 @@ export default async function BlogPostPage({ params }: PageProps<"/blog/[slug]">
         description={post.excerpt}
         crumbs={[
           { label: "Blog", href: "/blog" },
-          { label: category.name, href: `/blog/category/${category.id}` },
+          { label: category.name },
           { label: post.title },
         ]}
       />
@@ -71,10 +77,10 @@ export default async function BlogPostPage({ params }: PageProps<"/blog/[slug]">
 
           <article className="max-w-2xl">
             <Link
-              href={`/blog/category/${category.id}`}
+              href="/blog"
               className="link-draw mb-6 inline-flex items-center gap-2 text-sm text-fg-muted transition-colors hover:text-fg"
             >
-              <ArrowLeft size={16} aria-hidden /> Back to {category.name}
+              <ArrowLeft size={16} aria-hidden /> Back to all articles
             </Link>
 
             <BlogCover category={post.category} className="h-52 w-full rounded-card border border-line md:h-64" />
@@ -117,10 +123,10 @@ export default async function BlogPostPage({ params }: PageProps<"/blog/[slug]">
 
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
-                href={`/blog/category/${category.id}`}
+                href="/blog"
                 className="inline-flex items-center gap-2 rounded-control border border-line-strong px-5 py-3 text-sm text-fg transition-colors hover:border-gold"
               >
-                <ArrowLeft size={16} aria-hidden /> Back to {category.name}
+                <ArrowLeft size={16} aria-hidden /> Back to all articles
               </Link>
               <Link
                 href="/blog"
