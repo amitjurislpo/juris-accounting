@@ -32,6 +32,8 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: `${site.name} — Bookkeeping, Accounting & Taxation`,
   description: site.description,
+  // Google Search Console ownership verification (HTML tag method).
+  verification: { google: "GbnhFHMpIFgdFistbilLLU6XB9fdRklOU734ONRLddU" },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
