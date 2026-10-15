@@ -49,8 +49,8 @@ export function Hero() {
           <span className="hidden md:inline">Scroll to explore</span>
         </div>
 
-        <div className="mt-10 grid gap-12 md:mt-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-10">
-          <div>
+        <div className="mt-10 grid grid-cols-[minmax(0,1fr)] gap-12 md:mt-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-10">
+          <div className="min-w-0">
             <h1 className="hero-title text-[2.7rem] font-semibold leading-[0.95] tracking-[-0.055em] text-fg sm:text-[4rem] lg:text-[4.6rem] xl:text-[5.2rem]">
               <SplitHeadline text="Clarity behind" trigger="load" baseDelay={0.1} className="block" wordClassName="hero-title-word" />
               <SplitHeadline
@@ -76,7 +76,7 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="enter relative" style={enter(0.4)}>
+          <div className="enter relative min-w-0" style={enter(0.4)}>
             <HeroCore className="lg:mr-0" />
           </div>
         </div>

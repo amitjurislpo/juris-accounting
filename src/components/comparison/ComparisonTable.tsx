@@ -22,6 +22,7 @@ export function ComparisonTable({ limit }: { limit?: number }) {
 
   return (
     <div>
+      <p className="mb-3 text-xs text-fg-subtle md:hidden">Swipe sideways to compare all three services &rarr;</p>
       <div
         className="overflow-x-auto overflow-y-hidden rounded-card border border-line bg-surface shadow-[0_30px_60px_-45px_rgba(0,0,0,0.5)]"
         tabIndex={0}
