@@ -6,7 +6,7 @@ import { Footer } from "@/components/layout/Footer";
 import { FloatingContactButton } from "@/components/layout/FloatingContactButton";
 import { ScrollToTop } from "@/components/layout/ScrollToTop";
 import { InteractionLayer } from "@/components/motion/InteractionLayer";
-import { site } from "@/content/site";
+import { site, siteUrl } from "@/content/site";
 import { motionBootScript } from "@/lib/motion";
 
 // Geist carries display and body type (tight-tracked at display sizes);
@@ -31,7 +31,40 @@ const geistMono = Geist_Mono({
 
 const GA_ID = "G-3T86CL41BR";
 
+// Identity schema: who owns the site. Only facts already published on the site;
+// add address, logo and sameAs (social profiles) once the business confirms them.
+const organizationLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": `${siteUrl}/#organization`,
+  name: site.name,
+  alternateName: site.shortName,
+  url: `${siteUrl}/`,
+  description: site.description,
+  email: site.email,
+  telephone: site.phone,
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "customer service",
+    email: site.email,
+    telephone: site.phone,
+    availableLanguage: "English",
+  },
+};
+const websiteLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${siteUrl}/#website`,
+  name: site.name,
+  url: `${siteUrl}/`,
+  publisher: { "@id": `${siteUrl}/#organization` },
+};
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
+  // "./" makes each page's canonical its own URL (e.g. /bookkeeping), so no
+  // per-page setting is needed and duplicate-URL signals consolidate.
+  alternates: { canonical: "./" },
   title: `${site.name} — Bookkeeping, Accounting & Taxation`,
   description: site.description,
   // Google Search Console ownership verification (HTML tag method).
@@ -58,6 +91,8 @@ gtag('js', new Date());
 gtag('config', '${GA_ID}');`,
           }}
         />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteLd) }} />
         <script dangerouslySetInnerHTML={{ __html: motionBootScript }} />
       </head>
       <body className="flex min-h-full flex-col font-sans text-fg antialiased">

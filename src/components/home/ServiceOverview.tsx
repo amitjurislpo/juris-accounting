@@ -15,7 +15,7 @@ export function ServiceOverview() {
   return (
     <Section id="services">
       <SectionHeading
-        eyebrow="One accountable partner"
+        eyebrow="Featured services"
         title="Bookkeeping, accounting, taxation, and controller oversight — clearly separated"
         description="Each service does a different job. Understanding the difference is the fastest way to know what you actually need."
       />
