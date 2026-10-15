@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import type { SeoPageContent } from "./types";
+import { seoKeywords } from "./keywords";
 import { coreSeoPages } from "./core";
 import { servicesSeoPages } from "./services";
 import { extraSeoPages } from "./extra";
@@ -14,13 +15,21 @@ const all: SeoPageContent[] = [...coreSeoPages, ...servicesSeoPages, ...extraSeo
 
 export const seoPages: Record<string, SeoPageContent> = Object.fromEntries(all.map((p) => [p.path, p]));
 
+/** Meta keywords for a route (primary, secondary, long-tail), or undefined when the sheet has none. */
+function keywordsFor(path: string): string[] | undefined {
+  const entry = seoKeywords.find((k) => k.path === path);
+  return entry ? [entry.primary, ...entry.secondary, ...entry.longTail] : undefined;
+}
+
 /** Page-level metadata from the SEO content; falls back to `fallback` when a route has none. */
 export function seoMetadata(path: string, fallback: Metadata): Metadata {
+  const keywords = keywordsFor(path);
   const page = seoPages[path];
-  if (!page) return fallback;
+  if (!page) return keywords ? { ...fallback, keywords } : fallback;
   return {
     title: page.title,
     description: page.metaDescription,
+    keywords,
     openGraph: { title: page.title, description: page.metaDescription, type: "website" },
   };
 }
