@@ -140,6 +140,7 @@ export const primaryNav: NavItem[] = [
     footer: { note: "Industry pages carry the long-tail traffic.", label: "All industries", href: "/industries" },
   },
   { label: "Process", href: "/process" },
+  { label: "Blog", href: "/blog" },
   { label: "About", href: "/about" },
 ];
 
@@ -163,6 +164,7 @@ export const footerNav = {
     { label: "Industries", href: "/industries" },
   ],
   resources: [
+    { label: "Blog", href: "/blog" },
     { label: "Resources & articles", href: "/resources" },
     { label: "FAQ", href: "/faq" },
     { label: "Contact", href: "/contact" },
