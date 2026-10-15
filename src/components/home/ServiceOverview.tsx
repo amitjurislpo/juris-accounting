@@ -92,7 +92,7 @@ export function ServiceOverview() {
                       </ul>
                       <Link
                         href={service.href}
-                        className="group/link mt-6 inline-flex items-center gap-2 text-sm font-semibold text-silver"
+                        className="group/link mt-4 inline-flex items-center gap-2 py-2 text-sm font-semibold text-silver"
                       >
                         Explore {service.shortName.toLowerCase()}
                         <ArrowRight size={16} className="transition-transform duration-500 group-hover/link:translate-x-1" aria-hidden />
