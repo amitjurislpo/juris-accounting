@@ -8,7 +8,7 @@ import { industryPageList } from "@/content/industryPages";
 export const dynamic = "force-static";
 
 // Set NEXT_PUBLIC_SITE_URL at build time when the final domain is known.
-const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://juris-accounting.vercel.app").replace(/\/$/, "");
+const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.juriscfo.com").replace(/\/$/, "");
 
 const staticRoutes = [
   "/",
