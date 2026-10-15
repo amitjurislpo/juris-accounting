@@ -1,5 +1,9 @@
 // Site-wide constants.
 
+// Canonical host used for canonical URLs and structured data. Override at build time
+// with NEXT_PUBLIC_SITE_URL.
+export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.juriscfo.com";
+
 export const site = {
   name: "Juris CFO",
   shortName: "Juris",

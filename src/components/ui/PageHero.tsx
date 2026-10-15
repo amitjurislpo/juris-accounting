@@ -3,6 +3,7 @@
 import type { CSSProperties } from "react";
 import { usePathname } from "next/navigation";
 import { Link } from "@/components/ui/AppLink";
+import { siteUrl } from "@/content/site";
 import { Container } from "./Container";
 import { Eyebrow } from "./Section";
 import { SplitHeadline } from "@/components/motion/SplitHeadline";
@@ -70,9 +71,24 @@ export function PageHero({
 }) {
   const pathCrumbs = usePathCrumbs();
   const trail = crumbs ?? pathCrumbs;
+  // BreadcrumbList structured data mirrors the visible trail; the last item is the current page.
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: `${siteUrl}/` },
+      ...trail.map((crumb, i) => ({
+        "@type": "ListItem",
+        position: i + 2,
+        name: crumb.label,
+        ...(crumb.href ? { item: `${siteUrl}${crumb.href}` } : {}),
+      })),
+    ],
+  };
 
   return (
     <section className="relative isolate overflow-hidden border-b border-line text-fg">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       <HeroBackdrop />
       <Parallax speed={0.18} className="absolute inset-0 -z-10">
         <div

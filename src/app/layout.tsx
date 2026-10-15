@@ -6,7 +6,7 @@ import { Footer } from "@/components/layout/Footer";
 import { FloatingContactButton } from "@/components/layout/FloatingContactButton";
 import { ScrollToTop } from "@/components/layout/ScrollToTop";
 import { InteractionLayer } from "@/components/motion/InteractionLayer";
-import { site } from "@/content/site";
+import { site, siteUrl } from "@/content/site";
 import { motionBootScript } from "@/lib/motion";
 
 // Geist carries display and body type (tight-tracked at display sizes);
@@ -32,6 +32,10 @@ const geistMono = Geist_Mono({
 const GA_ID = "G-3T86CL41BR";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
+  // "./" makes each page's canonical its own URL (e.g. /bookkeeping), so no
+  // per-page setting is needed and duplicate-URL signals consolidate.
+  alternates: { canonical: "./" },
   title: `${site.name} — Bookkeeping, Accounting & Taxation`,
   description: site.description,
   // Google Search Console ownership verification (HTML tag method).

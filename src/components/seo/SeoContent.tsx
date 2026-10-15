@@ -50,7 +50,7 @@ export function SeoContent({ path, part }: { path: string; part: "intro" | "faq"
       <>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         <Section id="faq">
-          <SectionHeading eyebrow="Before you reach out" title="Frequently asked questions" />
+          <SectionHeading eyebrow="FAQ" title="Frequently asked questions" />
           <Reveal className="mt-8">
             <FaqAccordion items={faqItems} />
           </Reveal>

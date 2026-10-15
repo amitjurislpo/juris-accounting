@@ -39,8 +39,10 @@ export function FaqAccordion({ items }: { items: FaqItem[] }) {
               )}
               aria-hidden
             />
+            <h3>
             <button
               type="button"
+              id={`faq-question-${item.slug}`}
               className="group flex w-full items-center justify-between gap-6 py-6 text-left"
               aria-expanded={isOpen}
               aria-controls={`faq-panel-${item.slug}`}
@@ -70,8 +72,11 @@ export function FaqAccordion({ items }: { items: FaqItem[] }) {
                 />
               </span>
             </button>
+            </h3>
             <div
               id={`faq-panel-${item.slug}`}
+              role="region"
+              aria-labelledby={`faq-question-${item.slug}`}
               className={cn(
                 "grid overflow-hidden transition-[grid-template-rows,opacity,padding] duration-500 ease-out",
                 isOpen ? "grid-rows-[1fr] pb-6 opacity-100" : "grid-rows-[0fr] opacity-0",

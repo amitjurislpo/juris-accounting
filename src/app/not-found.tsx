@@ -1,5 +1,9 @@
+import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
+
+// The 404 page is not a real URL, so it gets no canonical.
+export const metadata: Metadata = { alternates: { canonical: null } };
 
 export default function NotFound() {
   return (
