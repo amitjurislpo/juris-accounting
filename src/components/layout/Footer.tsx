@@ -22,12 +22,12 @@ function FooterColumn({
         <span className="h-px w-5 bg-line-strong" aria-hidden />
         {title}
       </p>
-      <ul className={split ? "mt-5 grid grid-cols-2 gap-x-8 gap-y-2.5" : "mt-5 flex flex-col gap-2.5"}>
+      <ul className={split ? "mt-4 grid grid-cols-2 gap-x-8" : "mt-4 flex flex-col"}>
         {links.map((link) => (
           <li key={link.href}>
             <Link
               href={link.href}
-              className="group inline-flex items-center gap-2 text-sm text-fg-muted transition-colors duration-300 hover:text-fg"
+              className="group inline-flex items-center gap-2 py-2 text-sm text-fg-muted transition-colors duration-300 hover:text-fg"
             >
               <span
                 className="h-px w-0 bg-fg transition-[width] duration-500 ease-lux group-hover:w-3"
@@ -72,9 +72,9 @@ export function Footer() {
           <p className="max-w-2xl leading-relaxed">
             <strong className="font-semibold text-fg">Disclaimer:</strong> {legalNotice}
           </p>
-          <div className="flex gap-6">
+          <div className="flex gap-4">
             {footerNav.legal.map((link) => (
-              <Link key={link.href} href={link.href} className="link-draw hover:text-fg">
+              <Link key={link.href} href={link.href} className="link-draw inline-block px-1 py-2.5 hover:text-fg">
                 {link.label}
               </Link>
             ))}
