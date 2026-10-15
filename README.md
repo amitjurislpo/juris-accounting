@@ -1,6 +1,6 @@
-# Juris Accounting — static website
+# Juris CFO — static website
 
-First static website build for Juris Accounting: a bookkeeping, accounting,
+Static website for Juris CFO: a bookkeeping, accounting,
 and taxation services site built for visibility, client education, and
 self-qualification ahead of a sales conversation.
 
