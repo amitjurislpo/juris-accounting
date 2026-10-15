@@ -16,9 +16,9 @@ const all: SeoPageContent[] = [...coreSeoPages, ...servicesSeoPages, ...extraSeo
 export const seoPages: Record<string, SeoPageContent> = Object.fromEntries(all.map((p) => [p.path, p]));
 
 /** Meta keywords for a route (primary, secondary, long-tail), or undefined when the sheet has none. */
-function keywordsFor(path: string): string[] | undefined {
+function keywordsFor(path: string): string | undefined {
   const entry = seoKeywords.find((k) => k.path === path);
-  return entry ? [entry.primary, ...entry.secondary, ...entry.longTail] : undefined;
+  return entry ? [entry.primary, ...entry.secondary, ...entry.longTail].join(", ") : undefined;
 }
 
 /** Page-level metadata from the SEO content; falls back to `fallback` when a route has none. */
