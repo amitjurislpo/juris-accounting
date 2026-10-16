@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { PageHero } from "@/components/ui/PageHero";
 import { Reveal } from "@/components/motion/Reveal";
-import { PricingBuilder } from "@/components/pricing/PricingBuilder";
+import { PricingSpotlight } from "@/components/pricing/PricingSpotlight";
 import { pricingAssumptions } from "@/content/pricing";
 import { FinalCta } from "@/components/home/FinalCta";
 import { seoMetadata, seoPages } from "@/content/seo";
@@ -25,7 +25,7 @@ export default function PricingPage() {
       <SeoContent path="/pricing" part="intro" />
       <Section>
         <Reveal>
-          <PricingBuilder />
+          <PricingSpotlight />
         </Reveal>
       </Section>
 

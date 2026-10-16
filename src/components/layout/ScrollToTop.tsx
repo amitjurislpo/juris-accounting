@@ -47,7 +47,7 @@ export function ScrollToTop() {
       tabIndex={visible ? 0 : -1}
       aria-hidden={!visible}
       className={cn(
-        "group fixed bottom-24 right-4 z-30 flex h-14 w-14 flex-col items-center justify-center rounded-full border border-line-strong bg-surface/80 text-silver shadow-float backdrop-blur-md transition-[opacity,translate,scale,border-color,background-color] duration-300 hover:scale-105 hover:border-gold hover:bg-surface-hover md:bottom-6 md:right-6 md:h-16 md:w-16",
+        "group fixed bottom-5 left-4 z-30 flex h-13 w-13 flex-col items-center justify-center rounded-full border border-line-strong bg-surface/80 text-silver shadow-float backdrop-blur-md transition-[opacity,translate,scale,border-color,background-color] duration-300 hover:scale-105 hover:border-gold hover:bg-surface-hover md:bottom-6 md:left-6 md:h-16 md:w-16",
         visible ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-3 opacity-0",
       )}
     >

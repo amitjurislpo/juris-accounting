@@ -95,7 +95,6 @@ export const primaryNav: NavItem[] = [
     ],
     footer: { note: "Every service has its own page.", label: "Compare services", href: "/services/compare" },
   },
-  { label: "Pricing", href: "/pricing" },
   {
     label: "Industries",
     href: "/industries",
@@ -144,6 +143,7 @@ export const primaryNav: NavItem[] = [
     footer: { note: "Industry pages carry the long-tail traffic.", label: "All industries", href: "/industries" },
   },
   { label: "Process", href: "/process" },
+  { label: "Pricing", href: "/pricing" },
   { label: "Blog", href: "/blog" },
   { label: "About", href: "/about" },
 ];
