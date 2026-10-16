@@ -16,16 +16,23 @@ export function FooterWordmark({ text }: { text: string }) {
     const footer = textRef.current?.closest("footer");
     if (!footer) return;
 
+    // Touch devices can't hover, so keep the wordmark highlighted there.
+    const canHover = window.matchMedia("(hover: hover) and (pointer: fine)");
+    const sync = () => setActive(!canHover.matches);
+    sync();
+    canHover.addEventListener("change", sync);
+
     function onEnter(event: PointerEvent) {
       if (event.pointerType === "mouse") setActive(true);
     }
     function onLeave() {
-      setActive(false);
+      setActive(!canHover.matches);
     }
 
     footer.addEventListener("pointerenter", onEnter);
     footer.addEventListener("pointerleave", onLeave);
     return () => {
+      canHover.removeEventListener("change", sync);
       footer.removeEventListener("pointerenter", onEnter);
       footer.removeEventListener("pointerleave", onLeave);
     };

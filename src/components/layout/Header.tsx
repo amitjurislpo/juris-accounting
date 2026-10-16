@@ -68,7 +68,7 @@ function indexStyle(i: number) {
   return { "--i": i } as CSSProperties;
 }
 
-/** Brand lockup, right-aligned. Deliberately static. */
+/** Brand lockup, left-aligned. Deliberately static. */
 function Wordmark() {
   return (
     <Link href="/" className="flex items-center" aria-label={`${site.name} home`}>
@@ -467,8 +467,13 @@ export function Header() {
       )}
 
       <Container className="flex h-[4.5rem] items-center justify-between gap-6">
-        {/* LEFT — index trigger + primary navigation */}
-        <div className="flex items-center gap-4 lg:-ml-3">
+        {/* LEFT — brand */}
+        <div className="flex justify-start">
+          <Wordmark />
+        </div>
+
+        {/* RIGHT — index trigger (mobile) + primary navigation */}
+        <div className="flex items-center gap-4">
           <button
             ref={toggleRef}
             type="button"
@@ -509,8 +514,6 @@ export function Header() {
           </div>
         </div>
 
-        {/* RIGHT — brand */}
-        <Wordmark />
       </Container>
 
       {menuMounted && (
@@ -525,7 +528,7 @@ export function Header() {
             style={{ background: "radial-gradient(closest-side, rgba(201,151,79,0.9), transparent)" }}
             aria-hidden
           />
-          <Container className="relative grid min-h-full gap-10 pb-10 pt-6 lg:grid-cols-[1fr_18rem] lg:pt-10">
+          <Container className="relative grid min-h-full gap-10 pb-6 pt-6 lg:grid-cols-[1fr_18rem] lg:pt-10">
             <nav aria-label="Site index">
               <p className="mb-4 font-mono text-[10px] uppercase tracking-[0.22em] text-fg-subtle">Index</p>
               <ul className="menu-stagger flex flex-col border-t border-line">
@@ -540,7 +543,7 @@ export function Header() {
                 ))}
               </ul>
             </nav>
-            <aside className="flex flex-col gap-8 lg:border-l lg:border-line lg:pl-10">
+            <aside className="hidden flex-col gap-8 lg:flex lg:border-l lg:border-line lg:pl-10">
               <div className="enter" style={{ "--enter-delay": "0.3s" } as CSSProperties}>
                 <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-fg-subtle">Also here</p>
                 <ul className="mt-4 flex flex-col">
