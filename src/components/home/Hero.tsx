@@ -1,6 +1,6 @@
 import type { CSSProperties } from "react";
 import { Button } from "@/components/ui/Button";
-import { SplitHeadline } from "@/components/motion/SplitHeadline";
+import { HeroTypedTitle } from "./HeroTypedTitle";
 import { HeroCore } from "./HeroCore";
 import { Parallax } from "@/components/motion/Parallax";
 import { Container } from "@/components/ui/Container";
@@ -51,22 +51,18 @@ export function Hero() {
 
         <div className="mt-10 grid grid-cols-[minmax(0,1fr)] gap-12 md:mt-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-10">
           <div className="min-w-0">
-            <h1 className="hero-title text-[2.7rem] font-semibold leading-[0.95] tracking-[-0.055em] text-fg sm:text-[4rem] lg:text-[4.6rem] xl:text-[5.2rem]">
-              <SplitHeadline text="Clarity behind" trigger="load" baseDelay={0.1} className="block" wordClassName="hero-title-word" />
-              <SplitHeadline
-                text="every number."
-                trigger="load"
-                baseDelay={0.3}
-                className="block font-serif text-[1.12em] font-normal italic leading-[0.9] tracking-[-0.02em]"
-                wordClassName="text-metal hero-title-glow pr-[0.04em]"
-              />
+            <h1
+              className="hero-title enter text-center text-[clamp(2.1rem,10.5vw,2.7rem)] font-semibold leading-[0.95] tracking-[-0.055em] text-fg sm:text-[4rem] lg:text-left lg:text-[4.6rem] xl:text-[5.2rem]"
+              style={enter(0.1)}
+            >
+              <HeroTypedTitle />
             </h1>
-            <p className="enter mt-7 max-w-lg border-l border-[rgba(201,151,79,0.4)] pl-5 text-base font-medium leading-relaxed text-fg sm:text-[1.15rem]" style={enter(0.55)}>
+            <p className="enter mx-auto mt-7 max-w-lg text-center text-base font-medium leading-relaxed text-fg sm:text-[1.15rem] lg:mx-0 lg:border-l lg:border-[rgba(201,151,79,0.4)] lg:pl-5 lg:text-left" style={enter(0.55)}>
               <span className="text-fg">Bookkeeping, accounting, taxation, and controller oversight</span> —
               engineered as <span className="font-semibold text-fg">one accountable system</span>, structured around what
               your business actually needs.
             </p>
-            <div className="enter mt-8 flex flex-wrap items-center gap-3 sm:gap-4" style={enter(0.65)}>
+            <div className="enter mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-4 lg:justify-start" style={enter(0.65)}>
               <Button href="/contact" glow>
                 Book a consultation
               </Button>
