@@ -3,6 +3,8 @@ export type PricingPlan = {
   tag: string;
   name: string;
   hours: string;
+  /** Billing cadence shown in the plan-selector caption. */
+  billing: string;
   price: number;
   per: string;
   points: string[];
@@ -35,6 +37,7 @@ export const pricingPlans = {
           tag: "Full-Time",
           name: "Full-Time",
           hours: "40 hours / week",
+          billing: "Monthly",
           price: 3500,
           per: "/ month",
           points: [
@@ -48,6 +51,7 @@ export const pricingPlans = {
           tag: "Part-Time",
           name: "Part-Time",
           hours: "20 hours / week",
+          billing: "Monthly",
           price: 1800,
           per: "/ month",
           points: [
@@ -61,6 +65,7 @@ export const pricingPlans = {
           tag: "Hourly Block",
           name: "Hourly Block",
           hours: "10-hour block",
+          billing: "Hourly",
           price: 350,
           per: "per 10-hour block",
           points: [
@@ -83,6 +88,7 @@ export const pricingPlans = {
           tag: "Full-Time",
           name: "Full-Time",
           hours: "40 hours / week",
+          billing: "Monthly",
           price: 4000,
           per: "/ month",
           points: [
@@ -96,6 +102,7 @@ export const pricingPlans = {
           tag: "Part-Time",
           name: "Part-Time",
           hours: "20 hours / week",
+          billing: "Monthly",
           price: 2300,
           per: "/ month",
           points: [
@@ -109,6 +116,7 @@ export const pricingPlans = {
           tag: "Hourly Block",
           name: "Hourly Block",
           hours: "10-hour block",
+          billing: "Hourly",
           price: 850,
           per: "per block",
           points: [
@@ -131,6 +139,7 @@ export const pricingPlans = {
           tag: "Individuals",
           name: "Individual Tax Returns",
           hours: "Per return",
+          billing: "Per return",
           price: 500,
           per: "per return",
           points: [
@@ -144,6 +153,7 @@ export const pricingPlans = {
           tag: "Businesses",
           name: "Business Tax Returns",
           hours: "Per return",
+          billing: "Per return",
           price: 1000,
           per: "per return",
           points: [
@@ -157,6 +167,7 @@ export const pricingPlans = {
           tag: "Add-on",
           name: "Additional Schedules",
           hours: "Each",
+          billing: "Per schedule",
           price: 250,
           per: "each",
           points: [
@@ -179,11 +190,11 @@ export const pricingPlans = {
           tag: "Full-Time",
           name: "Full-Time Dedicated Controller",
           hours: "40 hours / week",
+          billing: "Monthly",
           price: 10400,
           per: "/ month",
           points: [
-            "Dedicated resource",
-            "Financial reporting and close management",
+            "Dedicated resource for financial reporting and close management",
             "Accounting oversight and reconciliations review",
             "Ongoing coordination with management",
           ],
@@ -193,12 +204,12 @@ export const pricingPlans = {
           tag: "Part-Time",
           name: "Part-Time Controller",
           hours: "20 hours / week",
+          billing: "Monthly",
           price: 5200,
           per: "/ month",
           points: [
-            "Financial statement review",
+            "Financial statement review and management reporting",
             "Month-end close support",
-            "Management reporting",
             "Ongoing accounting oversight",
           ],
         },
@@ -207,6 +218,7 @@ export const pricingPlans = {
           tag: "Hourly",
           name: "Hourly Controller Support",
           hours: "Billed on actual hours",
+          billing: "Hourly",
           price: 60,
           per: "per hour",
           points: [
