@@ -117,7 +117,7 @@ export const pricingPlans = {
           name: "Hourly Block",
           hours: "10-hour block",
           billing: "Hourly",
-          price: 850,
+          price: 500,
           per: "per block",
           points: [
             "10-hour bookkeeping block",
@@ -217,10 +217,10 @@ export const pricingPlans = {
           id: "hourly",
           tag: "Hourly",
           name: "Hourly Controller Support",
-          hours: "Billed on actual hours",
+          hours: "10-hour block",
           billing: "Hourly",
-          price: 60,
-          per: "per hour",
+          price: 600,
+          per: "per block",
           points: [
             "Billed based on actual hours worked",
             "Suitable for ad hoc requirements",
