@@ -38,7 +38,7 @@ export const pricingPlans = {
           name: "Full-Time",
           hours: "40 hours / week",
           billing: "Monthly",
-          price: 3500,
+          price: 2500,
           per: "/ month",
           points: [
             "Dedicated bookkeeping resource",
@@ -52,7 +52,7 @@ export const pricingPlans = {
           name: "Part-Time",
           hours: "20 hours / week",
           billing: "Monthly",
-          price: 1800,
+          price: 1500,
           per: "/ month",
           points: [
             "Flexible bookkeeping support",
@@ -66,7 +66,7 @@ export const pricingPlans = {
           name: "Hourly Block",
           hours: "10-hour block",
           billing: "Hourly",
-          price: 350,
+          price: 800,
           per: "per 10-hour block",
           points: [
             "Task-based bookkeeping support",
@@ -89,7 +89,7 @@ export const pricingPlans = {
           name: "Full-Time",
           hours: "40 hours / week",
           billing: "Monthly",
-          price: 4000,
+          price: 3000,
           per: "/ month",
           points: [
             "Month-end and year-end close",
@@ -103,7 +103,7 @@ export const pricingPlans = {
           name: "Part-Time",
           hours: "20 hours / week",
           billing: "Monthly",
-          price: 2300,
+          price: 1800,
           per: "/ month",
           points: [
             "Monthly financial statement review",
@@ -117,7 +117,7 @@ export const pricingPlans = {
           name: "Hourly Block",
           hours: "10-hour block",
           billing: "Hourly",
-          price: 500,
+          price: 1000,
           per: "per block",
           points: [
             "10-hour bookkeeping block",
@@ -154,7 +154,7 @@ export const pricingPlans = {
           name: "Business Tax Returns",
           hours: "Per return",
           billing: "Per return",
-          price: 1000,
+          price: 800,
           per: "per return",
           points: [
             "Partnership returns (Form 1065)",
@@ -191,7 +191,7 @@ export const pricingPlans = {
           name: "Full-Time Dedicated Controller",
           hours: "40 hours / week",
           billing: "Monthly",
-          price: 10400,
+          price: 5000,
           per: "/ month",
           points: [
             "Dedicated resource for financial reporting and close management",
@@ -205,7 +205,7 @@ export const pricingPlans = {
           name: "Part-Time Controller",
           hours: "20 hours / week",
           billing: "Monthly",
-          price: 5200,
+          price: 2900,
           per: "/ month",
           points: [
             "Financial statement review and management reporting",
@@ -219,7 +219,7 @@ export const pricingPlans = {
           name: "Hourly Controller Support",
           hours: "10-hour block",
           billing: "Hourly",
-          price: 600,
+          price: 1600,
           per: "per block",
           points: [
             "Billed based on actual hours worked",
