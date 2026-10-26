@@ -7,8 +7,11 @@ import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/motion/Reveal";
 import { BlogCard } from "./BlogCard";
-import { BlogSidebar } from "./BlogSidebar";
-import { blogCategories, type BlogCategoryId, type BlogPost } from "@/content/blog";
+import {
+  blogCategories,
+  type BlogCategoryId,
+  type BlogPost,
+} from "@/content/blog";
 import { cn } from "@/lib/cn";
 
 const filters: { id?: BlogCategoryId; name: string }[] = [
@@ -26,9 +29,7 @@ export function BlogIndex({ posts }: { posts: BlogPost[] }) {
 
   return (
     <Section>
-      <div className="grid gap-10 lg:grid-cols-[15rem_1fr] lg:gap-14">
-        <BlogSidebar active={active} onSelect={setActive} />
-
+      <div>
         <div>
           {active && (
             <button
@@ -40,7 +41,11 @@ export function BlogIndex({ posts }: { posts: BlogPost[] }) {
             </button>
           )}
 
-          <div role="group" aria-label="Filter articles by category" className="mb-8 flex flex-wrap gap-2">
+          <div
+            role="group"
+            aria-label="Filter articles by category"
+            className="mb-8 flex flex-wrap gap-2"
+          >
             {filters.map((item) => (
               <button
                 key={item.name}
@@ -60,7 +65,10 @@ export function BlogIndex({ posts }: { posts: BlogPost[] }) {
           </div>
 
           {visible.length > 0 ? (
-            <Reveal staggerChildren className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+            <Reveal
+              staggerChildren
+              className="grid gap-4 md:grid-cols-2 lg:grid-cols-3"
+            >
               {visible.map((post) => (
                 <BlogCard key={post.slug} post={post} />
               ))}
@@ -68,7 +76,9 @@ export function BlogIndex({ posts }: { posts: BlogPost[] }) {
           ) : (
             <div className="rounded-card border border-line-strong bg-surface p-8 md:p-10">
               <Badge tone="platinum">Coming soon</Badge>
-              <h2 className="mt-5 text-2xl tracking-[-0.03em] text-fg">Articles are on the way</h2>
+              <h2 className="mt-5 text-2xl tracking-[-0.03em] text-fg">
+                Articles are on the way
+              </h2>
               <p className="mt-3 max-w-xl text-base leading-relaxed text-fg-muted">
                 {active
                   ? "We are preparing articles for this category. In the meantime, talk to our team about your requirement."

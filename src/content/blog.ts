@@ -1,6 +1,9 @@
 // Blog content: categories and articles. Typed data, separate from
 // presentation, so a CMS can replace this file later.
 
+// Long article copy lives in ./blogPosts/ and is imported here.
+import { BOOKKEEPING_WORKFLOW_HTML, BOOKKEEPING_WORKFLOW_FAQ } from "./blogPosts/bookkeeping-workflow";
+
 export type BlogCategoryId =
   | "bookkeeping"
   | "accounting"
@@ -70,15 +73,15 @@ export const blogCategories: BlogCategory[] = [
   },
 ];
 
-export type BlogSection = {
-  heading: string;
-  paragraphs: string[];
-  bullets?: string[];
-};
+export type BlogFaq = { q: string; a: string };
 
 export type BlogPost = {
   slug: string;
+  /** H1 and card title. */
   title: string;
+  /** Meta title for the page <title> and Open Graph. */
+  metaTitle: string;
+  /** Meta description; also the card text and hero lede. */
   excerpt: string;
   category: BlogCategoryId;
   /** ISO date, YYYY-MM-DD. */
@@ -87,13 +90,55 @@ export type BlogPost = {
   /** Meta keywords for the article page. */
   keywords: string[];
   trending?: boolean;
-  intro: string;
-  sections: BlogSection[];
+  /** Only set when the source names a real author. */
+  author?: string;
+  /** Featured image: shown on the card and as the banner on the article page. */
+  image: { url: string; alt: string; width: number; height: number };
+  /**
+   * The whole article body. Every plain <h2>Heading</h2> becomes a table-of-contents
+   * entry (see BlogArticle), so keep h2s attribute-free with no nested tags. Do not
+   * put the FAQ here; it lives in `faq` and renders (with FAQPage schema) after the body.
+   */
+  bodyHtml: string;
+  faq: BlogFaq[];
 };
 
-// Add real articles here. Until then the blog shows categories with a
-// "coming soon" state and no article links.
-export const blogPosts: BlogPost[] = [];
+export const blogPosts: BlogPost[] = [
+  {
+    slug: "bookkeeping-workflow-for-accounting-firms",
+    title: "Before You Add Clients, Fix Your Bookkeeping Workflow: A Step-by-Step Guide for Accounting Firms",
+    metaTitle: "Bookkeeping Workflow: Fix It Before You Add Clients | Juris CFO",
+    excerpt:
+      "A step-by-step bookkeeping workflow for US accounting firms: month-end close checklist, document cutoff policy, automation, outsourcing controls, and KPIs.",
+    category: "bookkeeping",
+    date: "2026-10-27",
+    readTime: "12 min",
+    keywords: [
+      "bookkeeping workflow",
+      "bookkeeping workflow for accounting firms",
+      "month-end close checklist",
+      "month-end close process",
+      "bookkeeping process",
+      "scale bookkeeping practice",
+      "outsourced bookkeeping for CPA firms",
+      "bank reconciliation process",
+      "document cutoff policy",
+      "bookkeeping automation",
+      "bookkeeping KPIs",
+      "practice management software",
+      "bookkeeping review process",
+    ],
+    author: "Jyoti Upadhyay",
+    image: {
+      url: "/images/blog/bookkeeping-workflow-for-accounting-firms.jpg",
+      alt: "Accountant reviewing a bookkeeping workflow dashboard during month-end close",
+      width: 975,
+      height: 531,
+    },
+    bodyHtml: BOOKKEEPING_WORKFLOW_HTML,
+    faq: BOOKKEEPING_WORKFLOW_FAQ,
+  },
+];
 
 export function getCategory(id: string): BlogCategory | undefined {
   return blogCategories.find((c) => c.id === id);
@@ -117,8 +162,4 @@ export function formatPostDate(iso: string): string {
   const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
   const [y, m, d] = iso.split("-").map(Number);
   return `${months[m - 1]} ${d}, ${y}`;
-}
-
-export function sectionId(heading: string): string {
-  return heading.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 }
