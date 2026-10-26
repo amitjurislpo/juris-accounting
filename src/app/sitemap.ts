@@ -42,7 +42,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...extraServiceList.flatMap((service) => service.subServices.map((sub) => `${service.href}/${sub.slug}`)),
     ...industryPageList.map((industry) => industry.href),
     ...articles.map((article) => `/resources/${article.slug}`),
-    // The blog stays out of the sitemap while it has no articles (its page is noindex).
+    // The blog is listed once it has articles; the hub and every post are indexable.
     ...(blogPosts.length > 0 ? ["/blog", ...blogPosts.map((post) => `/blog/${post.slug}`)] : []),
   ];
 
