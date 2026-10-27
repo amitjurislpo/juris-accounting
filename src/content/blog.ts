@@ -3,6 +3,7 @@
 
 // Long article copy lives in ./blogPosts/ and is imported here.
 import { BOOKKEEPING_WORKFLOW_HTML, BOOKKEEPING_WORKFLOW_FAQ } from "./blogPosts/bookkeeping-workflow";
+import { VIRTUAL_CFO_SERVICES_HTML, VIRTUAL_CFO_SERVICES_FAQ } from "./blogPosts/virtual-cfo-services";
 
 export type BlogCategoryId =
   | "bookkeeping"
@@ -137,6 +138,45 @@ export const blogPosts: BlogPost[] = [
     },
     bodyHtml: BOOKKEEPING_WORKFLOW_HTML,
     faq: BOOKKEEPING_WORKFLOW_FAQ,
+  },
+  {
+    slug: "virtual-cfo-services",
+    title: "Virtual CFO Services: What a Fractional CFO Does, What It Costs, and When You Need One",
+    metaTitle: "Virtual CFO Services: What a Fractional CFO Does & Costs",
+    excerpt:
+      "Virtual CFO services explained: what a fractional CFO does, when to hire one, what it costs per month ($3K-$15K), and how to choose the right partner.",
+    category: "cfo-controller",
+    date: "2026-10-28",
+    readTime: "13 min",
+    keywords: [
+      "virtual cfo services",
+      "fractional cfo services",
+      "outsourced cfo",
+      "cfo advisory services",
+      "part-time cfo for small business",
+      "what does a fractional cfo do",
+      "when to hire a fractional cfo",
+      "at what revenue should I hire a fractional cfo",
+      "how much does a virtual cfo cost per month",
+      "bookkeeper vs controller vs cfo",
+      "financial modeling",
+      "budget vs actual variance",
+      "unit economics",
+      "pricing strategy",
+      "KPI framework",
+      "board reporting",
+      "fundraising support",
+      "lender covenant reporting",
+      "cash flow forecasting",
+    ],
+    image: {
+      url: "/images/blog/virtual-cfo-services.jpg",
+      alt: "Fractional CFO reviewing a cash flow forecast with a business owner",
+      width: 1707,
+      height: 921,
+    },
+    bodyHtml: VIRTUAL_CFO_SERVICES_HTML,
+    faq: VIRTUAL_CFO_SERVICES_FAQ,
   },
 ];
 
