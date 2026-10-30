@@ -36,21 +36,13 @@ function humanize(segment: string) {
   return SEGMENT_LABELS[segment] ?? segment.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
-// There is no /services index page; the services hub lives at /services/compare.
-const SEGMENT_HREFS: Record<string, string> = {
-  "/services": "/services/compare",
-};
-
 function usePathCrumbs(): Crumb[] {
   const pathname = usePathname();
   const segments = pathname.split("/").filter(Boolean);
-  return segments.map((segment, i) => {
-    const path = "/" + segments.slice(0, i + 1).join("/");
-    return {
-      label: humanize(segment),
-      href: i === segments.length - 1 ? undefined : (SEGMENT_HREFS[path] ?? path),
-    };
-  });
+  return segments.map((segment, i) => ({
+    label: humanize(segment),
+    href: i === segments.length - 1 ? undefined : "/" + segments.slice(0, i + 1).join("/"),
+  }));
 }
 
 function enter(delay: number) {
