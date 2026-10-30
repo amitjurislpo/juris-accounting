@@ -8,6 +8,11 @@ import {
   OUTSOURCED_BOOKKEEPING_SERVICES_HTML,
   OUTSOURCED_BOOKKEEPING_SERVICES_FAQ,
 } from "./blogPosts/outsourced-bookkeeping-services";
+import {
+  OUTSOURCED_ACCOUNTING_SERVICES_SMALL_BUSINESS_HTML,
+  OUTSOURCED_ACCOUNTING_SERVICES_SMALL_BUSINESS_FAQ,
+} from "./blogPosts/outsourced-accounting-services-small-business";
+import { YEAR_END_ACCOUNTING_CHECKLIST_HTML, YEAR_END_ACCOUNTING_CHECKLIST_FAQ } from "./blogPosts/year-end-accounting-checklist";
 
 export type BlogCategoryId =
   | "bookkeeping"
@@ -207,6 +212,71 @@ export const blogPosts: BlogPost[] = [
     },
     bodyHtml: OUTSOURCED_BOOKKEEPING_SERVICES_HTML,
     faq: OUTSOURCED_BOOKKEEPING_SERVICES_FAQ,
+  },
+  {
+    slug: "outsourced-accounting-services-small-business",
+    title: "Is It Time to Outsource Your Accounting? A Guide for US Small Businesses",
+    metaTitle: "Outsourced Accounting Services for Small Business (2026)",
+    excerpt:
+      "Thinking about outsourced accounting services? See the 6 signs it's time, real costs vs. an in-house hire, the first 90 days, and how to pick a US partner.",
+    category: "accounting",
+    date: "2026-10-31",
+    readTime: "10 min",
+    keywords: [
+      "outsourced accounting services",
+      "outsource your accounting",
+      "outsourced bookkeeping",
+      "in-house accountant",
+      "small business accounting",
+      "month-end close",
+      "virtual CFO",
+      "fractional CFO",
+      "catch-up bookkeeping",
+      "accounting partner",
+      "financial statements",
+    ],
+    author: "Jyoti Upadhyay",
+    image: {
+      url: "/images/blog/outsourced-accounting-services-small-business.jpg",
+      alt: "Checklist of signs a small business should outsource its accounting next to a rising bar chart",
+      width: 840,
+      height: 441,
+    },
+    bodyHtml: OUTSOURCED_ACCOUNTING_SERVICES_SMALL_BUSINESS_HTML,
+    faq: OUTSOURCED_ACCOUNTING_SERVICES_SMALL_BUSINESS_FAQ,
+  },
+  {
+    slug: "year-end-accounting-checklist",
+    title: "Year-End Accounting Checklist for Small Businesses: 9 Steps to Close 2026 Cleanly",
+    metaTitle: "Year-End Accounting Checklist for Small Businesses (2026)",
+    excerpt:
+      "Use this year-end accounting checklist to reconcile accounts, review payroll and 1099s, check inventory and depreciation, and hand your CPA clean books.",
+    category: "taxation",
+    date: "2026-10-31",
+    readTime: "11 min",
+    keywords: [
+      "year-end accounting checklist",
+      "year-end accounting",
+      "year-end close",
+      "small business year-end checklist",
+      "reconciliations",
+      "Form W-2",
+      "Form 1099",
+      "financial statements",
+      "depreciation",
+      "sales tax",
+      "tax professional",
+      "CPA",
+    ],
+    author: "Jyoti Upadhyay",
+    image: {
+      url: "/images/blog/year-end-accounting-checklist.jpg",
+      alt: "Small business owner working through a year-end accounting checklist with reconciled bank statements",
+      width: 964,
+      height: 642,
+    },
+    bodyHtml: YEAR_END_ACCOUNTING_CHECKLIST_HTML,
+    faq: YEAR_END_ACCOUNTING_CHECKLIST_FAQ,
   },
 ];
 
