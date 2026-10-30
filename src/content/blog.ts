@@ -4,6 +4,10 @@
 // Long article copy lives in ./blogPosts/ and is imported here.
 import { BOOKKEEPING_WORKFLOW_HTML, BOOKKEEPING_WORKFLOW_FAQ } from "./blogPosts/bookkeeping-workflow";
 import { VIRTUAL_CFO_SERVICES_HTML, VIRTUAL_CFO_SERVICES_FAQ } from "./blogPosts/virtual-cfo-services";
+import {
+  OUTSOURCED_BOOKKEEPING_SERVICES_HTML,
+  OUTSOURCED_BOOKKEEPING_SERVICES_FAQ,
+} from "./blogPosts/outsourced-bookkeeping-services";
 
 export type BlogCategoryId =
   | "bookkeeping"
@@ -177,6 +181,32 @@ export const blogPosts: BlogPost[] = [
     },
     bodyHtml: VIRTUAL_CFO_SERVICES_HTML,
     faq: VIRTUAL_CFO_SERVICES_FAQ,
+  },
+  {
+    slug: "outsourced-bookkeeping-services",
+    title: "Outsourced Bookkeeping Services for Small Business: Costs, Scope & How to Choose (2026)",
+    metaTitle: "Outsourced Bookkeeping Services for Small Business (2026)",
+    excerpt:
+      "What outsourced bookkeeping services include, what they cost per month in 2026, outsourced vs. in-house math, and how to choose a provider without overpaying.",
+    category: "bookkeeping",
+    date: "2026-10-30",
+    readTime: "15 min",
+    keywords: [
+      "outsourced bookkeeping services",
+      "outsourced bookkeeping for small business",
+      "virtual bookkeeping services",
+      "remote bookkeeping services",
+      "outsourced bookkeeping company",
+      "online bookkeeping services",
+    ],
+    image: {
+      url: "/images/blog/outsourced-bookkeeping-services.jpg",
+      alt: "Outsourced bookkeeping services for small business: monthly cost and scope overview",
+      width: 1536,
+      height: 1024,
+    },
+    bodyHtml: OUTSOURCED_BOOKKEEPING_SERVICES_HTML,
+    faq: OUTSOURCED_BOOKKEEPING_SERVICES_FAQ,
   },
 ];
 
