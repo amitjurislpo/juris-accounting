@@ -13,6 +13,10 @@ import {
   OUTSOURCED_ACCOUNTING_SERVICES_SMALL_BUSINESS_FAQ,
 } from "./blogPosts/outsourced-accounting-services-small-business";
 import { YEAR_END_ACCOUNTING_CHECKLIST_HTML, YEAR_END_ACCOUNTING_CHECKLIST_FAQ } from "./blogPosts/year-end-accounting-checklist";
+import {
+  MONTHLY_FINANCIAL_REPORTING_SMALL_BUSINESS_HTML,
+  MONTHLY_FINANCIAL_REPORTING_SMALL_BUSINESS_FAQ,
+} from "./blogPosts/monthly-financial-reporting-small-business";
 
 export type BlogCategoryId =
   | "bookkeeping"
@@ -277,6 +281,38 @@ export const blogPosts: BlogPost[] = [
     },
     bodyHtml: YEAR_END_ACCOUNTING_CHECKLIST_HTML,
     faq: YEAR_END_ACCOUNTING_CHECKLIST_FAQ,
+  },
+  {
+    slug: "monthly-financial-reporting-small-business",
+    title: "Monthly Financial Reporting for Small Business: The 5 Statements Every Owner Should Review",
+    metaTitle: "Monthly Financial Reporting for Small Business (5 Reports)",
+    excerpt:
+      "Learn monthly financial reporting for small business: the 5 reports to review, 15 numbers to check, a worked example, and a 60-minute monthly review routine.",
+    category: "accounting",
+    date: "2026-11-03",
+    readTime: "13 min",
+    keywords: [
+      "monthly financial reporting for small business",
+      "monthly financial reports",
+      "management reporting pack",
+      "profit and loss statement",
+      "balance sheet",
+      "cash flow statement",
+      "budget vs actual",
+      "KPI dashboard",
+      "AR aging report",
+      "AP aging report",
+      "month-end close checklist",
+      "13-week cash flow forecast",
+    ],
+    image: {
+      url: "/images/blog/monthly-financial-reporting-small-business.jpg",
+      alt: "Small business owner reviewing monthly financial reports: P&L, balance sheet and cash flow statement",
+      width: 1672,
+      height: 941,
+    },
+    bodyHtml: MONTHLY_FINANCIAL_REPORTING_SMALL_BUSINESS_HTML,
+    faq: MONTHLY_FINANCIAL_REPORTING_SMALL_BUSINESS_FAQ,
   },
 ];
 
