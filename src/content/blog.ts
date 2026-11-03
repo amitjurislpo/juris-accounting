@@ -17,6 +17,10 @@ import {
   MONTHLY_FINANCIAL_REPORTING_SMALL_BUSINESS_HTML,
   MONTHLY_FINANCIAL_REPORTING_SMALL_BUSINESS_FAQ,
 } from "./blogPosts/monthly-financial-reporting-small-business";
+import {
+  PAYROLL_MISTAKES_SMALL_BUSINESS_HTML,
+  PAYROLL_MISTAKES_SMALL_BUSINESS_FAQ,
+} from "./blogPosts/payroll-mistakes-small-business";
 
 export type BlogCategoryId =
   | "bookkeeping"
@@ -313,6 +317,38 @@ export const blogPosts: BlogPost[] = [
     },
     bodyHtml: MONTHLY_FINANCIAL_REPORTING_SMALL_BUSINESS_HTML,
     faq: MONTHLY_FINANCIAL_REPORTING_SMALL_BUSINESS_FAQ,
+  },
+  {
+    slug: "payroll-mistakes-small-business",
+    title: "Payroll Mistakes for Small Businesses: 10 Common Errors and How to Avoid Them",
+    metaTitle: "Payroll Mistakes for Small Businesses: 10 Errors to Avoid",
+    excerpt:
+      "Avoid the 10 payroll mistakes small businesses make most, from late tax deposits to worker misclassification. See IRS penalties, fixes and a checklist.",
+    category: "payroll",
+    date: "2026-11-04",
+    readTime: "11 min",
+    keywords: [
+      "payroll mistakes for small businesses",
+      "common payroll mistakes",
+      "small business payroll errors",
+      "payroll tax penalties",
+      "IRS failure to deposit penalty",
+      "employee misclassification",
+      "overtime errors",
+      "payroll reconciliation",
+      "Form 941 errors",
+      "W-2 mistakes",
+      "1099-NEC",
+      "payroll compliance checklist",
+    ],
+    image: {
+      url: "/images/blog/payroll-mistakes-small-business.jpg",
+      alt: "Payroll mistakes for small businesses, including late tax deposits and overtime errors, beside an illustrated pay stub",
+      width: 1672,
+      height: 941,
+    },
+    bodyHtml: PAYROLL_MISTAKES_SMALL_BUSINESS_HTML,
+    faq: PAYROLL_MISTAKES_SMALL_BUSINESS_FAQ,
   },
 ];
 
