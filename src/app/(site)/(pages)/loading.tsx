@@ -1,4 +1,6 @@
-/** Shown while a route's payload loads during client-side navigation. */
+/** Shown while a route loads during client-side navigation. The blog routes sit outside this
+ * group on purpose: a loading boundary starts the response early, which would turn a missing
+ * post into HTTP 200 instead of 404. */
 export default function Loading() {
   return (
     <div

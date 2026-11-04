@@ -1,18 +1,19 @@
 import { articles } from "@/content/articles";
-import { blogPosts } from "@/content/blog";
 import { extraServiceList } from "@/content/extraServices";
 import { industryPageList } from "@/content/industryPages";
+import { getVisiblePosts } from "@/lib/blog/posts";
 import { serviceList } from "@/content/services";
 import { footerNav, site, siteUrl } from "@/content/site";
 
-// Static export: written once at build time to out/llms.txt, built from the
-// same content files as the pages so it never drifts from the site.
-export const dynamic = "force-static";
+// Built from the same content as the pages so it never drifts from the site.
+// Regenerated on the public cache window, because blog posts come and go with approvals.
+export const revalidate = 60;
 
 const link = (title: string, href: string, note?: string) =>
   `- [${title}](${siteUrl}${href})${note ? `: ${note}` : ""}`;
 
-export function GET() {
+export async function GET() {
+  const blogPosts = await getVisiblePosts();
   const lines = [
     `# ${site.name}`,
     "",

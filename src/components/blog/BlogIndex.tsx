@@ -7,24 +7,27 @@ import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/motion/Reveal";
 import { BlogCard } from "./BlogCard";
-import {
-  blogCategories,
-  type BlogCategoryId,
-  type BlogPost,
-} from "@/content/blog";
+import { blogCategories, getCategory, type BlogPost } from "@/content/blog";
 import { cn } from "@/lib/cn";
 
-const filters: { id?: BlogCategoryId; name: string }[] = [
+const siteFilters: { id?: string; name: string }[] = [
   { name: "All categories" },
   ...blogCategories.map((c) => ({ id: c.id, name: c.name })),
 ];
+
+/** The site's categories, plus any free-text category an approved Sanity post uses. */
+function buildFilters(posts: BlogPost[]) {
+  const extra = new Set(posts.map((p) => p.category).filter((c): c is string => Boolean(c) && !getCategory(c)));
+  return [...siteFilters, ...[...extra].sort().map((c) => ({ id: c, name: c }))];
+}
 
 /**
  * Blog listing. The category filter is client-side state, so choosing a
  * category never creates a URL for search engines to index.
  */
 export function BlogIndex({ posts }: { posts: BlogPost[] }) {
-  const [active, setActive] = useState<BlogCategoryId | undefined>();
+  const [active, setActive] = useState<string | undefined>();
+  const filters = buildFilters(posts);
   const visible = active ? posts.filter((p) => p.category === active) : posts;
 
   return (
