@@ -1,32 +1,36 @@
 import { ArrowRight, Clock } from "lucide-react";
 import { Link } from "@/components/ui/AppLink";
-import { formatPostDate, getCategory, type BlogPost } from "@/content/blog";
+import { categoryName, formatPostDate, type BlogPost } from "@/content/blog";
 
 export function BlogCard({ post }: { post: BlogPost }) {
-  const category = getCategory(post.category);
+  const category = categoryName(post.category);
   return (
     <Link
       href={`/blog/${post.slug}`}
       className="lux-card group flex h-full flex-col overflow-hidden rounded-3xl"
     >
-      <div className="p-2 pb-0">
-        {/* eslint-disable-next-line @next/next/no-img-element -- static export, images are unoptimized */}
-        <img
-          src={post.image.url}
-          alt={post.image.alt}
-          width={post.image.width}
-          height={post.image.height}
-          loading="lazy"
-          className="aspect-[16/9] w-full rounded-2xl object-cover"
-        />
-      </div>
+      {post.image && (
+        <div className="p-2 pb-0">
+          {/* eslint-disable-next-line @next/next/no-img-element -- images are unoptimized */}
+          <img
+            src={post.image.url}
+            alt={post.image.alt}
+            width={post.image.width}
+            height={post.image.height}
+            loading="lazy"
+            className="aspect-[16/9] w-full rounded-2xl object-cover"
+          />
+        </div>
+      )}
       <div className="flex flex-1 flex-col p-5">
         <p className="flex items-center gap-2 font-mono text-[10.5px] uppercase tracking-[0.16em] text-silver">
-          <span>{category?.name}</span>
-          <span className="h-3 w-px bg-line-strong" aria-hidden />
-          <span className="inline-flex items-center gap-1 text-fg-subtle">
-            <Clock size={11} aria-hidden /> {post.readTime} read
-          </span>
+          {category && <span>{category}</span>}
+          {category && post.readTime && <span className="h-3 w-px bg-line-strong" aria-hidden />}
+          {post.readTime && (
+            <span className="inline-flex items-center gap-1 text-fg-subtle">
+              <Clock size={11} aria-hidden /> {post.readTime} read
+            </span>
+          )}
         </p>
         <h3 className="mt-3 text-lg leading-snug tracking-[-0.02em] text-fg">
           {post.title}

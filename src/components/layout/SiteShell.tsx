@@ -1,6 +1,4 @@
-import type { Metadata } from "next";
 import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
-import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { FloatingContactButton } from "@/components/layout/FloatingContactButton";
@@ -8,6 +6,7 @@ import { ScrollToTop } from "@/components/layout/ScrollToTop";
 import { InteractionLayer } from "@/components/motion/InteractionLayer";
 import { site, siteUrl } from "@/content/site";
 import { motionBootScript } from "@/lib/motion";
+import type { ReactNode } from "react";
 
 // Geist carries display and body type (tight-tracked at display sizes);
 // Instrument Serif is reserved for italic accent words; Geist Mono for
@@ -60,29 +59,23 @@ const websiteLd = {
   publisher: { "@id": `${siteUrl}/#organization` },
 };
 
-export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
-  // "./" makes each page's canonical its own URL (e.g. /bookkeeping), so no
-  // per-page setting is needed and duplicate-URL signals consolidate.
-  // Single-language (US English) site: hreflang points each page at itself, so
-  // there is nothing to confuse search engines. Add entries here if a
-  // translated or regional version of the site is ever published.
-  alternates: { canonical: "./", languages: { "en-US": "./", "x-default": "./" } },
-  title: `${site.name} — Bookkeeping, Accounting & Taxation`,
-  description: site.description,
-  // Google Search Console ownership verification (HTML tag method).
-  verification: { google: "GbnhFHMpIFgdFistbilLLU6XB9fdRklOU734ONRLddU" },
-};
+/** Font classes, shared with the admin area. */
+export const fontClasses = `${geist.variable} ${instrumentSerif.variable} ${geistMono.variable}`;
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+/**
+ * The public site's document: analytics, identity schema and chrome. The admin area
+ * and the Studio have their own root layouts, so none of this reaches them.
+ */
+export function SiteShell({ children }: { children: ReactNode }) {
   return (
     // suppressHydrationWarning: the boot script below adds data-js to
     // <html> before React hydrates — an expected, one-level difference.
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${geist.variable} ${instrumentSerif.variable} ${geistMono.variable} h-full`}
+      className={`${fontClasses} h-full`}
     >
+      {/* eslint-disable-next-line @next/next/no-head-element -- this is the root layout, moved here to share it with global-not-found */}
       <head>
         {/* Google tag (gtag.js) — Google Analytics */}
         <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} />

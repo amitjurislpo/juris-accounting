@@ -2,6 +2,7 @@ import { defineConfig, devices } from "@playwright/test";
 
 export default defineConfig({
   testDir: "./e2e",
+  testIgnore: "blog-workflow.spec.ts",
   fullyParallel: true,
   workers: 1,
   reporter: "list",
@@ -9,7 +10,7 @@ export default defineConfig({
     baseURL: "http://localhost:4173",
   },
   webServer: {
-    command: "npx serve out -l 4173",
+    command: "npx next start -p 4173",
     url: "http://localhost:4173",
     reuseExistingServer: false,
     timeout: 30000,

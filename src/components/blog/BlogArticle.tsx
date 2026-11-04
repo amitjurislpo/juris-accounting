@@ -1,5 +1,3 @@
-import type { Metadata } from "next";
-import { notFound } from "next/navigation";
 import { ArrowLeft, Clock } from "lucide-react";
 import { Link } from "@/components/ui/AppLink";
 import { PageHero } from "@/components/ui/PageHero";
@@ -9,32 +7,20 @@ import { FaqAccordion } from "@/components/faq/FaqAccordion";
 import { ShareButtons } from "@/components/blog/ShareButtons";
 import { TrendingPosts } from "@/components/blog/TrendingPosts";
 import { FinalCta } from "@/components/home/FinalCta";
-import { formatPostDate, getCategory, getPost } from "@/content/blog";
+import { categoryName, formatPostDate, type BlogPost } from "@/content/blog";
+import { absoluteUrl, resolveBlogSeo } from "@/lib/blog/seo";
+import { safeJsonLd } from "@/lib/jsonLd";
 import { site, siteUrl } from "@/content/site";
-
-export function getArticleMetadata(slug: string): Metadata {
-  const post = getPost(slug);
-  if (!post) return { title: "Article not found | Juris CFO" };
-  return {
-    title: post.metaTitle,
-    description: post.excerpt,
-    keywords: post.keywords.join(", "),
-    openGraph: {
-      title: post.metaTitle,
-      description: post.excerpt,
-      type: "article",
-      publishedTime: post.date,
-      images: [{ url: post.image.url, width: post.image.width, height: post.image.height, alt: post.image.alt }],
-    },
-  };
-}
 
 function slugify(text: string) {
   return text.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 }
 
+const ENTITIES: Record<string, string> = { "&rsquo;": "’", "&lt;": "<", "&gt;": ">", "&quot;": '"', "&#x27;": "'", "&#39;": "'", "&amp;": "&" };
+
+/** Heading text for the table of contents, which React escapes again. */
 function stripTags(html: string) {
-  return html.replace(/<[^>]+>/g, "").replace(/&rsquo;/g, "’").replace(/&amp;/g, "&");
+  return html.replace(/<[^>]+>/g, "").replace(/&(?:rsquo|lt|gt|quot|#x27|#39|amp);/g, (e) => ENTITIES[e]);
 }
 
 /** Adds an id to every plain <h2> and returns the matching table of contents. */
@@ -42,32 +28,39 @@ function prepareBody(html: string): { html: string; toc: TocItem[] } {
   const toc: TocItem[] = [];
   const out = html.replace(/<h2>(.*?)<\/h2>/g, (_, inner: string) => {
     const title = stripTags(inner);
-    const id = slugify(title);
+    // Authors can repeat a heading; the ids must stay unique.
+    const base = slugify(title) || "section";
+    const seen = toc.filter((t) => t.id === base || t.id.startsWith(`${base}-`)).length;
+    const id = seen === 0 ? base : `${base}-${seen + 1}`;
     toc.push({ id, title });
     return `<h2 id="${id}">${inner}</h2>`;
   });
   return { html: out, toc };
 }
 
-export function BlogArticle({ slug }: { slug: string }) {
-  const post = getPost(slug);
-  if (!post) notFound();
-  const category = getCategory(post.category)!;
+/**
+ * The one article view, used by the public page and the checker's preview, so a
+ * checker approves exactly what readers will see. `related` must only ever hold
+ * posts that are publicly visible.
+ */
+export function BlogArticle({ post, related = [], preview = false }: { post: BlogPost; related?: BlogPost[]; preview?: boolean }) {
+  const category = categoryName(post.category);
+  const byline = post.author ?? (post.fromSanity ? undefined : "Juris CFO team");
   const { html, toc } = prepareBody(post.bodyHtml);
   const tocItems: TocItem[] = post.faq.length > 0 ? [...toc, { id: "faq", title: "Frequently asked questions" }] : toc;
-  const url = `${siteUrl}/blog/${post.slug}`;
+  const seo = resolveBlogSeo(post);
 
   const articleLd = {
     "@context": "https://schema.org",
-    "@type": "BlogPosting",
+    "@type": "Article",
     headline: post.title,
     description: post.excerpt,
-    image: `${siteUrl}${post.image.url}`,
+    ...(post.image ? { image: absoluteUrl(post.image.url) } : {}),
     datePublished: post.date,
-    dateModified: post.date,
+    dateModified: post.updatedAt ?? post.date,
     inLanguage: "en-US",
-    mainEntityOfPage: url,
-    keywords: post.keywords.join(", "),
+    mainEntityOfPage: seo.canonical,
+    ...(post.keywords.length > 0 ? { keywords: post.keywords.join(", ") } : {}),
     ...(post.author ? { author: { "@type": "Person", name: post.author } } : {}),
     publisher: { "@type": "Organization", "@id": `${siteUrl}/#organization`, name: site.name },
   };
@@ -83,16 +76,18 @@ export function BlogArticle({ slug }: { slug: string }) {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(articleLd) }} />
       {post.faq.length > 0 && (
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(faqLd) }} />
       )}
       <PageHero
-        eyebrow={`${category.name} · ${formatPostDate(post.date)}`}
+        eyebrow={category ? `${category} · ${formatPostDate(post.date)}` : formatPostDate(post.date)}
         title={post.title}
         description={post.excerpt}
-        crumbs={[{ label: "Blog", href: "/blog" }, { label: category.name }]}
-      />
+        crumbs={[{ label: "Blog", href: "/blog" }, { label: category ?? post.title }]}
+      >
+        {post.subtitle && <p className="max-w-2xl text-lg text-fg">{post.subtitle}</p>}
+      </PageHero>
       <Section>
         <Link
           href="/blog"
@@ -101,24 +96,34 @@ export function BlogArticle({ slug }: { slug: string }) {
           <ArrowLeft size={16} aria-hidden /> Back to blog
         </Link>
 
-        {/* eslint-disable-next-line @next/next/no-img-element -- static export, images are unoptimized */}
-        <img
-          src={post.image.url}
-          alt={post.image.alt}
-          width={post.image.width}
-          height={post.image.height}
-          className="mx-auto h-96 w-full rounded-3xl border border-line object-cover md:h-[490px]"
-        />
+        {post.image && (
+          // eslint-disable-next-line @next/next/no-img-element -- images are unoptimized
+          <img
+            src={post.image.url}
+            alt={post.image.alt}
+            width={post.image.width}
+            height={post.image.height}
+            className="mx-auto h-96 w-full rounded-3xl border border-line object-cover md:h-[490px]"
+          />
+        )}
 
         <div className="mt-5 flex flex-wrap items-center justify-between gap-4">
           <p className="flex flex-wrap items-center gap-3 font-mono text-[10.5px] uppercase tracking-[0.16em] text-fg-subtle">
-            <span>By {post.author ?? "Juris CFO team"}</span>
-            <span className="h-3 w-px bg-line-strong" aria-hidden />
+            {byline && (
+              <>
+                <span>By {byline}</span>
+                <span className="h-3 w-px bg-line-strong" aria-hidden />
+              </>
+            )}
             <span>{formatPostDate(post.date)}</span>
-            <span className="h-3 w-px bg-line-strong" aria-hidden />
-            <span className="inline-flex items-center gap-1">
-              <Clock size={11} aria-hidden /> {post.readTime} read
-            </span>
+            {post.readTime && (
+              <>
+                <span className="h-3 w-px bg-line-strong" aria-hidden />
+                <span className="inline-flex items-center gap-1">
+                  <Clock size={11} aria-hidden /> {post.readTime} read
+                </span>
+              </>
+            )}
           </p>
           <ShareButtons title={post.title} />
         </div>
@@ -130,6 +135,15 @@ export function BlogArticle({ slug }: { slug: string }) {
 
           <article className="min-w-0 max-w-3xl">
             <div className="blog-prose" dangerouslySetInnerHTML={{ __html: html }} />
+            {post.tags && post.tags.length > 0 && (
+              <ul aria-label="Tags" className="mt-10 flex flex-wrap gap-2">
+                {post.tags.map((tag) => (
+                  <li key={tag} className="rounded-full border border-line px-3 py-1 text-xs text-fg-muted">
+                    {tag}
+                  </li>
+                ))}
+              </ul>
+            )}
             <p className="mt-10 border-t border-line pt-6 text-sm text-fg-subtle">
               This article is general information, not tax, legal or investment advice. Talk to our team about
               your specific situation.
@@ -148,8 +162,12 @@ export function BlogArticle({ slug }: { slug: string }) {
           </article>
         </div>
       </Section>
-      <TrendingPosts exclude={post.slug} />
-      <FinalCta />
+      {!preview && (
+        <>
+          <TrendingPosts posts={related} exclude={post.slug} />
+          <FinalCta />
+        </>
+      )}
     </>
   );
 }

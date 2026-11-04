@@ -9,6 +9,7 @@ import { Eyebrow } from "./Section";
 import { SplitHeadline } from "@/components/motion/SplitHeadline";
 import { Parallax } from "@/components/motion/Parallax";
 import { HeroBackdrop } from "@/components/home/HeroBackdrop";
+import { safeJsonLd } from "@/lib/jsonLd";
 
 const SEGMENT_LABELS: Record<string, string> = {
   services: "Services",
@@ -96,7 +97,7 @@ export function PageHero({
 
   return (
     <section className="relative isolate overflow-hidden border-b border-line text-fg">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(breadcrumbLd) }} />
       <HeroBackdrop />
       <Parallax speed={0.18} className="absolute inset-0 -z-10">
         <div
