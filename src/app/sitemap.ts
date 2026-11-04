@@ -1,11 +1,11 @@
 import type { MetadataRoute } from "next";
 import { articles } from "@/content/articles";
-import { blogPosts } from "@/content/blog";
 import { extraServiceList } from "@/content/extraServices";
 import { industryPageList } from "@/content/industryPages";
+import { getVisiblePosts } from "@/lib/blog/posts";
 
-// Static export: the sitemap is generated once at build time into out/sitemap.xml.
-export const dynamic = "force-static";
+// Blog posts come and go with approvals, so regenerate on the public cache window.
+export const revalidate = 60;
 
 // Set NEXT_PUBLIC_SITE_URL at build time when the final domain is known.
 const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.juriscfo.com").replace(/\/$/, "");
@@ -36,7 +36,8 @@ const staticRoutes = [
   "/terms",
 ];
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const blogPosts = await getVisiblePosts();
   const paths = [
     ...staticRoutes,
     ...extraServiceList.flatMap((service) => service.subServices.map((sub) => `${service.href}/${sub.slug}`)),

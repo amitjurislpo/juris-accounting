@@ -6,28 +6,49 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "vercel-build": "sh scripts/vercel-build.sh",
+    "postinstall": "prisma generate",
+    "test": "vitest run",
+    "test:workflow": "playwright test --config playwright.workflow.config.ts",
+    "admin:invite": "node scripts/admin-invite.mjs",
+    "schema:compare": "node scripts/compare-sanity-schema.mjs"
   },
   "dependencies": {
+    "@portabletext/to-html": "^6.0.0",
+    "@prisma/adapter-pg": "^7.10.1",
+    "@prisma/client": "^7.10.1",
+    "@sanity/client": "^8.14.1",
+    "@sanity/table": "3.1.20",
+    "dotenv": "^18.0.9",
     "gsap": "^3.15.0",
     "lucide-react": "^1.47.0",
     "next": "16.3.5",
-    "react": "19.2.8",
-    "react-dom": "19.2.8"
+    "next-sanity": "13.4.0",
+    "pg": "^8.23.1",
+    "prisma": "^7.10.1",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "sanity": "6.22.0",
+    "server-only": "^0.0.1",
+    "styled-components": "^6.6.0"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.13.0",
     "@playwright/test": "^1.63.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
+    "@types/pg": "^8.23.1",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.3.5",
+    "groq-js": "^2.0.1",
     "prettier": "^3.9.8",
     "prettier-plugin-tailwindcss": "^0.8.1",
     "serve": "^14.2.6",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^4.1.12"
   }
 }

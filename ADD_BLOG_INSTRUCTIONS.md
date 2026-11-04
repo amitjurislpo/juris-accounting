@@ -1,9 +1,11 @@
 # Adding a new blog post (Juris CFO)
 
+> New posts should normally be written in Sanity Studio and approved on the review page: see [docs/BLOG.md](docs/BLOG.md). The steps below add a post to the code, which skips approval. Use them only when asked to.
+
 Use this when the user says "add this blog" and gives a **PDF** (content + SEO metadata), an **image** and a **category**.
 A new post means exactly two things: **(1)** one entry in `BLOG_POSTS`-style data, **(2)** its image. The hub card and the single page are generated from that entry, so no component changes are needed.
 
-Static export (`output: "export"`). No CMS or API routes. Follow `AGENTS.md`: this Next.js version has breaking changes, check `node_modules/next/dist/docs/` before writing new framework code.
+Follow `AGENTS.md`: this Next.js version has breaking changes, check `node_modules/next/dist/docs/` before writing new framework code.
 
 ## Hard rules
 

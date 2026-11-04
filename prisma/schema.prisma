@@ -1,0 +1,85 @@
+// Blog approval and admin login. Everything else on this site is static content.
+// `prisma migrate deploy` runs from scripts/vercel-build.sh on production builds.
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum ApprovalState {
+  SUBMITTED
+  APPROVED
+  REJECTED
+}
+
+/// The latest decision per post, bound to the revision it was made at.
+model Approval {
+  objectType     String
+  objectId       String
+  objectRevision String
+  state          ApprovalState
+  decidedBy      String
+  decidedAt      DateTime
+  reason         String?
+  /// Snapshot, so a rejected post can still be named once it is only a draft.
+  objectTitle    String?
+  objectSlug     String?
+
+  @@id([objectType, objectId])
+  @@index([objectType, state])
+}
+
+/// One line per transition. A database trigger refuses UPDATE and DELETE.
+model ApprovalAudit {
+  id             String        @id @default(cuid())
+  objectType     String
+  objectId       String
+  objectRevision String
+  fromState      ApprovalState
+  toState        ApprovalState
+  actor          String
+  at             DateTime
+  reason         String?
+
+  @@index([objectType, objectId, at])
+}
+
+/// Who may approve. Add or delete a row; no redeploy. Lower case, enforced by CHECK.
+model BlogChecker {
+  email     String   @id
+  note      String?
+  createdAt DateTime @default(now())
+}
+
+/// Site admins. Lower-case email, enforced by CHECK. Null passwordHash = cannot log in yet.
+model AdminUser {
+  email          String         @id
+  passwordHash   String?
+  setupTokenHash String?        @unique
+  setupExpiresAt DateTime?
+  createdAt      DateTime       @default(now())
+  sessions       AdminSession[]
+}
+
+/// Only the SHA-256 of the cookie value is stored.
+model AdminSession {
+  tokenHash String    @id
+  email     String
+  expiresAt DateTime
+  createdAt DateTime  @default(now())
+  user      AdminUser @relation(fields: [email], references: [email], onDelete: Cascade)
+
+  @@index([email])
+}
+
+/// Failed logins, for throttling. Old rows are pruned on each failure.
+model AdminLoginFailure {
+  id    String   @id @default(cuid())
+  email String
+  at    DateTime @default(now())
+
+  @@index([email, at])
+}

@@ -22,76 +22,14 @@ import {
   PAYROLL_MISTAKES_SMALL_BUSINESS_FAQ,
 } from "./blogPosts/payroll-mistakes-small-business";
 
-export type BlogCategoryId =
-  | "bookkeeping"
-  | "accounting"
-  | "taxation"
-  | "payroll"
-  | "cfo-controller"
-  | "compliance"
-  | "software"
-  | "industry-guides";
+import { blogCategories, type BlogCategory, type BlogCategoryId } from "./blogCategories";
 
-export type BlogCategory = {
-  id: BlogCategoryId;
-  name: string;
-  description: string;
-  /** Topic keywords shown in the blog sidebar; each links to this category. */
-  keywords: string[];
-};
-
-export const blogCategories: BlogCategory[] = [
-  {
-    id: "bookkeeping",
-    name: "Bookkeeping",
-    description: "Recording, reconciling, and catching up on the transactions behind your business.",
-    keywords: ["bookkeeping services", "bank reconciliation", "catch-up bookkeeping"],
-  },
-  {
-    id: "accounting",
-    name: "Accounting",
-    description: "Reviewing, reporting, and understanding what your numbers mean.",
-    keywords: ["accounting services", "financial statements", "profit and loss"],
-  },
-  {
-    id: "taxation",
-    name: "Taxation",
-    description: "Getting records and decisions ready for personal and business tax filing.",
-    keywords: ["business tax preparation", "tax planning", "tax-ready books"],
-  },
-  {
-    id: "payroll",
-    name: "Payroll",
-    description: "Pay runs, payroll taxes, and year-end forms for small teams.",
-    keywords: ["payroll services", "payroll taxes", "W-2 and 1099"],
-  },
-  {
-    id: "cfo-controller",
-    name: "CFO & Controller",
-    description: "Senior finance oversight, forecasting, and planning without a full-time hire.",
-    keywords: ["outsourced CFO", "fractional controller", "financial forecasting"],
-  },
-  {
-    id: "compliance",
-    name: "Compliance",
-    description: "Registrations, annual filings, and the controls that keep a business in good standing.",
-    keywords: ["annual report filing", "business compliance", "internal controls"],
-  },
-  {
-    id: "software",
-    name: "QuickBooks & Software",
-    description: "Setting up, cleaning up, and getting more from your accounting software.",
-    keywords: ["QuickBooks Online", "bank feeds", "QuickBooks cleanup"],
-  },
-  {
-    id: "industry-guides",
-    name: "Industry Guides",
-    description: "How accounting questions show up in specific kinds of business.",
-    keywords: ["ecommerce accounting", "SaaS accounting", "restaurant accounting"],
-  },
-];
+export { blogCategories };
+export type { BlogCategory, BlogCategoryId } from "./blogCategories";
 
 export type BlogFaq = { q: string; a: string };
+
+export type BlogImage = { url: string; alt: string; width: number; height: number };
 
 export type BlogPost = {
   slug: string;
@@ -101,17 +39,25 @@ export type BlogPost = {
   metaTitle: string;
   /** Meta description; also the card text and hero lede. */
   excerpt: string;
-  category: BlogCategoryId;
+  /** Shown under the title when set (Sanity posts). */
+  subtitle?: string;
+  /** A category id, or free text from a Sanity post. See categoryName. */
+  category?: string;
   /** ISO date, YYYY-MM-DD. */
   date: string;
-  readTime: string;
+  /** Nothing is shown when a Sanity post leaves this empty. */
+  readTime?: string;
   /** Meta keywords for the article page. */
   keywords: string[];
+  /** Displayed on the page (Sanity posts). */
+  tags?: string[];
+  /** Sanity posts show nothing for an empty optional field, so no default byline. */
+  fromSanity?: boolean;
   trending?: boolean;
   /** Only set when the source names a real author. */
   author?: string;
   /** Featured image: shown on the card and as the banner on the article page. */
-  image: { url: string; alt: string; width: number; height: number };
+  image?: BlogImage;
   /**
    * The whole article body. Every plain <h2>Heading</h2> becomes a table-of-contents
    * entry (see BlogArticle), so keep h2s attribute-free with no nested tags. Do not
@@ -119,6 +65,15 @@ export type BlogPost = {
    */
   bodyHtml: string;
   faq: BlogFaq[];
+  /** Optional SEO overrides. Sanity posts only; see lib/blog/seo.ts for fallbacks. */
+  seo?: {
+    ogTitle?: string;
+    ogDescription?: string;
+    ogImage?: BlogImage;
+    canonical?: string;
+  };
+  /** Last edit, when known (Sanity posts). */
+  updatedAt?: string;
 };
 
 export const blogPosts: BlogPost[] = [
@@ -352,8 +307,13 @@ export const blogPosts: BlogPost[] = [
   },
 ];
 
-export function getCategory(id: string): BlogCategory | undefined {
+export function getCategory(id: string | undefined): BlogCategory | undefined {
   return blogCategories.find((c) => c.id === id);
+}
+
+/** What to display for a category id or a Sanity post's free text. */
+export function categoryName(category: string | undefined): string | undefined {
+  return getCategory(category)?.name ?? category;
 }
 
 export function getPost(slug: string): BlogPost | undefined {
@@ -367,8 +327,6 @@ export function postsByDate(posts: BlogPost[] = blogPosts): BlogPost[] {
 export function postsInCategory(id: BlogCategoryId): BlogPost[] {
   return postsByDate(blogPosts.filter((p) => p.category === id));
 }
-
-export const trendingPosts: BlogPost[] = postsByDate(blogPosts.filter((p) => p.trending)).slice(0, 3);
 
 export function formatPostDate(iso: string): string {
   const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
