@@ -77,6 +77,9 @@ Publishing in the Studio clears old feedback, so it can't look current afterward
 - Migrations need a direct or session connection. `DIRECT_URL` is used if set. Otherwise port 6543 is rewritten to 5432, only for that command.
 - The first migration also seeds the checkers and their admin accounts, with `ON CONFLICT DO NOTHING`, so it is safe to run twice.
 - This site had no database before, so the P3005 baselining problem doesn't apply as long as the database is new. Don't point it at a database that already has tables.
+- To keep this site's tables in their own schema inside a shared database, add `schema=<name>`
+  to both `DATABASE_URL` and `DIRECT_URL`. Migrations and the site then both use that schema;
+  with no `schema`, they use `public`.
 - `ApprovalAudit` is append-only: database triggers refuse UPDATE, DELETE and TRUNCATE.
 
 ## Tests
